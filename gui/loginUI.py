@@ -1,4 +1,8 @@
 from tkinter import *
+from services.login import loginVerification
+
+def verify(usernameInput, passwordInput):
+    instance = loginVerification(usernameInput,passwordInput)
 
 #create frame
 root = Tk()
@@ -24,7 +28,7 @@ passwordInput = Entry(root, show="*", width=20, font=("Courier", 20))
 
 
 #Create buttons
-confirm = Button(root, width=10, height=5, font=("Courier", 20))
+confirm = Button(root, text="Innskrá", bg="#424242", fg="white", width=8, height=1,font=("Courier",16), command=verify)
 
 #################################################################################
 
@@ -33,6 +37,7 @@ bilaleigaTinna.config(font=("Courier", 32))
 label1.config(font=("Courier", 28))
 username.config(font=("Courier", 22))
 password.config(font=("Courier", 22))
+
 
 
 #Position widgets
@@ -46,13 +51,14 @@ password.grid(row=5, column=0, sticky = E)
 #Entries
 usernameInput.grid(row=4, column=2)
 passwordInput.grid(row=5, column=2)
+confirm.grid(row=6, column=2)
 
 #position frame
 root.grid_rowconfigure(0, weight=1)
 root.grid_rowconfigure(2, weight=1)
-root.grid_rowconfigure(6, weight=3)
+root.grid_rowconfigure(7, weight=3)
 root.grid_columnconfigure(0, weight=1)
-root.grid_columnconfigure(6, weight=1)
+root.grid_columnconfigure(7, weight=1)
 
 
 #################################################################################
