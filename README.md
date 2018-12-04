@@ -1,2 +1,3 @@
 # bilaleigaTinna
-Bílaleiga Tinna
+Lokaverkefnið fyrir þriggja vikna áfanga
+
