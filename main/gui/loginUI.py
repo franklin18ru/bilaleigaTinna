@@ -1,5 +1,10 @@
+import sys
+sys.path.append("..")
 from tkinter import *
+
 from services.login import loginVerification
+
+
 
 def verify(usernameInput, passwordInput):
     instance = loginVerification(usernameInput,passwordInput)
@@ -7,10 +12,10 @@ def verify(usernameInput, passwordInput):
 #create frame
 root = Tk()
 root.title("Bílaleiga Tinna")
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-root.configure(bg="#5A6D7C")
-root.geometry(str(screen_width)+"x"+str(screen_height))
+screen_width = root.winfo_screenwidth() #Gets the screen width
+screen_height = root.winfo_screenheight() #Gets the screen height
+root.configure(bg="#5A6D7C") # Changes background color of frame
+root.geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
 
 
