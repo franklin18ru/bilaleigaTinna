@@ -1,22 +1,20 @@
 import csv
 
 class  GetUsers:
-    def __init__(self):
-        self.__users = self.getusers()
+    def __init__(self,name="",password=0):
+        self.__username = name
+        self.__password = password
+        self.__users = self.getUsers()
 
-    def getusers(self):
+    def getUsers(self):
         user_dictionary = dict()
-        with open("users.csv","r") as openfile:
+        with open( "data/users.csv" , "r" ) as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
-                ssn = line[0]
-                position = line[1]
-                name = line[2]
+                ssn = int(line[0])
                 password = line[3]
-                user_dictionary[password] = (name, ssn, position)
-                print(line)
+                user_dictionary[ssn] = password 
+        print(user_dictionary)  
         return user_dictionary
-    
 
-instance = GetUsers()
