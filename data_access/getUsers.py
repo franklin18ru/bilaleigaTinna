@@ -6,7 +6,7 @@ class  GetUsers:
 
     def getUsers(self):
         user_dictionary = dict()
-        with open( "bilaleigaTinna/data/users.csv" , "r" ) as openfile:
+        with open( "data/users.csv" , "r" ) as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:

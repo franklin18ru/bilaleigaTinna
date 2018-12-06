@@ -1,5 +1,6 @@
 import sys
-sys.path.append("..")
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from tkinter import *
 
 from services.login import loginVerification
