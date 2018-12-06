@@ -12,17 +12,16 @@ root.geometry(str(screen_width)+"x"+str(screen_height))
 
 #Create labels
 bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-label1 = Label(root, text="Valmynd",bg="#5A6D7C",fg="white")
+label1 = Label(root, text="Panta bíl",bg="#5A6D7C",fg="white")
 line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
 #Create buttons
-order_car = Button(root,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2)
-return_car = Button(root,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2)
-orders = Button(root,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2)
-prices = Button(root,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2)
-cars = Button(root,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2)
-customers = Button(root,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2)
+order_car = Button(root,    text="1. Jeppar", bg="#424242", fg="white", width=22, height=2)
+return_car = Button(root,   text="2. Smábílar", bg="#424242", fg="white", width=22, height=2)
+orders = Button(root,       text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2)
+prices = Button(root,       text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2)
+cars = Button(root,         text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2)
 back = Button(root,         text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
 
 #################################################################################
