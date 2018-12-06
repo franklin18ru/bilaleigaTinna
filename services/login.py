@@ -10,10 +10,10 @@ class loginVerification:
         
     
     def verify(self):
-        userInstance = getUsers.GetUsers()
-        userDict = userInstance.users
+        userInstance = getUsers.GetUsers() #Creates an instance of the getUsers file.
+        userDict = userInstance.users #Takes the dictionary made in the getUsers file. 
         for key, value in userDict.items():
-            if self.__username == key and self.__password == value:
+            if self.__username == key and self.__password == value: # Compared the input made by the user and the users from the database.
                 return True
         return False
 
