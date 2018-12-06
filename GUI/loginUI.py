@@ -16,6 +16,8 @@ def main():
             passwordInput = passwordInput.get()
             verifyLogin = loginVerification(usernameInput,passwordInput)
             verification = verifyLogin.verify()
+            if verification == True:
+                END
             if verification == False:
                 error = Button(root, text="Rangt starfsnúmer eða lykilorð", bg="red", fg="white",font=("Courier",14))
                 error.grid(row=8,column=2)
@@ -85,3 +87,4 @@ def main():
 
     runLoginUi()
     return verification
+main()
