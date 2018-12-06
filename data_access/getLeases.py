@@ -12,7 +12,8 @@ class GetLeases:
                 string = line[0]
                 ssn = int(string.replace("-",""))
                 renter = line[1]
-                lease_period = line[2]
-                licenseplate = line[3]
-                lease_dictionary[ssn] = (renter,lease_period,licenseplate)
+                lease_start = line[2]
+                lease_end = line[3]
+                licenseplate = line[4]
+                lease_dictionary[ssn] = (renter,lease_start,lease_end,licenseplate)
             return lease_dictionary
