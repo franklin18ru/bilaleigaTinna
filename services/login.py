@@ -15,5 +15,5 @@ class loginVerification:
         for key, value in userDict.items():
             if self.__username == key and self.__password == value:
                 return True
-            return False
+        return False
 
