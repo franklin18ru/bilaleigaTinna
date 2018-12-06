@@ -1,12 +1,12 @@
 import csv
 
-class GetCostumers:
+class GetCustomers:
     def __init__(self):
-        self.costumers = self.getCostumers()
+        self.customers = self.getCustomers()
 
-    def getCostumers(self):
-        costumer_dictionary = dict()
-        with open("data/costumers.csv","r") as openfile:
+    def getCustomers(self):
+        customer_dictionary = dict()
+        with open("data/customers.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -14,6 +14,6 @@ class GetCostumers:
                 ssn = int(string.replace("-",""))
                 name = line[1]
                 birthdate = line[2]
-                costumer_dictionary[ssn] = (name,birthdate)
-            return costumer_dictionary
+                customer_dictionary[ssn] = (name,birthdate)
+            return customer_dictionary
 
