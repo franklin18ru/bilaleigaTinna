@@ -1,13 +1,5 @@
 ssn,position,name,password
-<<<<<<< HEAD
 180897-2759,boss,don franco,theking
 271098-2359,boss,Tinni,1234
 050898-2889,boss,Uule,basketball
-151298-2309,boss,Mæja, queen
-=======
-1808972759,boss,don franco,theking
-2710982359,boss,Tinni,1234
-0508982889,boss,Uule,basketball
-1512982309,boss,Mæja,queen
-1702953539,boss,HÞH,bob
->>>>>>> 7ba120b3e4d015a7ff6056a038f13879f3b290df
+151298-2309,boss,Mæja,queen

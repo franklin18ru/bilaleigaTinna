@@ -65,10 +65,10 @@ class LoginUi(tk.Frame):
         self.passwordInput.pack(side="right",fill="x")
         
         #Create buttons
-        confirm = tk.Button(self, text="Innskrá", bg="#424242", fg="white", width=8, height=1,font=("Courier",16), command=self.verifyButton)
+        confirm = tk.Button(self, text="Innskrá", bg="#424242", fg="white", width=8, height=1,font=("Courier",16), command=lambda:self.verifyButton(MainUi))
         confirm.pack(side="right", pady="20",ipadx="105")
 
-    def verifyButton(self):
+    def verifyButton(self,master):
         global usernameInput
         global passwordInput
         self.usernameInput = int(self.usernameInput.get())
