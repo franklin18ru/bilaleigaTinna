@@ -1,9 +1,8 @@
 import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append("..")
 from tkinter import *
 
-import services.login as login
+from services.login import loginVerification
 
 def runLoginUi():
     def verify():
@@ -11,7 +10,7 @@ def runLoginUi():
     def verifyButton(usernameInput, passwordInput, root):
         usernameInput = int(usernameInput.get())
         passwordInput = passwordInput.get()
-        verifyLogin = login.loginVerification(usernameInput,passwordInput)
+        verifyLogin = loginVerification(usernameInput,passwordInput)
         verification = verifyLogin.verify()
 
         if verification == True:
