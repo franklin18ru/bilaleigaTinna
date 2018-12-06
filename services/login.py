@@ -1,5 +1,8 @@
-from data_access.getUsers import GetUsers
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
+import data_access.getUsers as getUsers
 class loginVerification:
     def __init__(self, username, password):
         self.__username = username
@@ -7,12 +10,11 @@ class loginVerification:
         
     
     def verify(self):
-        userInstance = GetUsers()
-        userDict = userInstance.__users
+        userInstance = getUsers.GetUsers()
+        userDict = userInstance.users
         for key, value in userDict.items():
             if self.__username == key and self.__password == value:
                 return True
             else:
                 return False
-
 
