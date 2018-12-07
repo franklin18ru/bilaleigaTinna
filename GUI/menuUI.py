@@ -76,3 +76,4 @@ def menuMain():
 
     root.mainloop() 
 
+menuMain()
