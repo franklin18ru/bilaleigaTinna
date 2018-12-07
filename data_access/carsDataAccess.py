@@ -3,9 +3,9 @@ import os
 
 class CarsDataAccess:
     def __init__(self):
-        self.cars = self.getCars()
+        self.cars = self.getAllCars()
 
-    def getCars(self):
+    def getAllCars(self):
         cars_dictionary = dict()
         with open("data/cars.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
@@ -23,4 +23,6 @@ class CarsDataAccess:
         newCar=[LicensePlate,Type,Brand,Model,Seats]
         with open('data/cars.csv', 'a',newline="") as openfile:
             csv_writer = csv.writer(openfile)
-            csv_writer.writerow(newCar) 
+            csv_writer.writerow(newCar)
+    
+    
