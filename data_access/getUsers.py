@@ -10,7 +10,8 @@ class  GetUsers:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
-                ssn = int(line[0])
+                string = line[0]
+                ssn = int(string.replace("-",""))
                 password = line[3]
                 user_dictionary[ssn] = password  
         return user_dictionary
