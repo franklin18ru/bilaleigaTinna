@@ -79,5 +79,7 @@ class CarsDataAccess:
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
 
+    #def getTypeCars(self):
+
     #def getAllAvailableCars(self):
         # Pending further inspection #
