@@ -4,8 +4,8 @@ import os
 
 class LeasesDataAccess:
     def __init__(self):
-        self.leases = self.getLeases()
-    def getLeases(self):
+        self.leases = self.getAllLeases()
+    def getAllLeases(self):
         lease_dictionary = dict()
         with open("data/leases.csv","r") as openfile:
             csv_reader = csv.reader(openfile)

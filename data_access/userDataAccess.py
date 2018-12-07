@@ -3,9 +3,9 @@ import os
 
 class UserDataAccess:
     def __init__(self):
-        self.users = self.getUsers()
+        self.users = self.getAllUsers()
 
-    def getUsers(self):
+    def getAllUsers(self):
         user_dictionary = dict()
         with open( "data/users.csv" , "r" ) as openfile:
             csv_reader = csv.reader(openfile)
