@@ -69,16 +69,16 @@ full_name.grid(row=5, column=2)
 ssn.grid(row=6, column=2)
 country.grid(row=7, column=2)
 email.grid(row=8, column=2) #added email
+
 escape_button.grid(row=10, column=2)
 confirm_button.grid(row=10, column=4)
 line1.grid(row=2,column=3)
 line2.grid(row=9,column=3)
+
 fullnameInput.grid(row=5, column=3)
 ssnInput.grid(row=6, column=3)
 countryInput.grid(row=7, column=3)
 emailInput.grid(row=8, column=3)
-
-
 
 
 
@@ -88,10 +88,9 @@ root.grid_rowconfigure(2, weight=1)
 root.grid_rowconfigure(3, weight=1)
 root.grid_rowconfigure(4, weight=2)
 root.grid_rowconfigure(6, weight=2)
-root.grid_rowconfigure(11, weight=5)
-
+root.grid_rowconfigure(7, weight=2)
 root.grid_rowconfigure(9, weight=1)
-
+root.grid_rowconfigure(11, weight=5)
 
 root.grid_columnconfigure(0, weight=10)
 root.grid_columnconfigure(6, weight=10)
