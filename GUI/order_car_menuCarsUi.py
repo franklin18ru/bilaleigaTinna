@@ -19,7 +19,7 @@ bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
 label2 = Label(root, text="Bílar",bg="#5A6D7C",fg="white") #setting the default value as Bílar
 
 # Here there should be an if statement to change the lable to the correct word:
-label2.config(text="Jeppar") #changing the default value
+label2.config(text="Jeppar") #changing the default value to what the user selected on the site before
 
 line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
@@ -36,15 +36,16 @@ with open('data/cars.csv', 'r', newline="") as cars:
     column_num = 2
     counter = 0
     for item in csv_reader:
-        label1 = Button(root, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
-        label1.config(font=("Courier", 16))
-        label1.grid(row = row_num, column=column_num)
-        counter += 1
-        column_num += 1
-        if counter == 3:
-            row_num += 1
-            counter = 0
-            column_num = 2   
+        if item[1] == "Jeppi": #Here "Jeppi" should change to what the user selected on the site before
+            label1 = Button(root, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
+            label1.config(font=("Courier", 16))
+            label1.grid(row = row_num, column=column_num)
+            counter += 1
+            column_num += 1
+            if counter == 3:
+                row_num += 1
+                counter = 0
+                column_num = 2   
     #option_frame.pack(fill="x",side="top")
 
 # configure labels
