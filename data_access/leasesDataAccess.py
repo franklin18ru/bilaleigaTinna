@@ -49,3 +49,8 @@ class LeasesDataAccess:
         with open('data/cars.csv', 'a',newline="") as openfile:
                 csv_writer = csv.writer(openfile)
                 csv_writer.writerow(newLease) 
+    
+    # def editLease():
+        # take in all arguments if the argument is the same as in the data itself then  #
+        # keep it as is, you need to create a temporary file in order to edit and rewrite #
+        # the original file to edit #

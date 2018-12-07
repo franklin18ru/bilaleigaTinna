@@ -98,3 +98,9 @@ class CustomerDataAccess:
                                 lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate,brand,subtype)
                                 
                                 return lease_dictionary
+
+
+    # def editCustomer():
+        # take in all arguments if the argument is the same as in the data itself then  #
+        # keep it as is, you need to create a temporary file in order to edit and rewrite #
+        # the original file to edit #

@@ -75,6 +75,9 @@ class CarsDataAccess:
     
 
     #def editCar(self):
-
+        # take in all arguments if the argument is the same as in the data itself then  #
+        # keep it as is, you need to create a temporary file in order to edit and rewrite #
+        # the original file to edit #
 
     #def getAllAvailableCars(self):
+        # Pending further inspection #
