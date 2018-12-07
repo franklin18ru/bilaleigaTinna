@@ -3,9 +3,9 @@ import os
 
 class CustomerDataAccess:
     def __init__(self):
-        self.customers = self.getCustomers()
+        self.customers = self.getAllCustomers()
 
-    def getCustomers(self):
+    def getAllCustomers(self):
         customer_dictionary = dict()
         with open("data/customers.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
