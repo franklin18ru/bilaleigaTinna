@@ -1,8 +1,10 @@
 import csv
+import os
 
-class GetAllCars:
+class CarsDataAccess:
     def __init__(self):
         self.cars = self.getCars()
+
     def getCars(self):
         cars_dictionary = dict()
         with open("data/cars.csv","r") as openfile:
@@ -15,6 +17,10 @@ class GetAllCars:
                 model = int(line[3])
                 seats = int(line[4])
                 cars_dictionary[licenseplate] = (typef,brand,model,seats)
-            
             return cars_dictionary
-        
+
+    def addCar(self,LicensePlate,Type,Brand,Model,Seats):
+        newCar=[LicensePlate,Type,Brand,Model,Seats]
+        with open('data/cars.csv', 'a',newline="") as openfile:
+            csv_writer = csv.writer(openfile)
+            csv_writer.writerow(newCar) 
