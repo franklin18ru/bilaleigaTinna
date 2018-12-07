@@ -25,7 +25,7 @@ line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 back = Button(root, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
 
-option_frame = Frame(root)
+option_frame = Frame(root)#trying to make a scroll-able frame for all the cars, wont work
 
 
 #Open the cars file and printing the content in buttons
@@ -36,7 +36,7 @@ with open('data/cars.csv', 'r', newline="") as cars:
     column_num = 2
     counter = 0
     for item in csv_reader:
-        label1 = Button(option_frame, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
+        label1 = Button(root, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
         label1.config(font=("Courier", 16))
         label1.grid(row = row_num, column=column_num)
         counter += 1
@@ -44,8 +44,8 @@ with open('data/cars.csv', 'r', newline="") as cars:
         if counter == 3:
             row_num += 1
             counter = 0
-            column_num = 2
-
+            column_num = 2   
+    #option_frame.pack(fill="x",side="top")
 
 # configure labels
 bilaleigaTinna.config(font=("Courier", 32))

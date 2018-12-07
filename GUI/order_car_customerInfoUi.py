@@ -16,6 +16,7 @@ line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 full_name = Label(root, text="Fullt nafn:",bg="#5A6D7C",fg="white")
 ssn = Label(root, text="Kennitala:",bg="#5A6D7C",fg="white")
 country = Label(root, text="Land:",bg="#5A6D7C",fg="white")
+email = Label(root, text="Email:",bg="#5A6D7C",fg="white")
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
 
@@ -27,6 +28,7 @@ line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 fullnameInput = Entry(root, width=20, font=("Courier", 20))
 ssnInput = Entry(root, width=20, font=("Courier", 20))
 countryInput = Entry(root, width=20, font=("Courier", 20))
+emailInput = Entry(root, width=20, font=("Courier", 20))
 
 
 
@@ -53,6 +55,7 @@ line2.config(font=("Courier", 28))
 full_name.config(font=("Courier", 16))
 ssn.config(font=("Courier", 16))
 country.config(font=("Courier", 16))
+email.config(font=("Courier", 16))
 
 
 
@@ -65,6 +68,7 @@ label1.grid(row=3, column=3)
 full_name.grid(row=5, column=2)
 ssn.grid(row=6, column=2)
 country.grid(row=7, column=2)
+email.grid(row=8, column=2) #added email
 escape_button.grid(row=10, column=2)
 confirm_button.grid(row=10, column=4)
 line1.grid(row=2,column=3)
@@ -72,6 +76,7 @@ line2.grid(row=9,column=3)
 fullnameInput.grid(row=5, column=3)
 ssnInput.grid(row=6, column=3)
 countryInput.grid(row=7, column=3)
+emailInput.grid(row=8, column=3)
 
 
 
