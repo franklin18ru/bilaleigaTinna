@@ -16,7 +16,8 @@ line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 full_name = Label(root, text="Fullt nafn:",bg="#5A6D7C",fg="white")
 ssn = Label(root, text="Kennitala:",bg="#5A6D7C",fg="white")
 country = Label(root, text="Land:",bg="#5A6D7C",fg="white")
-email = Label(root, text="Email:",bg="#5A6D7C",fg="white")
+email = Label(root, text="Netfang:",bg="#5A6D7C",fg="white")
+phone = Label(root, text="Símanúmer:",bg="#5A6D7C",fg="white")
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
 
@@ -29,7 +30,7 @@ fullnameInput = Entry(root, width=20, font=("Courier", 20))
 ssnInput = Entry(root, width=20, font=("Courier", 20))
 countryInput = Entry(root, width=20, font=("Courier", 20))
 emailInput = Entry(root, width=20, font=("Courier", 20))
-
+phoneInput = Entry(root, width=20, font=("Courier", 20))
 
 
 
@@ -56,7 +57,7 @@ full_name.config(font=("Courier", 16))
 ssn.config(font=("Courier", 16))
 country.config(font=("Courier", 16))
 email.config(font=("Courier", 16))
-
+phone.config(font=("Courier", 16))
 
 
 
@@ -65,33 +66,35 @@ email.config(font=("Courier", 16))
 #labels
 bilaleigaTinna.grid(row=1, column=3)
 label1.grid(row=3, column=3)
-full_name.grid(row=5, column=2)
-ssn.grid(row=6, column=2)
-country.grid(row=7, column=2)
-email.grid(row=8, column=2) #added email
+full_name.grid(row=4, column=2)
+ssn.grid(row=5, column=2)
+country.grid(row=6, column=2)
+email.grid(row=7, column=2) #added email
+phone.grid(row=8, column=2) #added phone number
+
 escape_button.grid(row=10, column=2)
 confirm_button.grid(row=10, column=4)
 line1.grid(row=2,column=3)
 line2.grid(row=9,column=3)
-fullnameInput.grid(row=5, column=3)
-ssnInput.grid(row=6, column=3)
-countryInput.grid(row=7, column=3)
-emailInput.grid(row=8, column=3)
+
+fullnameInput.grid(row=4, column=3)
+ssnInput.grid(row=5, column=3)
+countryInput.grid(row=6, column=3)
+emailInput.grid(row=7, column=3)
+phoneInput.grid(row=8, column=3)
 
 
-
-
-
-root.grid_rowconfigure(0, weight=3)
+root.grid_rowconfigure(0, weight=2)
 root.grid_rowconfigure(1, weight=0)
-root.grid_rowconfigure(2, weight=1)
-root.grid_rowconfigure(3, weight=1)
-root.grid_rowconfigure(4, weight=2)
-root.grid_rowconfigure(6, weight=2)
-root.grid_rowconfigure(11, weight=5)
-
+root.grid_rowconfigure(2, weight=0)
+root.grid_rowconfigure(3, weight=2)
+root.grid_rowconfigure(4, weight=1)
+root.grid_rowconfigure(5, weight=1)
+root.grid_rowconfigure(6, weight=1)
+root.grid_rowconfigure(7, weight=1)
+root.grid_rowconfigure(8, weight=1)
 root.grid_rowconfigure(9, weight=1)
-
+root.grid_rowconfigure(11, weight=5)
 
 root.grid_columnconfigure(0, weight=10)
 root.grid_columnconfigure(6, weight=10)
