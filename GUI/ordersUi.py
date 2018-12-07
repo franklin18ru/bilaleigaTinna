@@ -21,9 +21,9 @@ line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
 
 #Create Buttons
-costumer_name = Button(root,    text="1. Slá inn nafn \n viðskiptavinar", bg="#424242", fg="white", width=22, height=3)
-costumer_ssn = Button(root,   text="2. Slá inn \n kennitölu", bg="#424242", fg="white", width=22, height=3)
-costumer_car = Button(root,       text="3. Slá inn heiti \n bíls", bg="#424242", fg="white", width=22, height=3)
+costumer_name = Button(root,    text="1. Leita eftir \n viðskiptavini", bg="#424242", fg="white", width=22, height=3)
+costumer_ssn = Button(root,   text="2. Leita eftir bíl", bg="#424242", fg="white", width=22, height=3)
+costumer_car = Button(root,       text="3. Allar pantanir", bg="#424242", fg="white", width=22, height=3)
 confirm = Button(root, text="Esc - Til baka", bg="white", fg="black", width=15, height=1)
 
 
