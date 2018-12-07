@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-import data_access.getUsers as getUsers
+import data_access.userDataAccess as getUsers
 class loginVerification:
     def __init__(self, username, password):
         self.__username = username
@@ -10,7 +10,7 @@ class loginVerification:
         
     
     def verify(self):
-        userInstance = getUsers.GetUsers() #Creates an instance of the getUsers file.
+        userInstance = getUsers.UserDataAccess() #Creates an instance of the getUsers file.
         userDict = userInstance.users #Takes the dictionary made in the getUsers file. 
         for key, value in userDict.items():
             if self.__username == key and self.__password == value: # Compared the input made by the user and the users from the database.

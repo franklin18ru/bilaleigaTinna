@@ -4,8 +4,8 @@ import os
 
 class LeasesDataAccess:
     def __init__(self):
-        self.leases = self.getLeases()
-    def getLeases(self):
+        self.leases = self.getAllLeases()
+    def getAllLeases(self):
         lease_dictionary = dict()
         with open("data/leases.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
@@ -44,8 +44,13 @@ class LeasesDataAccess:
         # removing the temp file
         os.remove("data/tempfile.csv")
 
-    def addLease(self,ssn,renter,leasePeriod,licensePlate):
-        newLease=[ssn,renter,leasePeriod,licensePlate]
+    def addLease(self,ssn,renter,leasestart,leaseend,licensePlate):
+        newLease=[ssn,renter,leasestart,leaseend,licensePlate]
         with open('data/cars.csv', 'a',newline="") as openfile:
                 csv_writer = csv.writer(openfile)
                 csv_writer.writerow(newLease) 
+    
+    # def editLease():
+        # take in all arguments if the argument is the same as in the data itself then  #
+        # keep it as is, you need to create a temporary file in order to edit and rewrite #
+        # the original file to edit #

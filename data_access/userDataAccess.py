@@ -3,9 +3,9 @@ import os
 
 class UserDataAccess:
     def __init__(self):
-        self.users = self.getUsers()
+        self.users = self.getAllUsers()
 
-    def getUsers(self):
+    def getAllUsers(self):
         user_dictionary = dict()
         with open( "data/users.csv" , "r" ) as openfile:
             csv_reader = csv.reader(openfile)
@@ -46,3 +46,8 @@ class UserDataAccess:
 
         # removing the temp file
         os.remove("data/tempfile.csv")
+
+    # def editUser():
+        # take in all arguments if the argument is the same as in the data itself then  #
+        # keep it as is, you need to create a temporary file in order to edit and rewrite #
+        # the original file to edit #
