@@ -14,7 +14,7 @@ bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
 label1 = Label(root, text="Pantanir",bg="#5A6D7C",fg="white")
 line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
-ssn = Label(root, text="Slá inn kennitölu \n eða nafn viðskiptavinar:",bg="#5A6D7C",fg="white")
+ssn = Label(root, text="Slá inn kennitölu \n eða nafn viðskiptavinar \n eða bílnúmer:",bg="#5A6D7C",fg="white")
 
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
@@ -51,32 +51,40 @@ ssn.config(font=("Courier", 16))
 bilaleigaTinna.grid(row=1, column=3)
 label1.grid(row=3, column=3)
 
-ssn.grid(row=5, column=2)
+ssn.grid(row=4, column=2)
 
-escape_button.grid(row=10, column=2)
+#escape_button.grid(row=10, column=3)
+escape_button.grid(row=10, column=3)
 confirm_button.grid(row=10, column=4)
 line1.grid(row=2,column=3)
 line2.grid(row=9,column=3)
 
-ssnInput.grid(row=5, column=3)
+ssnInput.grid(row=4, column=3)
 
 
 
 
-root.grid_rowconfigure(0, weight=3)
+root.grid_rowconfigure(0, weight=1)
+root.grid_rowconfigure(2, weight=1)
 root.grid_rowconfigure(1, weight=0)
-root.grid_rowconfigure(2, weight=1)
-root.grid_rowconfigure(2, weight=1)
-root.grid_rowconfigure(4, weight=1)
+root.grid_rowconfigure(4, weight=0)
+root.grid_rowconfigure(3, weight=0)
+root.grid_rowconfigure(11, weight=2)
+root.grid_rowconfigure(9, weight=1)
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(7, weight=3)
+#root.grid_rowconfigure(2, weight=1)
+#root.grid_rowconfigure(2, weight=1)
+#root.grid_rowconfigure(4, weight=1)
 
 #root.grid_rowconfigure(6, weight=1)
-root.grid_rowconfigure(14, weight=5)
+#root.grid_rowconfigure(14, weight=5)
 
-root.grid_rowconfigure(9, weight=1)
+#root.grid_rowconfigure(9, weight=1)
 
 
-root.grid_columnconfigure(0, weight=10)
-root.grid_columnconfigure(6, weight=10)
+#root.grid_columnconfigure(5, weight=1)
+#root.grid_columnconfigure(6, weight=10)
 
 
 root.mainloop()
