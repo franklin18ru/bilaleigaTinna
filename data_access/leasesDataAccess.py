@@ -44,8 +44,8 @@ class LeasesDataAccess:
         # removing the temp file
         os.remove("data/tempfile.csv")
 
-    def addLease(self,ssn,renter,leasePeriod,licensePlate):
-        newLease=[ssn,renter,leasePeriod,licensePlate]
+    def addLease(self,ssn,renter,leasestart,leaseend,licensePlate):
+        newLease=[ssn,renter,leasestart,leaseend,licensePlate]
         with open('data/cars.csv', 'a',newline="") as openfile:
                 csv_writer = csv.writer(openfile)
                 csv_writer.writerow(newLease) 
