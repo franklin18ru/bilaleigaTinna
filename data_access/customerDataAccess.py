@@ -15,11 +15,13 @@ class CustomerDataAccess:
                 ssn = int(string.replace("-",""))
                 name = line[1]
                 birthdate = line[2]
-                customer_dictionary[ssn] = (name,birthdate)
+                phone = line[3]
+                email = line[4]
+                customer_dictionary[ssn] = (name,birthdate,phone,email)
             return customer_dictionary
         
-    def addCustomer(self,ssn,name,birthdate):
-        newCustomer=[ssn,name,birthdate]
+    def addCustomer(self,ssn,name,birthdate,phone,email):
+        newCustomer=[ssn,name,birthdate,phone,email]
         with open('data/customers.csv', 'a',newline="") as openfile:
             csv_writer = csv.writer(openfile)
             csv_writer.writerow(newCustomer) 
