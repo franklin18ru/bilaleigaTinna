@@ -81,7 +81,7 @@ class CarsDataAccess:
         # if license plate is edited then all the lease under that license plate must be edited #
 
     #def getTypeCars(self):
-
+        # Get all available type cars #
     #def getAllAvailableCars(self):
         # Pending further inspection #
 
