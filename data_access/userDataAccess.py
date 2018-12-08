@@ -47,7 +47,7 @@ class UserDataAccess:
         # removing the temp file
         os.remove("data/tempfile.csv")
 
-    def editUser(olddatalist,newdatalist):
+    def editUser(self,olddatalist,newdatalist):
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
@@ -64,7 +64,7 @@ class UserDataAccess:
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if old_name == line[2] and old_ssn == line[0] and old_password = line[3]:
+                    if (old_name == line[2] and old_ssn == line[0]) and old_password == line[3]:
                         new_line = [new_ssn,new_position,new_name,new_password]
                         csv_writer.writerow(new_line)
                         continue                        
