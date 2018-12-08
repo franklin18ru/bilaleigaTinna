@@ -78,8 +78,12 @@ class CarsDataAccess:
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
+        # if license plate is edited then all the lease under that license plate must be edited #
 
     #def getTypeCars(self):
 
     #def getAllAvailableCars(self):
         # Pending further inspection #
+
+    #returnCar?
+

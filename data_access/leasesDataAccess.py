@@ -54,3 +54,4 @@ class LeasesDataAccess:
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
+        # Can't edit customer or car only edit lease period #
