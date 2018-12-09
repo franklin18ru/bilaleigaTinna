@@ -18,17 +18,14 @@ line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
 
 
-
-
-
 #Create the entry fields
 license_plateInput = Entry(root, width=20, font=("Courier", 20))
 
 
 
 #Create Buttons
-escape_button = Button(root, text="Esc - Til baka", bg="white", fg="black", width=15, height=1)
-confirm_button = Button(root, text="Staðfesta", bg="white", fg="black", width=15, height=1)
+escape_button = Button(root, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
+confirm_button = Button(root, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
 
 
 
