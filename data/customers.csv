@@ -1,2 +1,4 @@
-ssn,name,birthdate
-120484-6548,Baldur,12.04.1984
+ssn,Name,Birthdate,phonenumber,email
+2112870909,Josepine Exas,21.12.1987,8889999,left@hotmail.com
+0305952309,Paulie Mayer,03.05.1995,6481514,Paulie.Mayer@gmail.com
+1510924339,John Newman,15.10.1992,5841234,Johnnyboi@gmail.com
