@@ -79,11 +79,23 @@ class CarsDataAccess:
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
         # if license plate is edited then all the lease under that license plate must be edited #
-
-    #def getTypeCars(self):
+    #def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
+    #def getTypeCars(self,Type):
         # Get all available type cars #
-    #def getAllAvailableCars(self):
+        # Put all types in dict, license plate is the key, then check if the car is Available
+    #def getAllAvailableCars(self,):
         # Pending further inspection #
 
-    #returnCar?
+    #def returnCar(self):
+
+
+
+
+
+    # from timedate import date, timedelta
+    # start
+    # end
+    # timedelta = start-end
+    # for x in range(delta.days+1):
+    # start+timedelta(x)
 
