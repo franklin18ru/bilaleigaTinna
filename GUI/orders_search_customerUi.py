@@ -54,7 +54,7 @@ label1.grid(row=3, column=3)
 ssn.grid(row=4, column=2)
 
 #escape_button.grid(row=10, column=3)
-escape_button.grid(row=0, column=2)
+escape_button.grid(row=10, column=2)
 confirm_button.grid(row=10, column=4)
 line1.grid(row=2,column=3)
 line2.grid(row=9,column=3)
