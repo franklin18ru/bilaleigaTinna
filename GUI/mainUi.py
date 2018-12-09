@@ -86,13 +86,13 @@ class LoginUi(tk.Frame):
         verifyLogin = loginVerification(usernameInput,passwordInput)
         verification = verifyLogin.verify()
         if verification == False:
-            error = tk.Label(self, text="Rangt starfsnúmer eða lykilorð", bg="red", fg="white",font=("Courier",14))
-            error.pack()
+            self.error = tk.Label(self, text="Rangt starfsnúmer eða lykilorð", bg="red", fg="white",font=("Courier",14))
+            self.error.pack()
         elif verification == True:
             try:
-                error.destroy()
+                self.error.destroy()
                 controller.show_frame(MenuUi)
-            except:
+            except UnboundLocalError:
                 controller.show_frame(MenuUi)
         
 
