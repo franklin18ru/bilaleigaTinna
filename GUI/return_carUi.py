@@ -14,10 +14,7 @@ bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
 label1 = Label(root, text="Skila bíl",bg="#5A6D7C",fg="white")
 line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 license_plate = Label(root, text="Sláðu inn bílnúmer:",bg="#5A6D7C",fg="white")
-line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
-
-
-
+line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")2
 
 
 
