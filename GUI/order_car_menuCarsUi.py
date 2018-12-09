@@ -60,7 +60,7 @@ label2.config(font=("Courier", 26)) #the changable label
 # positioning everything on the screen
 bilaleigaTinna.grid(row=1, column=3)
 label2.grid(row=3,column=3)
-back.grid(row=0, column=2)
+back.grid(row=10, column=3)
 line1.grid(row=2,column=3)
 line2.grid(row=9,column=3)
  
