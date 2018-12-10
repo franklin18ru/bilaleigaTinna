@@ -1,7 +1,7 @@
 class FindCustomer:
     def __init__(self, leitarstrengur):
         import csv
-        self.leitarstrengur = self.leitarstengur.capitalize()
+        self.leitarstrengur = leitarstengur.capitalize()
         with open('data/leases.csv', 'r') as csv_file:
             csv_reader=csv.reader(csv_file)
             for row in csv_reader:
