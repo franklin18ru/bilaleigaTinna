@@ -3,9 +3,9 @@ import os
 import sys
 import tkinter as tk
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-import loginUI
+import loginUi
 import mainUi
-import order_carUi
+import orderCarUi
 
 
 class MenuUi(tk.Frame):
@@ -72,10 +72,10 @@ class MenuUi(tk.Frame):
         self.grid_columnconfigure(6, weight=10)
 
         def logout(self):
-            controller.show_frame(loginUI.LoginUi)
+            controller.show_frame(loginUi.LoginUi)
 
         def switchOrderCar(self):
-            controller.show_frame(order_carUi.OrderCarUi)
+            controller.show_frame(orderCarUi.OrderCarUi)
 
 
 # def menuMain():
