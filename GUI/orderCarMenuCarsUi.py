@@ -11,7 +11,6 @@ root.configure(bg="#5A6D7C")
 root.geometry(str(screen_width)+"x"+str(screen_height))
 
 
-
 #Create labels
 bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
 
