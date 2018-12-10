@@ -7,6 +7,7 @@ from services.login import loginVerification
 import loginUi
 import menuUi
 import orderCarUi
+import returnCarUi
 
 class MainUi(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -17,7 +18,7 @@ class MainUi(tk.Tk):
         container.grid_columnconfigure(0, weight = 1)
         self.frames = {}
         
-        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi):
+        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi, returnCarUi.ReturnCarUi):
             frame = F(container, self)
             self.frames[F] = frame
             
