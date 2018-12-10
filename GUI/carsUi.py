@@ -13,12 +13,8 @@ class CarsUi(tk.Frame):
     
         #Create labels
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
+        label2 = tk.Label(self, text="Bílar",bg="#5A6D7C",fg="white") 
 
-        # A lable that should change for what the user clicks on:
-        label2 = tk.Label(self, text="Bílar",bg="#5A6D7C",fg="white") #setting the default value as Bílar
-
-        # Here there should be an if statement to change the lable to the correct word:
-        label2.config(text="Bílar") #changing the default value to what the user selected on the site before
 
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
