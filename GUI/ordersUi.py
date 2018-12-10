@@ -1,4 +1,5 @@
 import tkinter as tk
+import menuUi
 
 class OrdersUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -17,7 +18,7 @@ class OrdersUi(tk.Frame):
         #Create Buttons
         costomer_order = tk.Button(self,    text="1. Leita af pöntun", bg="#424242", fg="white", width=22, height=3)
         costomer_allorders = tk.Button(self,   text="2. Allar pantanir", bg="#424242", fg="white", width=22, height=3)
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
         #ef klikkað er á "Leita eftir viðskiptavini" þá keyrist upp orders_search_customerUi skjalið
         #ef klikkað er á "Leita eftir bíl" þá keyrist upp orders_search_customerUi nema með öðruvísi texta
@@ -62,13 +63,5 @@ class OrdersUi(tk.Frame):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=1)
 
-        #self.grid_rowconfigure(0, weight=3)
-        #self.grid_rowconfigure(1, weight=0)
-        #self.grid_rowconfigure(2, weight=1)
-        #self.grid_rowconfigure(3, weight=1)
-        #self.grid_rowconfigure(5, weight=2)
-        #self.grid_rowconfigure(9, weight=2)
-        #self.grid_rowconfigure(11, weight=5)
-        #self.grid_columnconfigure(0, weight=10)
-        #self.grid_columnconfigure(7, weight=10)
-        #self.grid_columnconfigure(1, weight=0)
+        def esc(self):
+            controller.show_frame(menuUi.MenuUi)
