@@ -26,8 +26,8 @@ line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
 
 #Create Buttons
-escape_button = Button(root, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
-edit = Button(root, text="Edit", bg="white", fg="black", width=15, height=1)
+#escape_button = Button(root, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
+#edit = Button(root, text="Edit", bg="white", fg="black", width=15, height=1)
 
 with open('data/customers.csv', 'r', newline="") as customers:
     csv_reader = csv.reader(customers)
@@ -58,8 +58,8 @@ phone_number.config(font=("Courier", 16))
 
 line1.config(font=("Courier", 28))
 line2.config(font=("Courier", 28))
-edit.config( font=("Courier", 16))
-escape_button.config( font=("Courier", 16))
+#edit.config( font=("Courier", 16))
+#escape_button.config( font=("Courier", 16))
 
 
 
