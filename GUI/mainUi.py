@@ -11,6 +11,7 @@ import returnCarUi
 import ordersUi
 import carsUi
 import pricelistUi
+import customersUi
 
 
 class MainUi(tk.Tk):
@@ -23,7 +24,8 @@ class MainUi(tk.Tk):
         self.frames = {}
         
         for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi, 
-                  returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsUi.CarsUi, pricelistUi.PriceListUi):
+                  returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsUi.CarsUi, 
+                  pricelistUi.PriceListUi, customersUi.CustomersUi):
             frame = F(container, self)
             self.frames[F] = frame
             

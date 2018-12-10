@@ -1,5 +1,7 @@
 import tkinter as tk
 import csv
+import menuUi
+
 
 class PriceListUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -33,7 +35,7 @@ class PriceListUi(tk.Frame):
 
         #Create Buttons
         edit = tk.Button(self, text="Edit", bg="white", fg="black", width=15, height=1)
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
 
@@ -115,4 +117,7 @@ class PriceListUi(tk.Frame):
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=1)
+
+        def esc(self):
+            controller.show_frame(menuUi.MenuUi)
 
