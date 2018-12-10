@@ -1,6 +1,7 @@
 import tkinter as tk
 #import tkinter as tk
 import csv
+import menuUi
 
 class CarsUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -21,7 +22,7 @@ class CarsUi(tk.Frame):
 
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
+        back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=18, height=1, command=lambda: esc(controller))
 
         option_frame = tk.Frame(self)#trying to make a scroll-able frame for all the cars, wont work
 
@@ -78,5 +79,8 @@ class CarsUi(tk.Frame):
         option_frame.grid_rowconfigure(1, weight=0)
         option_frame.grid_rowconfigure(3, weight=1)
         option_frame.grid_rowconfigure(5, weight=2)
+
+        def esc(self):
+            controller.show_frame(menuUi.MenuUi)
 
         #####
