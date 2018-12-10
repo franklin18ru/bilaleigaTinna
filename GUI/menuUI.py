@@ -28,7 +28,7 @@ class MenuUi(tk.Frame):
         prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2)
         cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2)
         customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2)
-        back = tk.Button(self,         text="Skrá þig út", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda: logout(controller))
+        back = tk.Button(self,         text="Skrá þig út", bg="#9E4848", fg="white", width=18, height=1, command=lambda: logout(controller))
 
         #################################################################################
 
