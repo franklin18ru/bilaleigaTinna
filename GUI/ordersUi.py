@@ -17,7 +17,7 @@ class OrdersUi(tk.Frame):
         #Create Buttons
         costomer_order = tk.Button(self,    text="1. Leita af pöntun", bg="#424242", fg="white", width=22, height=3)
         costomer_allorders = tk.Button(self,   text="2. Allar pantanir", bg="#424242", fg="white", width=22, height=3)
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="9E4848", fg="white", width=15, height=1)
 
         #ef klikkað er á "Leita eftir viðskiptavini" þá keyrist upp orders_search_customerUi skjalið
         #ef klikkað er á "Leita eftir bíl" þá keyrist upp orders_search_customerUi nema með öðruvísi texta
