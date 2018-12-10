@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class LoginUi(tk.Frame):
+class ordersUi(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
         screen_width = self.winfo_screenwidth() #Gets the screen width
