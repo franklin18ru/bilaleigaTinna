@@ -8,6 +8,7 @@ import orderCarUi
 import returnCarUi
 import ordersUi
 import carsUi
+import pricelistUi
 
 
 class MenuUi(tk.Frame):
@@ -25,7 +26,7 @@ class MenuUi(tk.Frame):
         order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchOrderCar(controller))
         return_car = tk.Button(self,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchReturnCar(controller))
         orders = tk.Button(self,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchOrders(controller))
-        prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2)
+        prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchPrice(controller)) 
         cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2,     command=lambda: switchCars(controller))
         customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2)
         back = tk.Button(self,         text="Skrá þig út", bg="#9E4848", fg="white", width=18, height=1, command=lambda: logout(controller))
@@ -88,3 +89,5 @@ class MenuUi(tk.Frame):
         def switchCars(self):
             controller.show_frame(carsUi.CarsUi)
         
+        def switchPrice(self):
+            controller.show_frame(pricelistUi.PriceListUi)
