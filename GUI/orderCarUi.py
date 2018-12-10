@@ -22,7 +22,7 @@ class OrderCarUi(tk.Frame):
         sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2)
         luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2)
         all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2)
-        back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=18, height=1, command=lambda: esc(controller))
+        back = tk.Button(self, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1, command=lambda: esc(controller))
 
         #################################################################################
 
