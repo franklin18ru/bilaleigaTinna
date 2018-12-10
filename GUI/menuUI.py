@@ -4,6 +4,9 @@ import sys
 import tkinter as tk
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import loginUI
+import mainUi
+import order_carUi
+
 
 class MenuUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -17,7 +20,7 @@ class MenuUi(tk.Frame):
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
         #Create buttons
-        order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2)
+        order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchOrderCar(controller))
         return_car = tk.Button(self,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2)
         orders = tk.Button(self,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2)
         prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2)
@@ -70,6 +73,9 @@ class MenuUi(tk.Frame):
 
         def logout(self):
             controller.show_frame(loginUI.LoginUi)
+
+        def switchOrderCar(self):
+            controller.show_frame(order_carUi.OrderCarUi)
 
 
 # def menuMain():
