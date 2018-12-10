@@ -54,7 +54,7 @@ class LoginUi(tk.Frame):
         self.passwordInput.pack(side="top")
         
         #Create buttons
-        confirm = tk.Button(self, text="Innskrá", bg="#424242", fg="white", width=8, height=1,font=("Courier",16), command=lambda:self.verifyButton(controller))
+        confirm = tk.Button(self, text="Innskrá", bg="#448F42", fg="white", width=8, height=1,font=("Courier",16), command=lambda:self.verifyButton(controller))
         confirm.pack(side="top", pady="20",ipadx="105")
 
     def verifyButton(self, controller):
