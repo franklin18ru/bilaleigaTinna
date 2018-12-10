@@ -4,8 +4,10 @@ import sys
 import tkinter as tk
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from services.login import loginVerification
-import loginUI
-import menuUI
+import loginUi
+import menuUi
+import orderCarUi
+import returnCarUi
 
 class MainUi(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -16,17 +18,18 @@ class MainUi(tk.Tk):
         container.grid_columnconfigure(0, weight = 1)
         self.frames = {}
         
-        for F in (loginUI.LoginUi, menuUI.MenuUi):
+        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi, returnCarUi.ReturnCarUi):
             frame = F(container, self)
             self.frames[F] = frame
             
             frame.grid(row = 0, column = 0, sticky="nsew")
         
-        self.show_frame(loginUI.LoginUi)
+        self.show_frame(loginUi.LoginUi)
 
     def show_frame(self, cont):
         frame = self.frames[cont]
         frame.tkraise()
+
 if __name__ == "__main__":
     app = MainUi() 
     app.mainloop()

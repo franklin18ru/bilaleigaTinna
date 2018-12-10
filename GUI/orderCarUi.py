@@ -1,4 +1,5 @@
 import tkinter as tk
+import menuUi
 
 class OrderCarUi(tk.Frame):
 #create frame
@@ -21,7 +22,7 @@ class OrderCarUi(tk.Frame):
         sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2)
         luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2)
         all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2)
-        back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
+        back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda: esc(controller))
 
         #################################################################################
 
@@ -66,8 +67,7 @@ class OrderCarUi(tk.Frame):
         self.grid_columnconfigure(6, weight=10)
 
 
+        def esc(self):
+            controller.show_frame(menuUi.MenuUi)
 
         #################################################################################
-
-
-        self.mainloop()
