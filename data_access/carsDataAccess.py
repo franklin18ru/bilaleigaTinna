@@ -74,11 +74,100 @@ class CarsDataAccess:
 
     
 
-    #def editCar(self):
+    def editCar(self,olddatalist,newdatalist):
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
         # if license plate is edited then all the lease under that license plate must be edited #
+        old_licensePlate = olddatalist[0]
+        old_type = olddatalist[1]
+        old_brand = olddatalist[2]
+        old_model = olddatalist[3]
+        old_seats = olddatalist[4]
+        old_availability = olddatalist[5]
+        new_licensePlate = newdatalist[0]
+        new_type = newdatalist[1]
+        new_brand = newdatalist[2]
+        new_model = newdatalist[3]
+        new_seats = newdatalist[4]
+        new_availability = newdatalist[5]
+        with open("data/cars.csv","r+") as openfile:
+            csv_reader = csv.reader(openfile)
+            with open("data/tempfile.csv","w",newline="") as tempfile:
+                csv_writer = csv.writer(tempfile)
+                for line in csv_reader:
+                    if old_licensePlate == line[0] and old_type == line[1] and old_brand == line[2] and old_model == line[3] and old_seats == line[4] and old_availability == line[5]:
+                        new_line = [new_licensePlate,new_type,new_brand,new_model,new_seats,new_availability]
+                        csv_writer.writerow(new_line)
+                        continue
+                    csv_writer.writerow(line)
+                openfile.truncate(0)
+
+        # the data back to the original file
+        with open("data/tempfile.csv","r") as openfile:
+            csv_reader = csv.reader(openfile)
+            with open("data/cars.csv","w",newline="") as writingfile:
+                csv_writer = csv.writer(writingfile)
+                for line in csv_reader:
+                    csv_writer.writerow(line)
+
+        # removing the temp file
+        os.remove("data/tempfile.csv")
+
+        if old_licensePlate == new_licensePlate:
+            pass
+        else:
+            self.editCarLeases(old_licensePlate,new_licensePlate)
+
+
+    def editCarLeases(self,old_licensePlate,new_licensePlate):
+        with open("data/leases.csv","r+") as openfile:
+            csv_reader = csv.reader(openfile)
+            with open("data/tempfile.csv","w",newline="") as tempfile:
+                csv_writer = csv.writer(tempfile)
+                for line in csv_reader:
+                    if old_licensePlate == line[4]:
+                        new_line = [line[0],line[1],line[2],line[3],new_licensePlate]
+                        csv_writer.writerow(new_line)
+                        continue
+                    csv_writer.writerow(line)
+                openfile.truncate(0)
+
+        # the data back to the original file
+        with open("data/tempfile.csv","r") as openfile:
+            csv_reader = csv.reader(openfile)
+            with open("data/leases.csv","w",newline="") as writingfile:
+                csv_writer = csv.writer(writingfile)
+                for line in csv_reader:
+                    csv_writer.writerow(line)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
     #def getTypeCars(self,Type):
         # Get all available type cars #

@@ -11,21 +11,17 @@ root.geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
 
 bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-label1 = Label(root, text="Skila bíl",bg="#5A6D7C",fg="white")
+renter = Label(root, text="Leigjandi",bg="#3F4A52",fg="white")
 line1 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
-license_plate = Label(root, text="Sláðu inn bílnúmer:",bg="#5A6D7C",fg="white")
+car = Label(root, text="Bíll",bg="#3F4A52",fg="white")
 line2 = Label(root, text="____________________________",bg="#5A6D7C",fg="white")
 
-
-
-#Create the entry fields
-license_plateInput = Entry(root, width=20, font=("Courier", 20))
 
 
 
 #Create Buttons
 escape_button = Button(root, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
-confirm_button = Button(root, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
+return_button = Button(root, text="Skila", bg="#448F42", fg="white", width=15, height=1)
 
 
 
@@ -33,12 +29,12 @@ confirm_button = Button(root, text="Staðfesta", bg="#448F42", fg="white", width
 
 #configure labels
 bilaleigaTinna.config(font=("Courier", 32))
-label1.config(font=("Courier", 28))
+renter.config(font=("Courier", 20))
 escape_button.config(font=("Courier", 16))
-confirm_button.config(font=("Courier", 16))
+return_button.config(font=("Courier", 16))
 line1.config(font=("Courier", 28))
 line2.config(font=("Courier", 28))
-license_plate.config(font=("Courier", 16))
+car.config(font=("Courier", 20))
 
 
 
@@ -46,15 +42,14 @@ license_plate.config(font=("Courier", 16))
 
 #labels
 bilaleigaTinna.grid(row=1, column=3)
-label1.grid(row=3, column=3)
-license_plate.grid(row=5, column=2)
+renter.grid(row=3, column=3)
+car.grid(row=5, column=3)
 
 escape_button.grid(row=10, column=2)
-confirm_button.grid(row=10, column=4)
+return_button.grid(row=10, column=4)
 line1.grid(row=2,column=3)
 line2.grid(row=9,column=3)
 
-license_plateInput.grid(row=5, column=3)
 
 
 root.grid_rowconfigure(0, weight=2)
