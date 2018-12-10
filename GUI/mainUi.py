@@ -8,6 +8,8 @@ import loginUi
 import menuUi
 import orderCarUi
 import returnCarUi
+import ordersUi
+
 
 class MainUi(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -18,7 +20,8 @@ class MainUi(tk.Tk):
         container.grid_columnconfigure(0, weight = 1)
         self.frames = {}
         
-        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi, returnCarUi.ReturnCarUi):
+        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi, 
+                  returnCarUi.ReturnCarUi, ordersUi.OrdersUi):
             frame = F(container, self)
             self.frames[F] = frame
             

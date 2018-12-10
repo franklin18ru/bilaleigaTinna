@@ -24,7 +24,7 @@ class MenuUi(tk.Frame):
         #Create buttons
         order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchOrderCar(controller))
         return_car = tk.Button(self,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchReturnCar(controller))
-        orders = tk.Button(self,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2)
+        orders = tk.Button(self,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchOrders(controller))
         prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2)
         cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2)
         customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2)
@@ -83,5 +83,5 @@ class MenuUi(tk.Frame):
             controller.show_frame(returnCarUi.ReturnCarUi)
 
         def switchOrders(self):
-            controller.show_frame(returnCarUi.ReturnCarUi)
+            controller.show_frame(ordersUi.OrdersUi)
         
