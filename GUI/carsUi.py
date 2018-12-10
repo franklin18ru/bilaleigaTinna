@@ -31,7 +31,7 @@ class CarsUi(tk.Frame):
             column_num = 2
             counter = 0
             for item in csv_reader:
-                label1 = tk.Button(option_frame, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
+                label1 = tk.Button(self, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
                 label1.config(font=("Courier", 16))
                 label1.grid(row = row_num, column=column_num)
                 counter += 1
@@ -40,7 +40,7 @@ class CarsUi(tk.Frame):
                     row_num += 1
                     counter = 0
                     column_num = 2   
-            #option_frame.pack(fill="x",side="top")
+        #option_frame.pack(fill="x",side="top")
 
         # configure labels
         bilaleigaTinna.config(font=("Courier", 32))
@@ -69,12 +69,12 @@ class CarsUi(tk.Frame):
         self.grid_rowconfigure(11, weight=5)
         self.grid_columnconfigure(0, weight=10)
         self.grid_columnconfigure(6, weight=10)
-        option_frame.grid_columnconfigure(0, weight=10)
-        option_frame.grid_columnconfigure(6, weight=10)
-        option_frame.grid_rowconfigure(0, weight=3)
-        option_frame.grid_rowconfigure(1, weight=0)
-        option_frame.grid_rowconfigure(3, weight=1)
-        option_frame.grid_rowconfigure(5, weight=2)
+        # option_frame.grid_columnconfigure(0, weight=10)
+        # option_frame.grid_columnconfigure(6, weight=10)
+        # option_frame.grid_rowconfigure(0, weight=3)
+        # option_frame.grid_rowconfigure(1, weight=0)
+        # option_frame.grid_rowconfigure(3, weight=1)
+        # option_frame.grid_rowconfigure(5, weight=2)
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
