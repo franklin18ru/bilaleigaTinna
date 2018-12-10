@@ -7,6 +7,7 @@ import loginUi
 import mainUi
 import orderCarUi
 import returnCarUi
+import ordersUi
 
 
 class MenuUi(tk.Frame):
@@ -79,5 +80,8 @@ class MenuUi(tk.Frame):
             controller.show_frame(orderCarUi.OrderCarUi)
 
         def switchReturnCar(self):
+            controller.show_frame(returnCarUi.ReturnCarUi)
+
+        def switchOrders(self):
             controller.show_frame(returnCarUi.ReturnCarUi)
         

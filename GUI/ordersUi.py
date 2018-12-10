@@ -1,16 +1,12 @@
 import tkinter as tk
 
-class ordersUi(tk.Frame):
+class OrdersUi(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
         screen_width = self.winfo_screenwidth() #Gets the screen width
         screen_height = self.winfo_screenheight() #Gets the screen height
         self.winfo_toplevel().configure(bg="#5A6D7C") # Changes background color of frame
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
-    
-
-
-
 
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Pantanir",bg="#5A6D7C",fg="white")
