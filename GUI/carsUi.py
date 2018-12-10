@@ -34,7 +34,7 @@ class CarsUi(tk.Frame):
             column_num = 2
             counter = 0
             for item in csv_reader:
-                label1 = Button(self, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
+                label1 = tk.Button(self, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
                 label1.config(font=("Courier", 16))
                 label1.grid(row = row_num, column=column_num)
                 counter += 1
