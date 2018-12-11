@@ -22,10 +22,9 @@ class CustomersUi(tk.Frame):
 
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=   
-                                                                                                                     lambda:esc(controller))
-        edit = tk.Button(self, text="Breyta/uppfæra", bg="#448F42", fg="white", width=7, height=1)
-        search = tk.Button(self, text="Leita af viðskiptavini", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=2, command=lambda:esc(controller))
+        edit = tk.Button(self, text="Breyta/uppfæra", bg="#448F42", fg="white", width=15, height=2)
+        search = tk.Button(self, text="Leita af \nviðskiptavini", bg="white", fg="black", width=15, height=2)
         with open('data/customers.csv', 'r', newline="") as customers:
             csv_reader = csv.reader(customers)
             next(csv_reader)
@@ -78,11 +77,10 @@ class CustomersUi(tk.Frame):
         phone_number.grid(row=4,column=3)
         line1.grid(row=2, column=0,columnspan = 8)
         line2.grid(row=10,column =0, columnspan = 8)
-
-        edit.grid(row=11, column= 2, columnspan = 2 )
-        escape_button.grid(row=11, column=0, columnspan = 3)
-        search.grid(row=11, column=1)
-
+ 
+        escape_button.grid(row=11, column=0, columnspan = 2)
+        search.grid(row=11, column=1, columnspan =2)
+        edit.grid(row=11, column= 2, columnspan = 2)
 
         #position frame
         self.grid_rowconfigure(0, weight=2)

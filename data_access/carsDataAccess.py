@@ -182,12 +182,15 @@ class CarsDataAccess:
 
     # gets all dates between to dates including start and end, you can also skip end #
     def getTimeFrame(self,time1,time2):
-        start = date(time1)
-        end = date(time2)
+        t1 = time1.split(".")
+        t2 = time2.split(".")
+        start = date(int(t1[0]),int(t1[1]),int(t1[2]))
+        end = date(int(t2[0]),int(t2[1]),int(t2[2]))
         delta = start-end
         frame = []
         for x in range(delta.days+1):
             day = str(start+timedelta(x))
-            frame.append(day)
+            editday = day.replace("-",".")
+            frame.append(editday)
         return frame
 
