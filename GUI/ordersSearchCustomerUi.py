@@ -13,7 +13,7 @@ class OrdersSearchCustomerUi(tk.Frame):
         label1 = tk.Label(self, text="Pantanir",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
-        ssn = tk.Label(self, text="Slá inn kennitölu \n eða nafn viðskiptavinar \n eða bílnúmer:",bg="#5A6D7C",fg="white")
+        ssn = tk.Label(self, text="Sláðu inn kennitölu \n eða nafn viðskiptavinar \n eða bílnúmer:",bg="#5A6D7C",fg="white")
 
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
