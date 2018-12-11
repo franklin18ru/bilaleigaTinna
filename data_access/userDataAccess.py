@@ -37,15 +37,7 @@ class UserDataAccess:
                 openfile.truncate(0)
 
         # the data back to the original file
-        with open("data/tempfile.csv","r") as openfile:
-            csv_reader = csv.reader(openfile)
-            with open("data/users.csv","w",newline="") as writingfile:
-                csv_writer = csv.writer(writingfile)
-                for line in csv_reader:
-                    csv_writer.writerow(line)
-
-        # removing the temp file
-        os.remove("data/tempfile.csv")
+        self.moveFromTempFile("users")
 
     def editUser(self,olddatalist,newdatalist):
         # take in all arguments if the argument is the same as in the data itself then  #
@@ -72,9 +64,18 @@ class UserDataAccess:
                 openfile.truncate(0)
 
         # the data back to the original file
+        self.moveFromTempFile("users")
+
+
+    def moveFromTempFile(self,fileName):
+        # the data back to the original file
+        filetowrite = "data/"+fileName+".csv"
         with open("data/tempfile.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/users.csv","w",newline="") as writingfile:
+            with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
                 for line in csv_reader:
                     csv_writer.writerow(line)
+
+            # removing the temp file
+            os.remove("data/tempfile.csv")
