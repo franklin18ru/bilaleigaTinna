@@ -119,8 +119,7 @@ class LeasesDataAccess:
         frame = []
         for x in range(delta.days+1):
             day = str(start+timedelta(x))
-            editday= day.replace("-",".")
-            frame.append(editday)
+            frame.append(day)
         return frame
 
 
