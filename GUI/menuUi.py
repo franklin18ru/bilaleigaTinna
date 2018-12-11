@@ -20,9 +20,8 @@ class MenuUi(tk.Frame):
         #Create labels
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Valmynd",bg="#5A6D7C",fg="white")
-        line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-
+        line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
+        line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         #Create buttons
         order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchOrderCarDate(controller))
         return_car = tk.Button(self,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchReturnCar(controller))
@@ -30,7 +29,7 @@ class MenuUi(tk.Frame):
         prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchPrice(controller)) 
         cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2,     command=lambda: switchCars(controller))
         customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2, command=lambda: switchCustomers(controller))
-        back = tk.Button(self,         text="Skrá þig út", bg="#9E4848", fg="white", width=18, height=1, command=lambda: logout(controller))
+        back = tk.Button(self,         text="Skrá þig út", bg="#9E4848", fg="white", width=15, height=1, command=lambda: logout(controller))
 
         #################################################################################
 
@@ -59,7 +58,7 @@ class MenuUi(tk.Frame):
         prices.grid(row=8, column=2)
         cars.grid(row=8, column=3)
         customers.grid(row=8, column=4)
-        back.grid(row=10, column=3)
+        back.grid(row=10, column=0, columnspan = 4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
