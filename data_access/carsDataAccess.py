@@ -142,12 +142,21 @@ class CarsDataAccess:
 
 
 
-
+    # Availability? #
 
     #def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
-    #def getTypeCars(self,Type):
+    def getTypeCars(self,Type):
         # Get all available type cars #
+        
         # Put all types in dict, license plate is the key, then check if the car is Available
+        cars_dictionary = dict()
+        with open("data/cars.csv","r") as openfile:
+            csv_reader = csv.reader(openfile)
+            next(csv_reader)
+            for line in csv_reader:
+                if line[1] == Type:
+                    cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
+            return cars_dictionary
     #def getAllAvailableCars(self,):
         # Pending further inspection #
 
