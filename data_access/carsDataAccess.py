@@ -136,17 +136,18 @@ class CarsDataAccess:
 
 
 
+    def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
+        with open("data/leases.csv","r")as checkfile:
+            csv_checker = csv.reader(checkfile)
+            frame = self.getTimeFrame(leaseStart,leaseEnd)
+            for line in csv_checker:
+                if line[4] == licensePlate:
+                    for day in frame:
+                        if line[2] == day or line[3] == day:
+                            return False
+            return True
 
-
-
-
-
-
-
-    # Availability? #
-
-    #def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
-    def getTypeCars(self,Type):
+    def getCarsType(self,Type,leaseStart,leaseEnd):
         # Get all available type cars #
         
         # Put all types in dict, license plate is the key, then check if the car is Available
@@ -156,8 +157,8 @@ class CarsDataAccess:
             next(csv_reader)
             for line in csv_reader:
                 if line[1] == Type:
-                    # self.checkIfAvailable(licenseplate,leaseStart,leaseEnd)
-                    cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
+                     if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
+                        cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
             return cars_dictionary
     #def getAllAvailableCars(self,):
         # Pending further inspection #
@@ -171,8 +172,10 @@ class CarsDataAccess:
     def getTimeFrame(self,time1,time2):
         start = date(time1)
         end = date(time2)
-        timedelta = start-end
+        delta = start-end
         frame = []
         for x in range(delta.days+1):
-            frame.append(start+timedelta(x))
+            day = str(start+timedelta(x))
+            editday= day.replace("-",".")
+        return frame
 
