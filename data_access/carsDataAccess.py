@@ -1,5 +1,6 @@
 import csv
 import os
+from timedate import date, timedelta
 
 class CarsDataAccess:
     def __init__(self):
@@ -155,6 +156,7 @@ class CarsDataAccess:
             next(csv_reader)
             for line in csv_reader:
                 if line[1] == Type:
+                    # self.checkIfAvailable(licenseplate,leaseStart,leaseEnd)
                     cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
             return cars_dictionary
     #def getAllAvailableCars(self,):
@@ -165,11 +167,12 @@ class CarsDataAccess:
 
 
 
-
-    # from timedate import date, timedelta
-    # start
-    # end
-    # timedelta = start-end
-    # for x in range(delta.days+1):
-    # start+timedelta(x)
+    # gets all dates between to dates including start and end, you can also skip end #
+    def getTimeFrame(self,time1,time2):
+        start = date(time1)
+        end = date(time2)
+        timedelta = start-end
+        frame = []
+        for x in range(delta.days+1):
+            frame.append(start+timedelta(x))
 
