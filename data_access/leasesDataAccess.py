@@ -1,5 +1,6 @@
 import csv
 import os
+from datetime import date, timedelta, datetime
 
 
 class LeasesDataAccess:
@@ -37,7 +38,11 @@ class LeasesDataAccess:
         self.moveFromTempFile("leases")
 
     def addLease(self,ssn,renter,leasestart,leaseend,licensePlate):
-        newLease=[ssn,renter,leasestart,leaseend,licensePlate]
+        today = datetime.date.today()
+        if leasestart == today:
+            newLease=[ssn,renter,leasestart,leaseend,licensePlate,"active"]
+        else:
+            newLease=[ssn,renter,leasestart,leaseend,licensePlate,"inactive"]
         with open('data/cars.csv', 'a',newline="") as openfile:
                 csv_writer = csv.writer(openfile)
                 csv_writer.writerow(newLease) 
@@ -54,6 +59,9 @@ class LeasesDataAccess:
                 for line in csv_reader:
                     if ssn == line[0] and name == line[1] and licensePlate == line[4] and old_start == line[2] and old_end == line[3]:
                         new_line = [line[0],line[1],new_start,new_end,line[4]]
+                        if self.checkIfCarIsAvailable(new_start,new_end,licensePlate):
+                            # throw error
+                            return False
                         csv_writer.writerow(new_line)
                         continue
                     csv_writer.writerow(line)
@@ -75,3 +83,46 @@ class LeasesDataAccess:
 
             # removing the temp file
             os.remove("data/tempfile.csv")
+
+    def editState(self):
+        today = datetime.date.today()
+        with open("data/leases.csv","r+") as openfile:
+            csv_reader = csv.reader(openfile)
+            with open("data/tempfile.csv","w",newline="") as tempfile:
+                csv_writer = csv.writer(tempfile)
+                for line in csv_reader:
+                    if today == line[2]:
+                        new_line = [line[0],line[1],line[2],line[3],line[4],"active"]
+                        csv_writer.writerow(new_line)
+                        continue
+                    csv_writer.writerow(line)
+                openfile.truncate(0)
+            
+    
+
+    def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
+        with open("data/leases.csv","r")as checkfile:
+            csv_checker = csv.reader(checkfile)
+            frame = self.getTimeFrame(leaseStart,leaseEnd)
+            for line in csv_checker:
+                if line[4] == licensePlate:
+                    for day in frame:
+                        if line[2] == day or line[3] == day:
+                            return False
+            return True
+    
+    # gets all dates between to dates including start and end, you can also skip end #
+    def getTimeFrame(self,time1,time2):
+        start = date(time1)
+        end = date(time2)
+        delta = start-end
+        frame = []
+        for x in range(delta.days+1):
+            day = str(start+timedelta(x))
+            frame.append(day)
+        return frame
+
+
+
+    
+    

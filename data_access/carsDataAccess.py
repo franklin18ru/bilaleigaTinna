@@ -1,5 +1,6 @@
 import csv
 import os
+from datetime import date, timedelta
 
 class CarsDataAccess:
     def __init__(self):
@@ -135,17 +136,18 @@ class CarsDataAccess:
 
 
 
+    def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
+        with open("data/leases.csv","r")as checkfile:
+            csv_checker = csv.reader(checkfile)
+            frame = self.getTimeFrame(leaseStart,leaseEnd)
+            for line in csv_checker:
+                if line[4] == licensePlate:
+                    for day in frame:
+                        if line[2] == day or line[3] == day:
+                            return False
+            return True
 
-
-
-
-
-
-
-    # Availability? #
-
-    #def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
-    def getTypeCars(self,Type):
+    def getCarsType(self,Type,leaseStart,leaseEnd):
         # Get all available type cars #
         
         # Put all types in dict, license plate is the key, then check if the car is Available
@@ -155,7 +157,8 @@ class CarsDataAccess:
             next(csv_reader)
             for line in csv_reader:
                 if line[1] == Type:
-                    cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
+                     if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
+                        cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
             return cars_dictionary
     #def getAllAvailableCars(self,):
         # Pending further inspection #
@@ -165,11 +168,14 @@ class CarsDataAccess:
 
 
 
-
-    # from timedate import date, timedelta
-    # start
-    # end
-    # timedelta = start-end
-    # for x in range(delta.days+1):
-    # start+timedelta(x)
+    # gets all dates between to dates including start and end, you can also skip end #
+    def getTimeFrame(self,time1,time2):
+        start = date(time1)
+        end = date(time2)
+        delta = start-end
+        frame = []
+        for x in range(delta.days+1):
+            day = str(start+timedelta(x))
+            frame.append(day)
+        return frame
 

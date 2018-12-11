@@ -6,12 +6,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from services.login import loginVerification
 import loginUi
 import menuUi
-import orderCarUi
+import orderCarDateUi
 import returnCarUi
 import ordersUi
 import carsUi
 import pricelistUi
-# import customersUi
+import customersUi
 
 
 class MainUi(tk.Tk):
@@ -24,9 +24,9 @@ class MainUi(tk.Tk):
         container.grid_columnconfigure(0, weight = 1)
         self.frames = {}
         
-        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarUi.OrderCarUi, 
+        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarDateUi.OrderCarDateUi, 
                   returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsUi.CarsUi, 
-                  pricelistUi.PriceListUi): #Loops through and creates all frames
+                  pricelistUi.PriceListUi, customersUi.CustomersUi): #Loops through and creates all frames
             frame = F(container, self)
             self.frames[F] = frame
             

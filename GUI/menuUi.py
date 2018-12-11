@@ -4,12 +4,12 @@ import tkinter as tk
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import loginUi
 import mainUi
-import orderCarUi
+import orderCarDateUi
 import returnCarUi
 import ordersUi
 import carsUi
 import pricelistUi
-# import customersUi
+import customersUi
 
 
 class MenuUi(tk.Frame):
@@ -24,12 +24,12 @@ class MenuUi(tk.Frame):
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
         #Create buttons
-        order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchOrderCar(controller))
+        order_car = tk.Button(self,    text="1. Panta bíl", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchOrderCarDate(controller))
         return_car = tk.Button(self,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchReturnCar(controller))
         orders = tk.Button(self,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchOrders(controller))
         prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchPrice(controller)) 
         cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2,     command=lambda: switchCars(controller))
-        customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2)
+        customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2, command=lambda: switchCustomers(controller))
         back = tk.Button(self,         text="Skrá þig út", bg="#9E4848", fg="white", width=18, height=1, command=lambda: logout(controller))
 
         #################################################################################
@@ -78,8 +78,8 @@ class MenuUi(tk.Frame):
         def logout(self):
             controller.show_frame(loginUi.LoginUi)
 
-        def switchOrderCar(self):
-            controller.show_frame(orderCarUi.OrderCarUi)
+        def switchOrderCarDate(self):
+            controller.show_frame(orderCarDateUi.OrderCarDateUi)
 
         def switchReturnCar(self):
             controller.show_frame(returnCarUi.ReturnCarUi)
@@ -93,5 +93,5 @@ class MenuUi(tk.Frame):
         def switchPrice(self):
             controller.show_frame(pricelistUi.PriceListUi)
 
-        # def switchCustomers(self):
-        #     controller.show_frame(customersUi.CustomersUi)
+        def switchCustomers(self):
+            controller.show_frame(customersUi.CustomersUi)
