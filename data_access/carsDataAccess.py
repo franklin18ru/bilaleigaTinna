@@ -71,14 +71,13 @@ class CarsDataAccess:
         new_brand = newdatalist[2]
         new_model = newdatalist[3]
         new_seats = newdatalist[4]
-        new_availability = newdatalist[5]
         with open("data/cars.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if olddatalist == line:
-                        new_line = [new_licensePlate,new_type,new_brand,new_model,new_seats,new_availability]
+                        new_line = [new_licensePlate,new_type,new_brand,new_model,new_seats]
                         csv_writer.writerow(new_line)
                         continue
                     csv_writer.writerow(line)
@@ -158,7 +157,7 @@ class CarsDataAccess:
             for line in csv_reader:
                 if line[1] == Type:
                      if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
-                        cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
+                        cars_dictionary[line[0]] = (line[2],line[3],line[4])
             return cars_dictionary
     def getAvailableCars(self,leaseStart,leaseEnd):
         # Get all available type cars #
@@ -170,7 +169,7 @@ class CarsDataAccess:
             next(csv_reader)
             for line in csv_reader:
                 if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
-                    cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
+                    cars_dictionary[line[0]] = (line[2],line[3],line[4])
             return cars_dictionary
     #def getAllAvailableCars(self,):
         # Pending further inspection #
@@ -186,7 +185,7 @@ class CarsDataAccess:
         t2 = time2.split(".")
         start = date(int(t1[0]),int(t1[1]),int(t1[2]))
         end = date(int(t2[0]),int(t2[1]),int(t2[2]))
-        delta = start-end
+        delta = end-start
         frame = []
         for x in range(delta.days+1):
             day = str(start+timedelta(x))
