@@ -26,15 +26,14 @@ class PriceListUi(tk.Frame):
                         width=90,
                         height=20)
 
-        line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-
+        line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
+        line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
 
 
 
         #Create Buttons
-        edit = tk.Button(self, text="Edit", bg="white", fg="black", width=15, height=1)
+        edit = tk.Button(self, text="Edit", bg="#448F42", fg="black", width=7, height=1)
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
@@ -98,25 +97,54 @@ class PriceListUi(tk.Frame):
         label2.grid(row=7, column=3)
         line1.grid(row=2,column=3)
         line2.grid(row=10,column=3)
-        edit.grid(row=9, column= 3)
-        escape_button.grid(row=11, column=3)
+        escape_button.grid(row=11, column=0,columnspan = 4)
+        edit.grid(row=11, column=3 ,columnspan = 5)
 
 
 
 
         #position frame
+        #self.grid_rowconfigure(0, weight=2)
+        #self.grid_rowconfigure(2, weight=0)
+        #self.grid_rowconfigure(1, weight=0)
+        #self.grid_rowconfigure(4, weight=0)
+        #self.grid_rowconfigure(3, weight=1)
+        #self.grid_rowconfigure(11, weight=2)
+        #self.grid_rowconfigure(9, weight=1)
+
+        #self.grid_rowconfigure(12, weight=3)
+
+        #self.grid_columnconfigure(0, weight=10)
+        #self.grid_columnconfigure(6, weight=10)
+
+
         self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
-        self.grid_rowconfigure(4, weight=0)
+        self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
-        self.grid_rowconfigure(11, weight=2)
+        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
 
         self.grid_rowconfigure(12, weight=3)
 
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(7, weight=1)
+
+
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(7, weight=2)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
