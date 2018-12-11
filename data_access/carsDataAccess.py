@@ -160,6 +160,18 @@ class CarsDataAccess:
                      if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
                         cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
             return cars_dictionary
+    def getAvailableCars(self,leaseStart,leaseEnd):
+        # Get all available type cars #
+        
+        # Put all types in dict, license plate is the key, then check if the car is Available
+        cars_dictionary = dict()
+        with open("data/cars.csv","r") as openfile:
+            csv_reader = csv.reader(openfile)
+            next(csv_reader)
+            for line in csv_reader:
+                if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
+                    cars_dictionary[line[0]] = (line[2],line[3],line[4],line[5])
+            return cars_dictionary
     #def getAllAvailableCars(self,):
         # Pending further inspection #
 

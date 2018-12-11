@@ -1,4 +1,5 @@
 import tkinter as tk
+from data_access import carsDataAccess
 
 class OrderCarDateUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -17,8 +18,8 @@ class OrderCarDateUi(tk.Frame):
         end = tk.Label(self, text="Frá (dd.mm.yyyy): ",bg="#5A6D7C",fg="white")
 
         #Create entry fields
-        startInput = tk.Entry(self, width=20, font=("Courier", 20)) #input for the date, should be on format 'dd.mm.yyyy'
-        endInput = tk.Entry(self, width=20, font=("Courier", 20)) #same ^^
+        self.startInput = tk.Entry(self, width=20, font=("Courier", 20)) #input for the date, should be on format 'dd.mm.yyyy'
+        self.endInput = tk.Entry(self, width=20, font=("Courier", 20)) #same ^^
 
 
         #Create buttons
@@ -44,9 +45,9 @@ class OrderCarDateUi(tk.Frame):
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
         start.grid(row=4, column=2)
-        startInput.grid(row=4, column=3)
+        self.startInput.grid(row=4, column=3)
         end.grid(row=5, column=2)
-        endInput.grid(row=5, column=3)
+        self.endInput.grid(row=5, column=3)
         confirm.grid(row=10, column=4)
         back.grid(row=10, column=2)
         line1.grid(row=2,column=3)
@@ -65,6 +66,10 @@ class OrderCarDateUi(tk.Frame):
         self.grid_columnconfigure(0, weight=10)
         self.grid_columnconfigure(6, weight=10)
 
+        def getCarsByDate(self):
+            startInput = self.startInput.get()
+            endInput = self.endInput.get()
 
-
+            cars = carsDataAccess.CarsDataAccess()
+            cars.getAvailableCars(startInput, endInput)
         ################################################################################
