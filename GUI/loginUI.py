@@ -67,10 +67,10 @@ class LoginUi(tk.Frame):
         if verification == False:
             try:
                 self.error.destroy()
-                self.error = tk.Label(self, text="Rangt starfsnúmer eða lykilorð", bg="red", fg="white",font=("Courier",14))
+                self.error = tk.Label(self, text="Rangt starfsnúmer eða lykilorð", bg="#9E4848", fg="white",font=("Courier",14))
                 self.error.pack()
             except Exception:
-                self.error = tk.Label(self, text="Rangt starfsnúmer eða lykilorð", bg="red", fg="white",font=("Courier",14))
+                self.error = tk.Label(self, text="Rangt starfsnúmer eða lykilorð", bg="#9E4848", fg="white",font=("Courier",14))
                 self.error.pack()
         elif verification == True:
             try:
