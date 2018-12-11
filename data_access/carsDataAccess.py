@@ -185,7 +185,7 @@ class CarsDataAccess:
         t2 = time2.split(".")
         start = date(int(t1[0]),int(t1[1]),int(t1[2]))
         end = date(int(t2[0]),int(t2[1]),int(t2[2]))
-        delta = start-end
+        delta = end-start
         frame = []
         for x in range(delta.days+1):
             day = str(start+timedelta(x))

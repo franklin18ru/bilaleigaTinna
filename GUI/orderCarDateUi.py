@@ -24,7 +24,7 @@ class OrderCarDateUi(tk.Frame):
 
         #Create buttons
         back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
-        confirm = tk.Button(self, text="Staðfesta", bg="#C8C8C8", fg="black", width=18, height=1)
+        confirm = tk.Button(self, text="Staðfesta", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda:getCarsByDate(self))
 
         #################################################################################
 
@@ -70,6 +70,6 @@ class OrderCarDateUi(tk.Frame):
             startInput = self.startInput.get()
             endInput = self.endInput.get()
 
-            cars = carsDataAccess.CarsDataAccess()
-            cars.getAvailableCars(startInput, endInput)
+            cars1 = carsDataAccess.CarsDataAccess()
+            cars = cars1.getAvailableCars(startInput, endInput)
         ################################################################################
