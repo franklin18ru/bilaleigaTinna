@@ -15,10 +15,11 @@ class CarsUi(tk.Frame):
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label2 = tk.Label(self, text="Bílar",bg="#5A6D7C",fg="white") 
 
+        line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
+        line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
-        line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=18, height=1, command=lambda: esc(controller))
+
+        back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
         option_frame = tk.Frame(self)#trying to make a scroll-able frame for all the cars, wont work
 
@@ -54,7 +55,7 @@ class CarsUi(tk.Frame):
         # positioning everything on the screen
         bilaleigaTinna.grid(row=1, column=3)
         label2.grid(row=3,column=3)
-        back.grid(row=10, column=3)
+        back.grid(row=10, column=0,columnspan = 4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
         
