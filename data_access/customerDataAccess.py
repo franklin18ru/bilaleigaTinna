@@ -90,9 +90,6 @@ class CustomerDataAccess:
         # the original file to edit #
         old_ssn = old_Customerdata[0]
         old_name = old_Customerdata[1]
-        old_birthdate = old_Customerdata[2]
-        old_phone = old_Customerdata[3]
-        old_email = old_Customerdata[4]
         new_ssn =  new_Customerdata[0]
         new_name =  new_Customerdata[1]
         new_birthday =  new_Customerdata[2]
@@ -103,7 +100,7 @@ class CustomerDataAccess:
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if old_ssn == line[0] and old_name == line[1] and old_birthdate == line[2] and old_phone == line[3] and old_email == line[4]: 
+                    if old_Customerdata == line: 
                         new_line = [new_ssn,new_name,new_birthday,new_phone,new_email]
                         csv_writer.writerow(new_line)
                         continue

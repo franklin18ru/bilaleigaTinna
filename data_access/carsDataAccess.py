@@ -65,11 +65,6 @@ class CarsDataAccess:
         # the original file to edit #
         # if license plate is edited then all the lease under that license plate must be edited #
         old_licensePlate = olddatalist[0]
-        old_type = olddatalist[1]
-        old_brand = olddatalist[2]
-        old_model = olddatalist[3]
-        old_seats = olddatalist[4]
-        old_availability = olddatalist[5]
         new_licensePlate = newdatalist[0]
         new_type = newdatalist[1]
         new_brand = newdatalist[2]
@@ -81,7 +76,7 @@ class CarsDataAccess:
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if old_licensePlate == line[0] and old_type == line[1] and old_brand == line[2] and old_model == line[3] and old_seats == line[4] and old_availability == line[5]:
+                    if olddatalist == line:
                         new_line = [new_licensePlate,new_type,new_brand,new_model,new_seats,new_availability]
                         csv_writer.writerow(new_line)
                         continue
