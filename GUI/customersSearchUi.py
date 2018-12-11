@@ -11,10 +11,10 @@ root.geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
 
 bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-customer = Label(root, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
 line1 = Label(root, text="_______________________________",bg="#5A6D7C",fg="white")
+customer = Label(root, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
 
-name_ssn = Label(root, text="Sláðu inn nafn/kennitölu viðskiptavinar",bg="#5A6D7C",fg="white")
+name_ssn = Label(root, text="Sláðu inn nafn/kennitölu \nviðskiptavinar",bg="#5A6D7C",fg="white")
 user_input = Entry(root, width=20, font=("Courier", 20))
 
 line2 = Label(root, text="_______________________________",bg="#5A6D7C",fg="white")
@@ -23,72 +23,31 @@ line2 = Label(root, text="_______________________________",bg="#5A6D7C",fg="whit
 #Create Buttons
 escape_button = Button(root, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
 confirm = Button(root, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
-with open('data/customers.csv', 'r', newline="") as customers:
-    csv_reader = csv.reader(customers)
-    next(csv_reader)
-    row_num = 5
-    column_num = 0
-    counter = 0
-    for item in csv_reader:
-        label3 = Label(root, text=item[0],bg="#5A6D7C",fg="white",width=22, height=2)
-        label3.config(font=("Courier", 16))
-        label3.grid(row = row_num, column=column_num)
-
-        label4 = Label(root, text=item[1],bg="#5A6D7C",fg="white", width=22, height=2)
-        label4.config(font=("Courier", 16))
-        label4.grid(row = row_num, column=column_num+1)
-
-        label5 = Label(root, text=item[2],bg="#5A6D7C",fg="white", width=22, height=2)
-        label5.config(font=("Courier", 16))
-        label5.grid(row = row_num, column=column_num+2)
-
-        label6 = Label(root, text=item[3],bg="#5A6D7C",fg="white", width=22, height=2)
-        label6.config(font=("Courier", 16))
-        label6.grid(row = row_num, column=column_num+3)
-
-
-
-
-
-        row_num += 1
-
-    #column_num += 1
-
-
-
-        
 
 
 #configure labels
 bilaleigaTinna.config(font=("Courier", 32))
 customer.config(font=("Courier", 28))
-full_name.config(font=("Courier", 16))
-ssn.config(font=("Courier", 16))
-email.config(font=("Courier", 16))
-phone_number.config(font=("Courier", 16))
+name_ssn.config(font=("Courier", 16))
+user_input.config(font=("Courier", 16))
 
 line1.config(font=("Courier", 28))
 line2.config(font=("Courier", 28))
-edit.config( font=("Courier", 16))
+confirm.config( font=("Courier", 16))
 escape_button.config( font=("Courier", 16))
 
 
-
-
-
-#Position widgets
-
 #labels
 bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
-customer.grid(row=3, column=0, columnspan = 8)
-full_name.grid(row=4, column=0)
-ssn.grid(row=4,column=1)
-email.grid(row=4,column=2)
-phone_number.grid(row=4,column=3)
 line1.grid(row=2, column=0,columnspan = 8)
+customer.grid(row=3, column=0, columnspan = 8)
+
+name_ssn.grid(row=4, column=0)
+user_input.grid(row=4,column=1)
+
 line2.grid(row=10,column =0, columnspan = 8)
 
-edit.grid(row=11, column= 2, columnspan = 2 )
+confirm.grid(row=11, column= 2, columnspan = 2 )
 escape_button.grid(row=11, column=0, columnspan = 3)
 
 
