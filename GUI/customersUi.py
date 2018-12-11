@@ -11,10 +11,6 @@ class CustomersUi(tk.Frame):
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
 
-
-
-
-
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         customer = tk.Label(self, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
         full_name = tk.Label(self, text="Nafn",bg="#5A6D7C",fg="white")
@@ -28,7 +24,8 @@ class CustomersUi(tk.Frame):
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=   
                                                                                                                      lambda:esc(controller))
-        edit = tk.Button(self, text="Edit", bg="#448F42", fg="black", width=7, height=1)
+        edit = tk.Button(self, text="Breyta/uppfæra", bg="#448F42", fg="white", width=7, height=1)
+        search = tk.Button(self, text="Leita af viðskiptavini", bg="white", fg="black", width=15, height=1)
         with open('data/customers.csv', 'r', newline="") as customers:
             csv_reader = csv.reader(customers)
             next(csv_reader)
@@ -52,18 +49,9 @@ class CustomersUi(tk.Frame):
                 tk.label6.config(font=("Courier", 16))
                 tk.label6.grid(row = row_num, column=column_num+3)
 
-
-
-
-
                 row_num += 1
 
             #column_num += 1
-
-
-
-                
-
 
         #configure tk.labels
         bilaleigaTinna.config(font=("Courier", 32))
@@ -77,10 +65,7 @@ class CustomersUi(tk.Frame):
         line2.config(font=("Courier", 28))
         edit.config( font=("Courier", 16))
         escape_button.config( font=("Courier", 16))
-
-
-
-
+        search.config(font=("Courier", 16))
 
         #Position widgets
 
@@ -96,12 +81,10 @@ class CustomersUi(tk.Frame):
 
         edit.grid(row=11, column= 2, columnspan = 2 )
         escape_button.grid(row=11, column=0, columnspan = 3)
-
-
+        search.grid(row=11, column=1)
 
 
         #position frame
-
         self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
@@ -109,10 +92,7 @@ class CustomersUi(tk.Frame):
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-
         self.grid_rowconfigure(12, weight=3)
-
-
 
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
