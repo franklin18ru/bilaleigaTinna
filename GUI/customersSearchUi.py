@@ -10,11 +10,6 @@ root.configure(bg="#5A6D7C") # Changes background color of frame
 root.geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
 
-
-
-
-
-
 bilaleigaTinna = Label(root, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
 customer = Label(root, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
 line1 = Label(root, text="_______________________________",bg="#5A6D7C",fg="white")
