@@ -1,5 +1,7 @@
 import tkinter as tk
 from data_access import carsDataAccess
+import mainUi
+import orderCarUi
 
 class OrderCarDateUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -24,7 +26,7 @@ class OrderCarDateUi(tk.Frame):
 
         #Create buttons
         back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
-        confirm = tk.Button(self, text="Staðfesta", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda:getCarsByDate(self))
+        confirm = tk.Button(self, text="Staðfesta", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda:getCarsByDate(self, controller))
 
         #################################################################################
 
@@ -66,10 +68,11 @@ class OrderCarDateUi(tk.Frame):
         self.grid_columnconfigure(0, weight=10)
         self.grid_columnconfigure(6, weight=10)
 
-        def getCarsByDate(self):
+        def getCarsByDate(self, controller):
             startInput = self.startInput.get()
             endInput = self.endInput.get()
-
             cars1 = carsDataAccess.CarsDataAccess()
-            cars = cars1.getAvailableCars(startInput, endInput)
+            self.cars = cars1.getAvailableCars(startInput, endInput)
+            controller.show_frame(orderCarUi.OrderCarUi)
+
         ################################################################################

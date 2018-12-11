@@ -34,7 +34,7 @@ class OrderCarMenuCarsUi(tk.Frame):
             counter = 0
             for item in csv_reader:
                 if item[1] == "Jeppi": #Here "Jeppi" should change to what the user selected on the site before
-                    label1 = Button(option_frame, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
+                    label1 = tk.Button(option_frame, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
                     label1.config(font=("Courier", 16))
                     label1.grid(row = row_num, column=column_num)
                     counter += 1
