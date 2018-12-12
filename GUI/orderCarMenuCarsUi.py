@@ -31,7 +31,7 @@ class OrderCarMenuCarsUi(tk.Frame):
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
 
-        self.option_frame = tk.Frame(self)#trying to make a scroll-able frame for all the cars, wont work
+        #self.option_frame = tk.Frame(self)#trying to make a scroll-able frame for all the cars, wont work
 
         testButton = tk.Button(self, text="test", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda:self.showCars(controller))
         
@@ -66,12 +66,12 @@ class OrderCarMenuCarsUi(tk.Frame):
         self.grid_rowconfigure(11, weight=5)
         self.grid_columnconfigure(0, weight=10)
         self.grid_columnconfigure(6, weight=10)
-        self.option_frame.grid_columnconfigure(0, weight=10)
-        self.option_frame.grid_columnconfigure(6, weight=10)
-        self.option_frame.grid_rowconfigure(0, weight=3)
-        self.option_frame.grid_rowconfigure(1, weight=0)
-        self.option_frame.grid_rowconfigure(3, weight=1)
-        self.option_frame.grid_rowconfigure(5, weight=2)
+        # self.option_frame.grid_columnconfigure(0, weight=10)
+        # self.option_frame.grid_columnconfigure(6, weight=10)
+        # self.option_frame.grid_rowconfigure(0, weight=3)
+        # self.option_frame.grid_rowconfigure(1, weight=0)
+        # self.option_frame.grid_rowconfigure(3, weight=1)
+        # self.option_frame.grid_rowconfigure(5, weight=2)
 
 
 
@@ -90,7 +90,7 @@ class OrderCarMenuCarsUi(tk.Frame):
                 row_num += 1
                 counter = 0
                 column_num = 2   
-            label1.grid(row=8, column=3)
+            #label1.grid(row=8, column=3)
             #option_frame.pack(fill="x",side="top")
 
     
