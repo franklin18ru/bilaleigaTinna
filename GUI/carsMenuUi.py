@@ -45,22 +45,32 @@ class CarsMenuUi(tk.Frame):
         search_car.grid(row=4, column=3)
         all_cars.grid(row=5, column=3)
         add_car.grid(row=6, column=3)
-        escape_button.grid(row=10, column=3)
+        escape_button.grid(row=10, column= 0,columnspan = 4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
 
 
         #position frame
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_rowconfigure(2, weight=1)
+        self.grid_rowconfigure(0, weight=2)
+        self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
-        self.grid_rowconfigure(4, weight=1)
-        self.grid_rowconfigure(3, weight=0)
-        self.grid_rowconfigure(11, weight=2)
+        #self.grid_rowconfigure(4, weight=1)
+        self.grid_rowconfigure(3, weight=1)
+        self.grid_rowconfigure(5, weight=1)
+
+        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(7, weight=1)
+
+        self.grid_rowconfigure(12, weight=3)
+
+
+
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(7, weight=2)
+
+
+       
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
