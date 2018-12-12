@@ -1,5 +1,8 @@
 import tkinter as tk
 import menuUi
+import carsSearchUi
+import carsUi
+import carsAddCarUi
 
 #ke
 class CarsMenuUi(tk.Frame):
@@ -16,16 +19,10 @@ class CarsMenuUi(tk.Frame):
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
         #Create Buttons
-        search_car = tk.Button(self,    text="1. Leita af bíl", bg="#424242", fg="white", width=22, height=3)
-        all_cars = tk.Button(self,   text="2. Allir bílar", bg="#424242", fg="white", width=22, height=3)
-        add_car = tk.Button(self,text="2. Bæta við bíl", bg="#424242", fg="white", width=22, height=3)
+        search_car = tk.Button(self,    text="1. Leita af bíl", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCarsSearch(controller))
+        all_cars = tk.Button(self,   text="2. Allir bílar", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCars(controller))
+        add_car = tk.Button(self,text="2. Bæta við bíl", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCarsAddCar(controller))
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-
-        #ef klikkað er á "Leita eftir viðskiptavini" þá keyrist upp orders_search_customerUi skjalið
-        #ef klikkað er á "Leita eftir bíl" þá keyrist upp orders_search_customerUi nema með öðruvísi texta
-        #ef klikað er  á "Allar pantanir" ________________________________''_______________________________
-
-
 
 
         #configure labels
@@ -67,3 +64,14 @@ class CarsMenuUi(tk.Frame):
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
+
+        def switchCarsSearch(self):
+            controller.show_frame(carsSearchUi.CarsSearchUi)
+
+        def switchCars(self):
+            controller.show_frame(carsUi.CarsUi)
+
+        def switchCarsAddCar(self):
+            controller.show_frame(carsAddCarUi.CarsAddCarUi)
+
+
