@@ -1,4 +1,5 @@
 import tkinter as tk
+import menuUi
 
 class ReturnCarReturnUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -8,6 +9,7 @@ class ReturnCarReturnUi(tk.Frame):
         self.winfo_toplevel().configure(bg="#5A6D7C") # Changes background color of frame
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
+        grey_frame = tk.Frame(self, bg="#3F4A52")
 
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         renter = tk.Label(grey_frame, text="Leigjandi",bg="#3F4A52",fg="white")
@@ -70,6 +72,5 @@ class ReturnCarReturnUi(tk.Frame):
 
 
         def returnCar(self,Controller):
-            pass
-            #controller.returnOrder.returnCar(controller.returnOrder.,licensePlatecontroller.returnOrder.orderStart,controller.returnOrder.orderEnd)
-            #contorller.show_frame(mainUi.MainUi)
+            controller.returnOrder.returnCar(controller.returnOrder.licensePlate,controller.returnOrder.orderStart,controller.returnOrder.orderEnd)
+            controller.show_frame(menuUi.MenuUi)
