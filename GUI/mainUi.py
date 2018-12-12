@@ -34,13 +34,7 @@ class MainUi(tk.Tk):
         for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarDateUi.OrderCarDateUi, 
                   returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsMenuUi.CarsMenuUi, 
                   pricelistUi.PriceListUi, customersUi.CustomersUi, orderCarUi.OrderCarUi, orderCarMenuCarsUi.OrderCarMenuCarsUi, carsUi.CarsUi, 
-<<<<<<< HEAD
-                  carsSearchUi.CarsSearchUi, carsAddCarUi.CarsAddCarUi): #Loops through and creates all frames
-
-                  carsSearchUi.CarsSearchUi, returnCarReturnUi.ReturnCarReturnUi): #Loops through and creates all frames
-=======
                   carsSearchUi.CarsSearchUi, returnCarReturnUi.ReturnCarReturnUi, carsAddCarUi.CarsAddCarUi): #Loops through and creates all frames
->>>>>>> ebed84af8bca5d39657746f306b31da26ea360bb
                   
             frame = F(container, self)
             self.frames[F] = frame
