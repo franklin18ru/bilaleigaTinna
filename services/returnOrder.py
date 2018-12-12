@@ -27,8 +27,8 @@ class ReturnOrder:
                 return [key,value]
                 
 
-    def returnCar(self,licensePlate,orderStart,orderEnd):
-        self.carDataAccess.returnCar(licensePlate,orderStart,orderEnd)
+    def returnCar(self):
+        self.carDataAccess.returnCar(self.licensePlate,self.orderStart,self.orderEnd)
 
         
                 
