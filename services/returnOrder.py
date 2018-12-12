@@ -5,7 +5,7 @@ from data_access import carsDataAccess
 from data_access import leasesDataAccess
 
 class ReturnOrder:
-    def __init(self,licensePlate):
+    def __init__(self,licensePlate):
         self.carDataAccess = carsDataAccess.CarsDataAccess()
         self.car = self.getCar(licensePlate)
         self.leaseDataAccess = leasesDataAccess.LeasesDataAccess()
