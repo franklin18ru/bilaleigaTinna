@@ -83,7 +83,7 @@ class ReturnCarUi(tk.Frame):
         
         def getCarByLicensePlate(self,controller):
             licensePlate = self.license_plateInput.get()
-            controller.returnCar = returnOrder.ReturnOrder(licensePlate)
+            self.returnCar = returnOrder.ReturnOrder(licensePlate)
             controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
 
 
