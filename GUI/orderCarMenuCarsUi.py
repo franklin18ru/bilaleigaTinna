@@ -33,23 +33,19 @@ class OrderCarMenuCarsUi(tk.Frame):
 
 
         #Open the cars file and printing the content in buttons
-        with open('data/cars.csv', 'r', newline="") as cars:
-            csv_reader = csv.reader(cars)
-            next(csv_reader)
-            row_num = 4
-            column_num = 2
-            counter = 0
-            for item in csv_reader:
-                if item[1] == "Jeppi": #Here "Jeppi" should change to what the user selected on the site before
-                    label1 = tk.Button(option_frame, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
-                    label1.config(font=("Courier", 16))
-                    label1.grid(row = row_num, column=column_num)
-                    counter += 1
-                    column_num += 1
-                    if counter == 3:
-                        row_num += 1
-                        counter = 0
-                        column_num = 2   
+        row_num = 4
+        column_num = 2
+        counter = 0
+        # for item in controller.order.cars:
+        #     label1 = tk.Button(option_frame, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
+        #     label1.config(font=("Courier", 16))
+        #     label1.grid(row = row_num, column=column_num)
+        #     counter += 1
+        #     column_num += 1
+        #     if counter == 3:
+        #         row_num += 1
+        #         counter = 0
+        #         column_num = 2   
             #option_frame.pack(fill="x",side="top")
 
         # configure labels

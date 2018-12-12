@@ -73,6 +73,7 @@ class OrderCarDateUi(tk.Frame):
             startInput = self.startInput.get()
             endInput = self.endInput.get()
             order = makeOrder.GetCars(startInput, endInput)
+            controller.createOrder(order)
             controller.show_frame(orderCarUi.OrderCarUi)
             
 

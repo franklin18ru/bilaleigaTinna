@@ -13,6 +13,7 @@ import carsMenuUi
 import pricelistUi
 import customersUi
 import orderCarUi
+import orderCarMenuCarsUi
 
 #ko
 class MainUi(tk.Tk):
@@ -27,7 +28,7 @@ class MainUi(tk.Tk):
         
         for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarDateUi.OrderCarDateUi, 
                   returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsMenuUi.CarsMenuUi, 
-                  pricelistUi.PriceListUi, customersUi.CustomersUi, orderCarUi.OrderCarUi): #Loops through and creates all frames
+                  pricelistUi.PriceListUi, customersUi.CustomersUi, orderCarUi.OrderCarUi, orderCarMenuCarsUi.OrderCarMenuCarsUi): #Loops through and creates all frames
             frame = F(container, self)
             self.frames[F] = frame
             
@@ -38,6 +39,11 @@ class MainUi(tk.Tk):
     def show_frame(self, cont):
         frame = self.frames[cont]
         frame.tkraise() #Displays the frames that's called for.
+    
+    def createOrder(self, order):
+        self.order = order
+
+    
 
 if __name__ == "__main__":
     app = MainUi() 
