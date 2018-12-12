@@ -1,6 +1,7 @@
 import tkinter as tk
 import menuUi
 from services import returnOrder
+import returnCarReturnUi
 
 
 class ReturnCarUi(tk.Frame):
@@ -82,8 +83,7 @@ class ReturnCarUi(tk.Frame):
         
         def getCarByLicensePlate(self,controller):
             licensePlate = self.license_plateInput.get()
-            returnCar = returnOrder.ReturnOrder(licensePlate)
-            #controller.createReturn(returnCar)
-            #controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
+            controller.returnCar = returnOrder.ReturnOrder(licensePlate)
+            controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
 
 
