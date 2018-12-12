@@ -99,7 +99,7 @@ class CarsDataAccess:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if old_licensePlate == line[4]:
-                        new_line = [line[0],line[1],line[2],line[3],new_licensePlate]
+                        new_line = [line[0],line[1],line[2],line[3],new_licensePlate,line[5]]
                         csv_writer.writerow(new_line)
                         continue
                     csv_writer.writerow(line)
@@ -159,6 +159,7 @@ class CarsDataAccess:
                      if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
                         cars_dictionary[line[0]] = (line[2],line[3],line[4])
             return cars_dictionary
+
     def getAvailableCars(self,leaseStart,leaseEnd):
         # Get all available type cars #
         
@@ -172,7 +173,21 @@ class CarsDataAccess:
                     cars_dictionary[line[0]] = (line[1],line[2],line[3],line[4])
             return cars_dictionary
 
-    #def returnCar(self):
+    def returnCar(self,licensePlate,leaseStart,leaseEnd):
+        with open("data/leases.csv","r+") as openfile:
+            csv_reader = csv.reader(openfile)
+            with open("data/tempfile.csv","w",newline="") as tempfile:
+                csv_writer = csv.writer(tempfile)
+                for line in csv_reader:
+                    if licensePlate == line[4] and leaseStart == line[2] and leaseEnd == line[3]:
+                        new_line = [line[0],line[1],line[2],line[3],line[4],"completed"]
+                        csv_writer.writerow(new_line)
+                        continue
+                    csv_writer.writerow(line)
+                openfile.truncate(0)
+
+        # the data back to the original file
+        self.moveFromTempFile("leases")
 
 
 
