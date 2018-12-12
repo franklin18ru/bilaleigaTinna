@@ -14,6 +14,7 @@ import pricelistUi
 import customersUi
 import orderCarUi
 
+#ko
 class MainUi(tk.Tk):
     def __init__(self, *args, **kwargs):
         #Creates Frame.
