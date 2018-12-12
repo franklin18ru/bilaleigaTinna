@@ -1,4 +1,6 @@
 import tkinter as tk
+import csv
+import carsMenuUi
 
 
 class CarsAddCarUi(tk.Frame):
@@ -40,7 +42,7 @@ class CarsAddCarUi(tk.Frame):
 
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1,command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="white", fg="black", width=15, height=1)
 
 
@@ -99,3 +101,8 @@ class CarsAddCarUi(tk.Frame):
 
         self.grid_columnconfigure(0, weight=10)
         self.grid_columnconfigure(6, weight=10)
+
+        
+        
+        def esc(self):
+            controller.show_frame(carsMenuUi.CarsMenuUi)
