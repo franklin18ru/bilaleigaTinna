@@ -1,6 +1,8 @@
 import tkinter as tk
+import csv
+import carsMenuUi
 
-class carsSearchUi(tk.Frame):
+class CarsSearchUi(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
         screen_width = self.winfo_screenwidth() #Gets the screen width
@@ -19,7 +21,7 @@ class carsSearchUi(tk.Frame):
         #Create the entry fields
         carInput = tk.Entry(self, width=20, font=("Courier", 20))
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1, command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="white", fg="black", width=15, height=1)
 
 
@@ -53,3 +55,7 @@ class carsSearchUi(tk.Frame):
         self.grid_rowconfigure(9, weight=1)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=3)
+
+
+        def esc(self):
+            controller.show_frame(carsMenuUi.CarsMenuUi)
