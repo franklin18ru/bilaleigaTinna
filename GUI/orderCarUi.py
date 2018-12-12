@@ -1,6 +1,8 @@
 import tkinter as tk
 import menuUi
 import orderCarDateUi
+import orderCarMenuCarsUi
+from services import makeOrder
 
 class OrderCarUi(tk.Frame):
 #create frame
@@ -18,12 +20,12 @@ class OrderCarUi(tk.Frame):
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
         #Create buttons
-        jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2)
-        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2)
-        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2)
-        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2)
-        all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2)
-        back = tk.Button(self, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1, command=lambda: esc(controller))
+        jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
+        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabíll")
+        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: chooseCar(controller,"Fólksbíll")
+        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: chooseCar(controller,"Lúxusbíll")
+        all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2,  command=lambda: chooseCar(controller,"")
+        back = tk.Button(self, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1,       command=lambda: esc(controller))
 
         #################################################################################
 
@@ -71,4 +73,7 @@ class OrderCarUi(tk.Frame):
         def esc(self):
             controller.show_frame(orderCarDateUi.OrderCarDateUi)
 
+        def showCar(self, carType):
+            makeOrder.makeOrderType(carType)
+            controller.show_frame(orderCarMenuCarsUi.OrderCarMenuCarsUi)
         #################################################################################

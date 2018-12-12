@@ -2,6 +2,7 @@ import tkinter as tk
 from data_access import carsDataAccess
 import mainUi
 import orderCarUi
+from services import makeOrder
 
 class OrderCarDateUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -71,8 +72,8 @@ class OrderCarDateUi(tk.Frame):
         def getCarsByDate(self, controller):
             startInput = self.startInput.get()
             endInput = self.endInput.get()
-            cars1 = carsDataAccess.CarsDataAccess()
-            self.cars = cars1.getAvailableCars(startInput, endInput)
+            order = makeOrder.GetCars(startInput, endInput)
             controller.show_frame(orderCarUi.OrderCarUi)
+            
 
         ################################################################################
