@@ -1,5 +1,6 @@
 import tkinter as tk
 import menuUi
+from services import returnOrder
 
 
 class ReturnCarUi(tk.Frame):
@@ -22,13 +23,13 @@ class ReturnCarUi(tk.Frame):
 
 
         #Create the entry fields
-        license_plateInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.license_plateInput = tk.Entry(self, width=20, font=("Courier", 20))
 
 
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: getCarByLicensePlate(self,controller))
 
 
 
@@ -57,7 +58,7 @@ class ReturnCarUi(tk.Frame):
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
-        license_plateInput.grid(row=5, column=3)
+        self.license_plateInput.grid(row=5, column=3)
 
 
         self.grid_rowconfigure(0, weight=2)
@@ -78,5 +79,11 @@ class ReturnCarUi(tk.Frame):
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
+        
+        def getCarByLicensePlate(self,controller):
+            licensePlate = self.license_plateInput.get()
+            returnCar = returnOrder.ReturnOrder(licensePlate)
+            #controller.createReturn(returnCar)
+            #controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
 
 

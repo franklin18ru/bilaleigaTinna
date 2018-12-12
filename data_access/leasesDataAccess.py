@@ -18,7 +18,8 @@ class LeasesDataAccess:
                 leaseStart = line[2]
                 leaseEnd = line[3]
                 licensePlate = line[4]
-                lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate)
+                state = line[5]
+                lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate,state)
             return lease_dictionary
 
     def deleteLease(self,ssn,leaseStart,licensePlate):
