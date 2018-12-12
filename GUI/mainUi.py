@@ -50,6 +50,9 @@ class MainUi(tk.Tk):
     def createOrder(self, order):
         self.order = order
 
+    def returnCarOrder(self, carReturn):
+        self.carReturn = carReturn
+
 
     
 

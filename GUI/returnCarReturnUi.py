@@ -22,7 +22,7 @@ class ReturnCarReturnUi(tk.Frame):
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
-        return_button = tk.Button(self, text="Skila", bg="#448F42", fg="white", width=15, height=1, command=lambda: returnCar(self,controller))
+        return_button = tk.Button(self, text="Skila", bg="#448F42", fg="white", width=15, height=1, command=lambda: returnCarButton(self,controller))
 
 
 
@@ -71,6 +71,6 @@ class ReturnCarReturnUi(tk.Frame):
         self.grid_columnconfigure(6, weight=10)
 
 
-        def returnCar(self,controller):
-            controller.returnCar(controller.returnOrder.licensePlate,controller.returnOrder.orderStart,controller.returnOrder.orderEnd)
+        def returnCarButton(self,controller):
+            controller.carReturn.returnCar()
             controller.show_frame(menuUi.MenuUi)
