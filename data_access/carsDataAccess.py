@@ -169,7 +169,7 @@ class CarsDataAccess:
             next(csv_reader)
             for line in csv_reader:
                 if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
-                    cars_dictionary[line[0]] = (line[2],line[3],line[4])
+                    cars_dictionary[line[0]] = (line[1],line[2],line[3],line[4])
             return cars_dictionary
 
     #def returnCar(self):

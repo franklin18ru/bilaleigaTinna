@@ -1,8 +1,12 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
 import menuUi
 import orderCarDateUi
 import orderCarMenuCarsUi
 from services import makeOrder
+from GUI import mainUi
 
 class OrderCarUi(tk.Frame):
 #create frame
@@ -74,8 +78,8 @@ class OrderCarUi(tk.Frame):
             controller.show_frame(orderCarDateUi.OrderCarDateUi)
 
         def chooseCar(self, carType):
-            self.order.getCarsByType(carType)
-
+            controller.order.getCarsByType(carType)
             controller.show_frame(orderCarMenuCarsUi.OrderCarMenuCarsUi)
+            
             
         #################################################################################

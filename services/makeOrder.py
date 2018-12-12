@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data_access import carsDataAccess
 class GetCars():
     def __init__(self, leaseStart, leaseEnd):
@@ -8,9 +11,9 @@ class GetCars():
 
     def getCarsByType(self, carType):
         self.cars = []
-        for item in self.availableCars:
-            if item in carType:
-                self.cars.append(item)
+        for key, value in self.availableCars.items():
+            if value[0] in carType:
+                self.cars.append(value[1])
         
 
 

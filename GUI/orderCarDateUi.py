@@ -1,6 +1,9 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
 from data_access import carsDataAccess
-import mainUi
+from GUI import mainUi
 import orderCarUi
 from services import makeOrder
 
