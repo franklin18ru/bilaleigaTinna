@@ -7,11 +7,11 @@ import mainUi
 import orderCarDateUi
 import returnCarUi
 import ordersUi
-import carsUi
+import carsMenuUi
 import pricelistUi
 import customersUi
 
-
+#ke
 class MenuUi(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
@@ -28,9 +28,9 @@ class MenuUi(tk.Frame):
         return_car = tk.Button(self,   text="2. Skila bíl", bg="#424242", fg="white", width=22, height=2, command=lambda: switchReturnCar(controller))
         orders = tk.Button(self,       text="3. Pantanir", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchOrders(controller))
         prices = tk.Button(self,       text="4. Verðskrá", bg="#424242", fg="white", width=22, height=2,  command=lambda: switchPrice(controller)) 
-        cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2,     command=lambda: switchCars(controller))
+        cars = tk.Button(self,         text="5. Bílar", bg="#424242", fg="white", width=22, height=2,     command=lambda: switchCarsMenu(controller))
         customers = tk.Button(self,    text="6. Viðskiptavinir", bg="#424242", fg="white", width=22, height=2, command=lambda: switchCustomers(controller))
-        back = tk.Button(self,         text="Skrá þig út", bg="#9E4848", fg="white", width=18, height=1, command=lambda: logout(controller))
+        back = tk.Button(self,         text="Útskráning", bg="#9E4848", fg="white", width=15, height=2, command=lambda: logout(controller))
 
         #################################################################################
 
@@ -51,28 +51,29 @@ class MenuUi(tk.Frame):
         #Position widgets
 
         #labels
-        bilaleigaTinna.grid(row=1, column=3)
-        label1.grid(row=3, column=3)
-        order_car.grid(row=4, column=2)
-        return_car.grid(row=4, column=3)
-        orders.grid(row=4, column=4)
-        prices.grid(row=8, column=2)
-        cars.grid(row=8, column=3)
-        customers.grid(row=8, column=4)
-        back.grid(row=10, column=3)
-        line1.grid(row=2,column=3)
-        line2.grid(row=9,column=3)
+        bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
+        label1.grid(row=3, column=0, columnspan = 8)
+        order_car.grid(row=4, column=0, columnspan = 5)
+        return_car.grid(row=4, column=0,columnspan = 8)
+        orders.grid(row=4, column=2,columnspan = 5 )
+        prices.grid(row=8, column=0, columnspan = 5)
+        cars.grid(row=8, column=0, columnspan = 8)
+        customers.grid(row=8, column=2, columnspan = 5)
+        back.grid(row=0, column=0,columnspan = 1)
+        line1.grid(row=2,column=0,columnspan = 8)
+        line2.grid(row=9,column=0,columnspan = 8)
 
 
 
         #position frame
-        self.grid_rowconfigure(0, weight=3)
-        self.grid_rowconfigure(1, weight=0)
+        self.grid_rowconfigure(0, weight=0)
+        self.grid_rowconfigure(1, weight=2)
+        self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=2)
         self.grid_rowconfigure(9, weight=2)
         self.grid_rowconfigure(11, weight=5)
-        self.grid_columnconfigure(0, weight=10)
+        self.grid_columnconfigure(1, weight=10)
         self.grid_columnconfigure(6, weight=10)
 
         def logout(self):
@@ -87,8 +88,8 @@ class MenuUi(tk.Frame):
         def switchOrders(self):
             controller.show_frame(ordersUi.OrdersUi)
         
-        def switchCars(self):
-            controller.show_frame(carsUi.CarsUi)
+        def switchCarsMenu(self):
+            controller.show_frame(carsMenuUi.CarsMenuUi)
         
         def switchPrice(self):
             controller.show_frame(pricelistUi.PriceListUi)

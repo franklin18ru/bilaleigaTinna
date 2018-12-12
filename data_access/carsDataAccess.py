@@ -171,8 +171,6 @@ class CarsDataAccess:
                 if self.checkIfCarIsAvailable(leaseStart,leaseEnd,line[0]):
                     cars_dictionary[line[0]] = (line[2],line[3],line[4])
             return cars_dictionary
-    #def getAllAvailableCars(self,):
-        # Pending further inspection #
 
     #def returnCar(self):
 
