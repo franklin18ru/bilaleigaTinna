@@ -11,9 +11,9 @@ class carsSearchUi(tk.Frame):
         #Create Labels
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Pantanir",bg="#5A6D7C",fg="white")
-        line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
+        line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         car = tk.Label(self, text="Sláðu inn bílnúmer:",bg="#5A6D7C",fg="white")
-        line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
+        line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
 
         #Create the entry fields
