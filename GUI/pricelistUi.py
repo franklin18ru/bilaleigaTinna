@@ -33,7 +33,7 @@ class PriceListUi(tk.Frame):
 
 
         #Create Buttons
-        edit = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=7, height=1)
+        edit = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=10, height=1)
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
