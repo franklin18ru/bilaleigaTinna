@@ -12,7 +12,7 @@ class CarsSearchUi(tk.Frame):
     
         #Create Labels
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-        label1 = tk.Label(self, text="Pantanir",bg="#5A6D7C",fg="white")
+        label1 = tk.Label(self, text="Bílar",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         car = tk.Label(self, text="Sláðu inn bílnúmer:",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
@@ -21,8 +21,8 @@ class CarsSearchUi(tk.Frame):
         #Create the entry fields
         carInput = tk.Entry(self, width=20, font=("Courier", 20))
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1, command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
 
 
         #configure labels
