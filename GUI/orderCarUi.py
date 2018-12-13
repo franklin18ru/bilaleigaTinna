@@ -90,10 +90,10 @@ class OrderCarUi(tk.Frame):
             counter = 0
             for item in controller.order.cars:
                 carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
-                carButton.pack(side="left")
+                #carButton.pack(side="left")
                 carButton.config(font=("Courier", 16))
                 
-                # carButton.grid(row = row_num, column=column_num)
+                carButton.grid(row = row_num, column=column_num)
                 counter += 1
                 column_num += 1
                 if counter == 3:
