@@ -1,4 +1,5 @@
 import tkinter as tk
+import ordersUi
 
 class OrdersSearchCustomerUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -26,8 +27,8 @@ class OrdersSearchCustomerUi(tk.Frame):
         ssnInput = tk.Entry(self, width=20, font=("Courier", 20))
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1)
-        confirm_button = tk.Button(self, text="Staðfesta", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
 
 
         #configure labels
@@ -72,3 +73,6 @@ class OrdersSearchCustomerUi(tk.Frame):
         self.grid_rowconfigure(9, weight=1)
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=3)
+
+        def esc(self):
+            controller.show_frame(menuUi.MenuUi)
