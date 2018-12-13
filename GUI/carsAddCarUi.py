@@ -67,40 +67,49 @@ class CarsAddCarUi(tk.Frame):
         #Position widgets
 
         #labels
-        bilaleigaTinna.grid(row=1, column=3)
-        label1.grid(row=3, column=3)
-        car_type.grid(row=4, column=2)
-        brand.grid(row=5, column=2)
-        model.grid(row=6, column=2)
-        seats.grid(row=7, column=2) #added email
-        licenseplate.grid(row=8, column=2) #added phone number
+        bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
+        label1.grid(row=3, column=0,columnspan = 8)
+        car_type.grid(row=4, column=1)
+        brand.grid(row=5, column=1)
+        model.grid(row=6, column=1)
+        seats.grid(row=7, column=1) #added email
+        licenseplate.grid(row=8, column=1) #added phone number
 
-        escape_button.grid(row=10, column=2)
-        confirm_button.grid(row=10, column=4)
-        line1.grid(row=2,column=3)
-        line2.grid(row=9,column=3)
+        #escape_button.grid(row=10, column=1,columnspan =1)
+        #confirm_button.grid(row=10, column=4,columnspan = 3)
 
-        car_typeInput.grid(row=4, column=3)
-        brandInput.grid(row=5, column=3)
-        modelInput.grid(row=6, column=3)
-        seatsInput.grid(row=7, column=3)
-        licenseplateInput.grid(row=8, column=3)
+        escape_button.grid(row=10, column=1,columnspan =1)
+        confirm_button.grid(row=10, column=5,columnspan = 1)
+        line1.grid(row=2,column=0,columnspan = 8)
+        line2.grid(row=9,column=0,columnspan = 8)
+
+        car_typeInput.grid(row=4, column=4,columnspan = 1)
+        brandInput.grid(row=5, column=4,columnspan = 1)
+        modelInput.grid(row=6, column=4,columnspan = 1)
+        seatsInput.grid(row=7, column=4,columnspan = 1)
+        licenseplateInput.grid(row=8, column=4,columnspan = 1)
 
 
+       #position frame
         self.grid_rowconfigure(0, weight=2)
-        self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(2, weight=0)
-        self.grid_rowconfigure(3, weight=2)
+        self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
+        self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=1)
         self.grid_rowconfigure(6, weight=1)
         self.grid_rowconfigure(7, weight=1)
         self.grid_rowconfigure(8, weight=1)
-        self.grid_rowconfigure(9, weight=1)
-        self.grid_rowconfigure(11, weight=5)
 
-        self.grid_columnconfigure(0, weight=10)
-        self.grid_columnconfigure(6, weight=10)
+        self.grid_rowconfigure(11, weight=1)
+        self.grid_rowconfigure(9, weight=1)
+
+        self.grid_rowconfigure(12, weight=3)
+
+
+
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(7, weight=2)
 
         
         

@@ -54,7 +54,7 @@ class ReturnCarUi(tk.Frame):
 
         #tk.labels
         bilaleigaTinna.grid(row=1, column=0, columnspan=10)
-        label1.grid(row=3, column=3)
+        label1.grid(row=3, column=0, columnspan=10)
         license_plate.grid(row=5, column=2)
         renterFrame.grid(row=5, column=2)
         carFrame.grid(row=6, column=2)
@@ -73,9 +73,6 @@ class ReturnCarUi(tk.Frame):
         self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(5, weight=1)
         self.grid_rowconfigure(6, weight=1)
-        self.grid_rowconfigure(7, weight=1)
-        self.grid_rowconfigure(8, weight=1)
-        self.grid_rowconfigure(9, weight=1)
         self.grid_rowconfigure(11, weight=5)
 
         self.grid_columnconfigure(0, weight=10)
@@ -140,28 +137,20 @@ class ReturnCarUi(tk.Frame):
 
             #Add previous widgets to frame
             bilaleigaTinna.grid(row=1, column=0, columnspan=10)
-            label1.grid(row=3, column=3)
-            license_plate.grid(row=5, column=2)
+            label1.grid(row=3, column=0, columnspan=10)
+            license_plate.grid(row=5, column=1)
             renterFrame.grid(row=5, column=2)
-            carFrame.grid(row=6, column=2)
-            back_button.grid(row=10, column=0, columnspan=10)
-            confirm_button.grid(row=10, column=4)
+            back_button.grid(row=8, column=1)
+            confirm_button.grid(row=8, column=3)
             line1.grid(row=2,column=0, columnspan=10)
-            line2.grid(row=9,column=0, columnspan=10)
-            self.license_plateInput.grid(row=5, column=3)
-            self.grid_rowconfigure(0, weight=2)
-        
-
-            self.grid_rowconfigure(1, weight=0)
-            self.grid_rowconfigure(2, weight=0)
+            line2.grid(row=7,column=0, columnspan=10)
+            self.license_plateInput.grid(row=5, column=2)
+            
+            self.grid_rowconfigure(0, weight=10)
+            self.grid_rowconfigure(2, weight=5)
             self.grid_rowconfigure(3, weight=2)
-            self.grid_rowconfigure(4, weight=1)
-            self.grid_rowconfigure(5, weight=1)
-            self.grid_rowconfigure(6, weight=1)
-            self.grid_rowconfigure(7, weight=1)
-            self.grid_rowconfigure(8, weight=1)
-            self.grid_rowconfigure(9, weight=1)
-            self.grid_rowconfigure(11, weight=5)
+            self.grid_rowconfigure(7, weight=2)
+            self.grid_rowconfigure(9, weight=50)
 
             self.grid_columnconfigure(0, weight=10)
             #self.grid_columnconfigure(1, weight=50)

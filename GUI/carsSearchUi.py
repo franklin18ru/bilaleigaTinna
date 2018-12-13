@@ -37,24 +37,34 @@ class CarsSearchUi(tk.Frame):
 
 
         #Position widgets
-        bilaleigaTinna.grid(row=1, column=3)
-        label1.grid(row=3, column=3)
-        car.grid(row=4, column=2)
-        escape_button.grid(row=10, column=2)
-        confirm_button.grid(row=10, column=4)
-        line1.grid(row=2,column=3)
-        line2.grid(row=9,column=3)
-        carInput.grid(row=4, column=3)
+        bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
+        label1.grid(row=3, column=0,columnspan = 8)
+        car.grid(row=4, column=1)
+        line1.grid(row=2,column=0,columnspan = 8)
+        line2.grid(row=9,column=0,columnspan = 8)
+        carInput.grid(row=4, column=4,columnspan = 1)
+        escape_button.grid(row=10, column=1,columnspan =1)
+        confirm_button.grid(row=10, column=5,columnspan = 1)
 
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_rowconfigure(2, weight=1)
+        
+        #position frame
+        self.grid_rowconfigure(0, weight=2)
+        self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
-        self.grid_rowconfigure(4, weight=0)
-        self.grid_rowconfigure(3, weight=0)
-        self.grid_rowconfigure(11, weight=2)
+        self.grid_rowconfigure(4, weight=1)
+        self.grid_rowconfigure(3, weight=1)
+        
+        self.grid_rowconfigure(8, weight=1)
+
+        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(7, weight=3)
+
+        self.grid_rowconfigure(12, weight=3)
+
+
+
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(7, weight=2)
 
 
         def esc(self):
