@@ -22,7 +22,7 @@ class OrderCarUi(tk.Frame):
         label1 = tk.Label(self, text="Panta bíl",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        carFrame = tk.Frame(self,bg="WHITE")
+        carFrame = tk.Frame(self,bg="#5A6D7C")
         #Create buttons
         jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
         small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabíll"))
