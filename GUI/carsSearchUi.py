@@ -43,8 +43,8 @@ class CarsSearchUi(tk.Frame):
         line1.grid(row=2,column=0,columnspan = 8)
         line2.grid(row=9,column=0,columnspan = 8)
         carInput.grid(row=4, column=4,columnspan = 1)
-        escape_button.grid(row=10, column=1,columnspan =1)
-        confirm_button.grid(row=10, column=5,columnspan = 1)
+        escape_button.grid(row=10, column=1)
+        confirm_button.grid(row=10, column=4)
 
         
         #position frame
