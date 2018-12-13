@@ -22,7 +22,7 @@ class OrderCarUi(tk.Frame):
         label1 = tk.Label(self, text="Panta bíl",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        carFrame = tk.Frame(self,bg="WHITE")
+        carFrame = tk.Frame(self,bg="#5A6D7C")
         #Create buttons
         jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
         small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabíll"))
@@ -90,9 +90,14 @@ class OrderCarUi(tk.Frame):
             counter = 0
             for item in controller.order.cars:
                 carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
-                carButton.pack(side="left")
+                #carButton.pack(side="left")
                 carButton.config(font=("Courier", 16))
+<<<<<<< HEAD
                 # carButton.grid(row = row_num, column=column_num)
+=======
+                
+                carButton.grid(row = row_num, column=column_num)
+>>>>>>> 046bf7e1d4a882d6777e57c34a7a2362bdbf842c
                 counter += 1
                 column_num += 1
                 if counter == 3:
