@@ -78,9 +78,15 @@ class CustomersUi(tk.Frame):
         line1.grid(row=2, column=0,columnspan = 8)
         line2.grid(row=10,column =0, columnspan = 8)
  
-        escape_button.grid(row=11, column=0, columnspan = 2)
+        #escape_button.grid(row=11, column=0, columnspan = 2)
+        #search.grid(row=11, column=1, columnspan =2)
+        #edit.grid(row=11, column= 2, columnspan = 2)
+
+
+
+        escape_button.grid(row=11, column=0, columnspan = 3)
         search.grid(row=11, column=1, columnspan =2)
-        edit.grid(row=11, column= 2, columnspan = 2)
+        edit.grid(row=11, column= 1, columnspan = 7)
 
         #position frame
         self.grid_rowconfigure(0, weight=2)

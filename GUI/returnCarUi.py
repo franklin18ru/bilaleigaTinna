@@ -24,19 +24,13 @@ class ReturnCarUi(tk.Frame):
         license_plate = tk.Label(self, text="Sláðu inn bílnúmer:",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
-
-
         #Create the entry fields
         self.license_plateInput = tk.Entry(self, width=20, font=("Courier", 20))
-
 
 
         #Create Buttons
         back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: getCarByLicensePlate(self,controller))
-
-
-
 
 
         #configure tk.labels
@@ -48,36 +42,34 @@ class ReturnCarUi(tk.Frame):
         line2.config(font=("Courier", 28))
         license_plate.config(font=("Courier", 16))
 
-
-
         #Position widgets
-
-        #tk.labels
-        bilaleigaTinna.grid(row=1, column=0, columnspan=10)
-        label1.grid(row=3, column=0, columnspan=10)
-        license_plate.grid(row=5, column=2)
+        bilaleigaTinna.grid(row=1, column=0, columnspan=8)
+        label1.grid(row=3, column=0, columnspan=8)
+        license_plate.grid(row=4, column=1) #column = 2
         renterFrame.grid(row=5, column=2)
         carFrame.grid(row=6, column=2)
-        back_button.grid(row=10, column=0)
-        confirm_button.grid(row=10, column=4)
-        line1.grid(row=2,column=0, columnspan=10)
-        line2.grid(row=9,column=0, columnspan=10)
+        back_button.grid(row=10, column=1, columnspan = 1) #column = 0
+        confirm_button.grid(row=10, column=5, columnspan=1) #column = 4
+        line1.grid(row=2,column=0, columnspan=8)
+        line2.grid(row=9,column=0, columnspan=8)
 
-        self.license_plateInput.grid(row=5, column=3)
+        self.license_plateInput.grid(row=4, column=4, columnspan=1) #column = 3
 
 
+        #position frame
         self.grid_rowconfigure(0, weight=2)
-        self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(2, weight=0)
-        self.grid_rowconfigure(3, weight=2)
+        self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
-        self.grid_rowconfigure(5, weight=1)
-        self.grid_rowconfigure(6, weight=1)
-        self.grid_rowconfigure(11, weight=5)
-
-        self.grid_columnconfigure(0, weight=10)
-        #self.grid_columnconfigure(1, weight=50)
-        self.grid_columnconfigure(6, weight=10)
+        self.grid_rowconfigure(3, weight=1)
+        self.grid_rowconfigure(8, weight=1)
+ 
+        self.grid_rowconfigure(11, weight=1)
+        self.grid_rowconfigure(9, weight=1)
+        self.grid_rowconfigure(12, weight=3)
+ 
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(7, weight=2)
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
@@ -119,8 +111,7 @@ class ReturnCarUi(tk.Frame):
             self.escape_button.grid(row=10, column=1)
             # birta retrunCarReturnUi med alla taka og allt ;)#
             # controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
-        #order: [ssn,(renter,leaseStart,leaseEnd,licensePlate,state)]
-        #car: [licenseplate,(typef,brand,model,seats)]
+
         def returnCarButton(self,controller):
             controller.carReturn.returnCar()
             controller.show_frame(menuUi.MenuUi)
