@@ -80,20 +80,15 @@ class CarsAddCarUi(tk.Frame):
         model.grid(row=6, column=1)
         seats.grid(row=7, column=1) #added email
         licenseplate.grid(row=8, column=1) #added phone number
-
-        #escape_button.grid(row=10, column=1,columnspan =1)
-        #confirm_button.grid(row=10, column=4,columnspan = 3)
-
-        escape_button.grid(row=10, column=1,columnspan =1)
-        confirm_button.grid(row=10, column=5,columnspan = 1)
+        escape_button.grid(row=10, column=1)
+        confirm_button.grid(row=10, column=3)
         line1.grid(row=2,column=0,columnspan = 8)
         line2.grid(row=9,column=0,columnspan = 8)
-
-        car_typeInput.grid(row=4, column=4,columnspan = 1)
-        brandInput.grid(row=5, column=4,columnspan = 1)
-        modelInput.grid(row=6, column=4,columnspan = 1)
-        seatsInput.grid(row=7, column=4,columnspan = 1)
-        licenseplateInput.grid(row=8, column=4,columnspan = 1)
+        car_typeInput.grid(row=4, column=2)
+        brandInput.grid(row=5, column=2)
+        modelInput.grid(row=6, column=2)
+        seatsInput.grid(row=7, column=2)
+        licenseplateInput.grid(row=8, column=2)
 
 
        #position frame
