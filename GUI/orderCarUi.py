@@ -92,12 +92,9 @@ class OrderCarUi(tk.Frame):
                 carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
                 #carButton.pack(side="left")
                 carButton.config(font=("Courier", 16))
-<<<<<<< HEAD
                 # carButton.grid(row = row_num, column=column_num)
-=======
                 
                 carButton.grid(row = row_num, column=column_num)
->>>>>>> 046bf7e1d4a882d6777e57c34a7a2362bdbf842c
                 counter += 1
                 column_num += 1
                 if counter == 3:
