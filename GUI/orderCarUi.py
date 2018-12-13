@@ -114,7 +114,7 @@ class OrderCarUi(tk.Frame):
             def oldInfo(self):
                 for item in listi:
                     item.grid_forget()
-                self.back_button.grid_forget()
+                self.back_button.destroy()
                 carFrame.grid(row=4, column=0, columnspan=10)
                 jeep.grid(row=4, column=2)
                 small_car.grid(row=4, column=3)
