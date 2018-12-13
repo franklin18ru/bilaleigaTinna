@@ -26,9 +26,9 @@ class OrderCarUi(tk.Frame):
 
         #Create buttons
         jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
-        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabíll"))
-        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: chooseCar(controller,"Fólksbíll"))
-        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: chooseCar(controller,"Lúxusbíll"))
+        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabill"))
+        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: chooseCar(controller,"Folksbill"))
+        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: chooseCar(controller,"Luxusbill"))
         all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2,  command=lambda: chooseCar(controller,""))
         back = tk.Button(self, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1,       command=lambda: esc(controller))
 
@@ -95,14 +95,15 @@ class OrderCarUi(tk.Frame):
             command=lambda: oldInfo(self))
             self.back_button.config(font=("Courier", 16))
             self.back_button.pack()
-            loop = 0
+            listi = []
             #row=10, column=2
             for item in controller.order.cars:
                 self.carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
                 self.carButton.config(font=("Courier", 16))
                 self.carButton.grid(row = row_num, column=column_num)
+                listi.append(self.carButton)
                 counter += 1
-                loop +=1
+                
                 column_num += 1
                 if counter == 3:
                     row_num += 1
@@ -111,13 +112,14 @@ class OrderCarUi(tk.Frame):
 
  
             def oldInfo(self):
-                for x in range(loop):
-                    self.carButton.grid_forget()
+                for item in listi:
+                    item.grid_forget()
+                self.back_button.destroy()
                 carFrame.grid(row=4, column=0, columnspan=10)
                 jeep.grid(row=4, column=2)
                 small_car.grid(row=4, column=3)
                 sedan.grid(row=4, column=4)
                 luxury_car.grid(row=8, column=2)
                 all_cars.grid(row=8, column=3)
-            
+                back.grid(row=10, column=3)
         #################################################################################
