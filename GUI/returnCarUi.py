@@ -88,6 +88,8 @@ class ReturnCarUi(tk.Frame):
             label1.grid_forget()
             license_plate.grid_forget()
             self.license_plateInput.grid_forget()
+            escape_button.grid_forget()
+            confirm_button.grid_forget()
             controller.returnCarOrder(returnCar)
             renter = tk.Label(infoFrame, text="Leigjandi",bg="#3F4A52",fg="white")
             car = tk.Label(infoFrame, text="Bíll",bg="#3F4A52",fg="white")
