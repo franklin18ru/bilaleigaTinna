@@ -38,6 +38,7 @@ class OrderCarMenuCarsUi(tk.Frame):
         #Open the cars file and printing the content in buttons
 
 
+
         # configure labels
         bilaleigaTinna.config(font=("Courier", 32))
         back.config(font=("Courier",16))
@@ -76,20 +77,20 @@ class OrderCarMenuCarsUi(tk.Frame):
 
 
     
-    def showCars(self,controller):
-        row_num = 4
-        column_num = 2
-        counter = 0
-        for item in controller.order.cars:
-            label1 = tk.Button(self, text=item ,bg="#424242",fg="white", width=22, height=2)
-            label1.config(font=("Courier", 16))
-            label1.grid(row = row_num, column=column_num)
-            counter += 1
-            column_num += 1
-            if counter == 3:
-                row_num += 1
-                counter = 0
-                column_num = 2   
+    # def showCars(self,controller):
+    #     row_num = 4
+    #     column_num = 2
+    #     counter = 0
+    #     for item in controller.order.cars:
+    #         label1 = tk.Button(self, text=item ,bg="#424242",fg="white", width=22, height=2)
+    #         label1.config(font=("Courier", 16))
+    #         label1.grid(row = row_num, column=column_num)
+    #         counter += 1
+    #         column_num += 1
+    #         if counter == 3:
+    #             row_num += 1
+    #             counter = 0
+    #             column_num = 2   
             #label1.grid(row=8, column=3)
             #option_frame.pack(fill="x",side="top")
 
