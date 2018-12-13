@@ -6,6 +6,7 @@ from data_access import carsDataAccess
 from GUI import mainUi
 import orderCarUi
 from services import makeOrder
+import menuUi
 
 class OrderCarDateUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -20,8 +21,8 @@ class OrderCarDateUi(tk.Frame):
         label1 = tk.Label(self, text="Velja dagsetningu",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        start = tk.Label(self, text="Til (dd.mm.yyyy): ",bg="#5A6D7C",fg="white")
-        end = tk.Label(self, text="Frá (dd.mm.yyyy): ",bg="#5A6D7C",fg="white")
+        start = tk.Label(self, text="Til (yyyy.mm.dd): ",bg="#5A6D7C",fg="white")
+        end = tk.Label(self, text="Frá (yyyy.mm.dd): ",bg="#5A6D7C",fg="white")
 
         #Create entry fields
         self.startInput = tk.Entry(self, width=20, font=("Courier", 20)) #input for the date, should be on format 'dd.mm.yyyy'
@@ -29,8 +30,8 @@ class OrderCarDateUi(tk.Frame):
 
 
         #Create buttons
-        back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
-        confirm = tk.Button(self, text="Staðfesta", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda:getCarsByDate(self, controller))
+        back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=18, height=1, command=lambda: esc(controller))
+        confirm = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=18, height=1, command=lambda:getCarsByDate(self, controller))
 
         #################################################################################
 
@@ -78,6 +79,9 @@ class OrderCarDateUi(tk.Frame):
             order = makeOrder.GetCars(startInput, endInput)
             controller.createOrder(order)
             controller.show_frame(orderCarUi.OrderCarUi)
+
+        def esc(self):
+            controller.show_frame(menuUi.MenuUi)
             
 
         ################################################################################
