@@ -10,7 +10,8 @@ class ReturnOrder:
         self.car = self.getCar(licensePlate)
         self.leaseDataAccess = leasesDataAccess.LeasesDataAccess()
         self.carOrder = self.getCarOrder(licensePlate)
-        
+        #order: [ssn,(renter,leaseStart,leaseEnd,licensePlate,state)]
+        #car: [licenseplate,(typef,brand,model,seats)]
 
     def getCar(self,licensePlate):
         for key,value in self.carDataAccess.cars.items():
@@ -26,7 +27,8 @@ class ReturnOrder:
                 self.orderEnd = value[2]
                 return [key,value]
                 
-
+    #lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate,state)
+    #cars_dictionary[licenseplate] = (typef,brand,model,seats)
     def returnCar(self):
         self.carDataAccess.returnCar(self.licensePlate,self.orderStart,self.orderEnd)
 
