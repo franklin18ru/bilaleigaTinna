@@ -42,8 +42,8 @@ class CarsAddCarUi(tk.Frame):
 
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="white", fg="black", width=15, height=1,command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="white", fg="black", width=15, height=1)
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1,command=lambda: esc(controller))
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
 
 
 
