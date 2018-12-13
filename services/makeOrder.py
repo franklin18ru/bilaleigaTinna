@@ -15,8 +15,8 @@ class GetCars():
             if value[0] in carType:
                 self.cars.append(value[1])
 
-    def getFinalCar(self, car):
-        
+    # def getFinalCar(self, car):
+
 
         
 
