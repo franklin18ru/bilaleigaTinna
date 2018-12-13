@@ -9,23 +9,18 @@ class ReturnCarReturnUi(tk.Frame):
         self.winfo_toplevel().configure(bg="#5A6D7C") # Changes background color of frame
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
-        grey_frame = tk.Frame(self, bg="#3F4A52")
+        #grey_frame = tk.Frame(self, bg="#3F4A52", width=400, height=400)
 
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-        renter = tk.Label(grey_frame, text="Leigjandi",bg="#3F4A52",fg="white")
+        renter = tk.Label(self, text="Leigjandi",bg="#3F4A52",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        car = tk.Label(grey_frame, text="Bíll",bg="#3F4A52",fg="white")
+        car = tk.Label(self, text="Bíll",bg="#3F4A52",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-
-
 
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
         return_button = tk.Button(self, text="Skila", bg="#448F42", fg="white", width=15, height=1, command=lambda: returnCarButton(self,controller))
-
-
-
 
 
         #configure labels
@@ -38,20 +33,17 @@ class ReturnCarReturnUi(tk.Frame):
         car.config(font=("Courier", 20))
 
 
-
         #Position widgets
-
-        #labels
         bilaleigaTinna.grid(row=1, column=3)
-        renter.grid(row=3, column=3)
-        car.grid(row=5, column=3, ipady=30, ipadx=50)
+        renter.grid(row=3, column=3)#, ipady=100, ipadx=355)
+        car.grid(row=5, column=3)#, ipady=100, ipadx=400)
 
         escape_button.grid(row=10, column=2)
         return_button.grid(row=10, column=4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
-        grey_frame.grid(row=3, column=3)
+        #grey_frame.grid(row=3, column=3)
 
 
         self.grid_rowconfigure(0, weight=2)
