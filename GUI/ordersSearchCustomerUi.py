@@ -75,4 +75,4 @@ class OrdersSearchCustomerUi(tk.Frame):
         self.grid_columnconfigure(7, weight=3)
 
         def esc(self):
-            controller.show_frame(menuUi.MenuUi)
+            controller.show_frame(ordersUi.OrdersUi)
