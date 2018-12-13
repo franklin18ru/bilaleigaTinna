@@ -95,14 +95,15 @@ class OrderCarUi(tk.Frame):
             command=lambda: oldInfo(self))
             self.back_button.config(font=("Courier", 16))
             self.back_button.pack()
-            loop = 0
+            listi = []
             #row=10, column=2
             for item in controller.order.cars:
                 self.carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
                 self.carButton.config(font=("Courier", 16))
                 self.carButton.grid(row = row_num, column=column_num)
+                listi.append(self.carButton)
                 counter += 1
-                loop +=1
+                
                 column_num += 1
                 if counter == 3:
                     row_num += 1
@@ -111,13 +112,14 @@ class OrderCarUi(tk.Frame):
 
  
             def oldInfo(self):
-                for x in range(loop):
-                    self.carButton.grid_forget()
+                for item in listi:
+                    item.grid_forget()
+                self.back_button.grid_forget()
                 carFrame.grid(row=4, column=0, columnspan=10)
                 jeep.grid(row=4, column=2)
                 small_car.grid(row=4, column=3)
                 sedan.grid(row=4, column=4)
                 luxury_car.grid(row=8, column=2)
                 all_cars.grid(row=8, column=3)
-            
+                back.grid(row=10, column=3)
         #################################################################################
