@@ -26,9 +26,9 @@ class OrderCarUi(tk.Frame):
 
         #Create buttons
         jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
-        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabíll"))
-        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: chooseCar(controller,"Fólksbíll"))
-        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: chooseCar(controller,"Lúxusbíll"))
+        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabill"))
+        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: chooseCar(controller,"Folksbill"))
+        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: chooseCar(controller,"Luxusbill"))
         all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2,  command=lambda: chooseCar(controller,""))
         back = tk.Button(self, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1,       command=lambda: esc(controller))
 
