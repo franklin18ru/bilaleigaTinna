@@ -14,6 +14,10 @@ class GetCars():
         for key, value in self.availableCars.items():
             if value[0] in carType:
                 self.cars.append(value[1])
+
+    def getFinalCar(self, car):
+        
+
         
 
 
