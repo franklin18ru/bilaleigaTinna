@@ -14,6 +14,7 @@ class ReturnCarUi(tk.Frame):
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
 
+        infoFrame = tk.Frame(self,bg="black")
 
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Skila bíl",bg="#5A6D7C",fg="white")
@@ -53,8 +54,8 @@ class ReturnCarUi(tk.Frame):
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
         license_plate.grid(row=5, column=2)
-
-        escape_button.grid(row=10, column=2)
+        infoFrame.grid(row=5,column=2)
+        escape_button.grid(row=10, column=0, columnspan=10)
         confirm_button.grid(row=10, column=4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
@@ -84,7 +85,21 @@ class ReturnCarUi(tk.Frame):
         def getCarByLicensePlate(self,controller):
             licensePlate = self.license_plateInput.get()
             returnCar = returnOrder.ReturnOrder(licensePlate)
+            label1.grid_forget()
+            license_plate.grid_forget()
+            self.license_plateInput.grid_forget()
             controller.returnCarOrder(returnCar)
-            controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
+            renter = tk.Label(infoFrame, text="Leigjandi",bg="#3F4A52",fg="white")
+            car = tk.Label(infoFrame, text="Bíll",bg="#3F4A52",fg="white")
+            return_button = tk.Button(self, text="Skila", bg="#448F42", fg="white", width=15, height=1, command=lambda: returnCarButton(self,controller))
+            renter.pack()
+            car.pack()
+            return_button.pack()
+            # birta retrunCarReturnUi med alla taka og allt ;)#
+            # controller.show_frame(returnCarReturnUi.ReturnCarReturnUi)
+            
+        def returnCarButton(self,controller):
+            controller.carReturn.returnCar()
+            controller.show_frame(menuUi.MenuUi)
 
 
