@@ -25,11 +25,11 @@ class OrderCarUi(tk.Frame):
         buttonFrame = tk.Frame(self,bg="#5A6D7C", width=100, height = 50)
 
         #Create buttons
-        jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
-        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabill"))
-        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: chooseCar(controller,"Folksbill"))
-        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: chooseCar(controller,"Luxusbill"))
-        all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2,  command=lambda: chooseCar(controller,""))
+        jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: newFrame(controller,"Jeppi"))
+        small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: newFrame(controller,"Smabill"))
+        sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: newFrame(controller,"Folksbill"))
+        luxury_car = tk.Button(self, text="4. Lúxurbílar", bg="#424242", fg="white", width=22, height=2, command=lambda: newFrame(controller,"Luxusbill"))
+        all_cars = tk.Button(self, text="5. Allir bílar", bg="#424242", fg="white", width=22, height=2,  command=lambda: newFrame(controller,""))
         back = tk.Button(self, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1,       command=lambda: esc(controller))
 
         #################################################################################
@@ -80,7 +80,7 @@ class OrderCarUi(tk.Frame):
         def esc(self):
             controller.show_frame(orderCarDateUi.OrderCarDateUi)
 
-        def chooseCar(self, carType):
+        def newFrame(self, carType):
             controller.order.getCarsByType(carType)
             jeep.grid_forget()
             small_car.grid_forget()
@@ -98,7 +98,7 @@ class OrderCarUi(tk.Frame):
             listi = []
             #row=10, column=2
             for item in controller.order.cars:
-                self.carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
+                self.carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2, command=lambda item=item: chooseCar(self,item) )
                 self.carButton.config(font=("Courier", 16))
                 self.carButton.grid(row = row_num, column=column_num)
                 listi.append(self.carButton)
@@ -109,6 +109,10 @@ class OrderCarUi(tk.Frame):
                     row_num += 1
                     counter = 0
                     column_num = 2
+            
+            def chooseCar(self, car):
+                self.car = car
+
 
  
             def oldInfo(self):
