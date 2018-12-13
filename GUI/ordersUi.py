@@ -12,8 +12,8 @@ class OrdersUi(tk.Frame):
 
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Pantanir",bg="#5A6D7C",fg="white")
-        line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
-        line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
+        line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
+        line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
 
         #Create Buttons
@@ -41,22 +41,23 @@ class OrdersUi(tk.Frame):
         costomer_order.grid(row=4, column=3)
         costomer_allorders.grid(row=5, column=3)
         #costomer_allorders.grid(row=5, column=4)
-        escape_button.grid(row=10, column=3)
+        escape_button.grid(row=10, column=0,columnspan = 4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
 
 
         #position frame
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_rowconfigure(2, weight=1)
+        self.grid_rowconfigure(0, weight=2)
+        self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
-        self.grid_rowconfigure(4, weight=1)
-        self.grid_rowconfigure(3, weight=0)
-        self.grid_rowconfigure(11, weight=2)
+        self.grid_rowconfigure(3, weight=1)
+        self.grid_rowconfigure(5, weight=1)
+        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(7, weight=1)
+        self.grid_rowconfigure(12, weight=3)
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(7, weight=2)
 
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
