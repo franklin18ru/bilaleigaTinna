@@ -1,6 +1,9 @@
 import tkinter as tk
 import csv
 import menuUi
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from services import getPriceList
 
 
