@@ -4,10 +4,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
 import menuUi
 import orderCarDateUi
-import orderCarMenuCarsUi
 from services import makeOrder
 from GUI import mainUi
-import orderCarMenuCarsUi
 class OrderCarUi(tk.Frame):
 #create frame
     def __init__(self, parent, controller):
@@ -22,7 +20,10 @@ class OrderCarUi(tk.Frame):
         label1 = tk.Label(self, text="Panta bíl",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
+
         carFrame = tk.Frame(self,bg="#5A6D7C")
+        buttonFrame = tk.Frame(self,bg="#5A6D7C", width=100, height = 50)
+
         #Create buttons
         jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: chooseCar(controller,"Jeppi"))
         small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: chooseCar(controller,"Smabíll"))
@@ -60,6 +61,7 @@ class OrderCarUi(tk.Frame):
         back.grid(row=10, column=3)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
+        buttonFrame.grid(row=10, column=3)
         
 
 
@@ -85,23 +87,37 @@ class OrderCarUi(tk.Frame):
             sedan.grid_forget()
             luxury_car.grid_forget()
             all_cars.grid_forget()
+            back.grid_forget()
             row_num = 4
             column_num = 2
             counter = 0
+            self.back_button = tk.Button(buttonFrame, text="Esc - Til baka",bg="#9E4848", fg="white", width=18, height=1, 
+            command=lambda: oldInfo(self))
+            self.back_button.config(font=("Courier", 16))
+            self.back_button.pack()
+            loop = 0
+            #row=10, column=2
             for item in controller.order.cars:
-                carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
-                #carButton.pack(side="left")
-                carButton.config(font=("Courier", 16))
-                # carButton.grid(row = row_num, column=column_num)
-                
-                carButton.grid(row = row_num, column=column_num)
+                self.carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2)
+                self.carButton.config(font=("Courier", 16))
+                self.carButton.grid(row = row_num, column=column_num)
                 counter += 1
+                loop +=1
                 column_num += 1
                 if counter == 3:
                     row_num += 1
                     counter = 0
-                    column_num = 2 
-            # controller.show_frame(orderCarMenuCarsUi.OrderCarMenuCarsUi)
-            
+                    column_num = 2
+
+ 
+            def oldInfo(self):
+                for x in range(loop):
+                    self.carButton.grid_forget()
+                carFrame.grid(row=4, column=0, columnspan=10)
+                jeep.grid(row=4, column=2)
+                small_car.grid(row=4, column=3)
+                sedan.grid(row=4, column=4)
+                luxury_car.grid(row=8, column=2)
+                all_cars.grid(row=8, column=3)
             
         #################################################################################
