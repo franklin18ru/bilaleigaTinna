@@ -25,11 +25,17 @@ class CarsAddCarUi(tk.Frame):
 
 
 
+        # Create a Tkinter variable
+        tkvar = tk.StringVar()
 
-
+        # Dictionary with options
+        
+        choices = {'Smabill','Jeppi','Folksbill','Luxusbill'}
+        tkvar.set('Smabill') # set the default option
 
         #Create the entry fields
-        car_typeInput = tk.Entry(self, width=20, font=("Courier", 20))
+        car_typeInput = tk.OptionMenu(self, tkvar, *choices)
+        #car_typeInput = tk.Entry(self, width=20, font=("Courier", 20))
         brandInput = tk.Entry(self, width=20, font=("Courier", 20))
         modelInput = tk.Entry(self, width=20, font=("Courier", 20))
         seatsInput = tk.Entry(self, width=20, font=("Courier", 20))
