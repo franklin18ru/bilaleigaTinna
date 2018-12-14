@@ -1,6 +1,8 @@
 import tkinter as tk
 import menuUi
 import csv
+import customersSearchUi
+import customersUpdateUi
 
 class CustomersUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -23,8 +25,8 @@ class CustomersUi(tk.Frame):
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=2, command=lambda:esc(controller))
-        edit = tk.Button(self, text="Breyta/uppfæra", bg="#448F42", fg="white", width=15, height=2)
-        search = tk.Button(self, text="Leita af \nviðskiptavini", bg="white", fg="black", width=15, height=2)
+        edit = tk.Button(self, text="Breyta/uppfæra", bg="#448F42", fg="white", width=15, height=2, command=lambda: switchCustomersUpdate(controller))
+        search = tk.Button(self, text="Leita af \nviðskiptavini", bg="white", fg="black", width=15, height=2, command=lambda: switchCustomersSearch(controller))
         with open('data/customers.csv', 'r', newline="") as customers:
             csv_reader = csv.reader(customers)
             next(csv_reader)
@@ -105,4 +107,9 @@ class CustomersUi(tk.Frame):
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
 
+        def switchCustomersUpdate(self):
+            controller.show_frame(customersUpdateUi.CustomersUpdateUi)
+
+        def switchCustomersSearch(self):
+            controller.show_frame(customersSearchUi.CustomersSearchUi)
 
