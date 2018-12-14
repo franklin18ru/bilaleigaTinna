@@ -1,6 +1,7 @@
 import tkinter as tk
 import menuUi
 import ordersSearchCustomerUi
+import ordersAllOrdersUi
 
 class OrdersUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -18,7 +19,7 @@ class OrdersUi(tk.Frame):
 
         #Create Buttons
         costomer_order = tk.Button(self,    text="1. Leita af pöntun", bg="#424242", fg="white", width=22, height=3, command=lambda: switchOrdersSearchCustomer(controller))
-        costomer_allorders = tk.Button(self,   text="2. Allar pantanir", bg="#424242", fg="white", width=22, height=3)
+        costomer_allorders = tk.Button(self,   text="2. Allar pantanir", bg="#424242", fg="white", width=22, height=3, command=lambda: switchOrdersAllOrders(controller))
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
@@ -64,3 +65,6 @@ class OrdersUi(tk.Frame):
 
         def switchOrdersSearchCustomer(self):
             controller.show_frame(ordersSearchCustomerUi.OrdersSearchCustomerUi)
+
+        def switchOrdersAllOrders(self):
+            controller.show_frame(ordersAllOrdersUi.OrdersAllOrdersUi)

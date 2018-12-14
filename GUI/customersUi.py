@@ -1,9 +1,6 @@
 import tkinter as tk
 import customersMenuUi
 import csv
-import customersSearchUi
-import customersUpdateUi
-import customersAddCustomerUi
 
 class CustomersUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -25,9 +22,7 @@ class CustomersUi(tk.Frame):
 
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=2, command=lambda:esc(controller))
-        edit = tk.Button(self, text="Bæta við \nviðskiptavin", bg="#448F42", fg="white", width=15, height=2, command=lambda: switchCustomersAdd(controller))
-        search = tk.Button(self, text="Leita af \nviðskiptavini", bg="white", fg="black", width=15, height=2, command=lambda: switchCustomersSearch(controller))
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda:esc(controller))
         with open('data/customers.csv', 'r', newline="") as customers:
             csv_reader = csv.reader(customers)
             next(csv_reader)
@@ -53,8 +48,6 @@ class CustomersUi(tk.Frame):
 
                 row_num += 1
 
-            #column_num += 1
-
         #configure tk.labels
         bilaleigaTinna.config(font=("Courier", 32))
         customer.config(font=("Courier", 28))
@@ -65,13 +58,9 @@ class CustomersUi(tk.Frame):
 
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
-        edit.config( font=("Courier", 16))
         escape_button.config( font=("Courier", 16))
-        search.config(font=("Courier", 16))
 
         #Position widgets
-
-        #tk.labels
         bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
         customer.grid(row=3, column=0, columnspan = 8)
         full_name.grid(row=4, column=0)
@@ -80,16 +69,7 @@ class CustomersUi(tk.Frame):
         phone_number.grid(row=4,column=3)
         line1.grid(row=2, column=0,columnspan = 8)
         line2.grid(row=10,column =0, columnspan = 8)
- 
-        #escape_button.grid(row=11, column=0, columnspan = 2)
-        #search.grid(row=11, column=1, columnspan =2)
-        #edit.grid(row=11, column= 2, columnspan = 2)
-
-
-
         escape_button.grid(row=11, column=0, columnspan = 3)
-        search.grid(row=11, column=1, columnspan =2)
-        edit.grid(row=11, column= 1, columnspan = 7)
 
         #position frame
         self.grid_rowconfigure(0, weight=2)
@@ -107,10 +87,4 @@ class CustomersUi(tk.Frame):
 
         def esc(self):
             controller.show_frame(customersMenuUi.CustomersMenuUi)
-
-        def switchCustomersAdd(self):
-            controller.show_frame(customersAddCustomerUi.CustomersAddCustomerUi)
-
-        def switchCustomersSearch(self):
-            controller.show_frame(customersSearchUi.CustomersSearchUi)
 
