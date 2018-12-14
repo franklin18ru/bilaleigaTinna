@@ -1,8 +1,12 @@
 import tkinter as tk
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import menuUi
 import customersSearchUi
 import customersUi
 import customersAddCustomerUi
+from services import getCustomers
 
 #ke
 class CustomersMenuUi(tk.Frame):
