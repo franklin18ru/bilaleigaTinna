@@ -14,3 +14,14 @@ class FindCustomer:
             if input == key or input == value[0]:
                 return [key,value]
         return False
+    def editCustomer(self,newdatalist):
+        oldname = self.customer[1][0]
+        oldssn = self.customer[0]
+        oldemail = self.customer[1][1]
+        oldphone = self.customer[1][2]
+        olddata = [oldname,oldssn,oldemail,oldphone]
+        self.customersDataAccess.editCustomer(olddata,newdatalist)
+        
+    def deleteCustomer(self,name,ssn):
+        self.customersDataAccess.deleteCustomer(name,ssn)
+        self.customersDataAccess.deleteCustomerLeases(name,ssn)

@@ -28,7 +28,7 @@ class CustomersSearchUi(tk.Frame):
         self.rightFrame.grid(row=4,column=5, columnspan=2)
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(self,controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
         #configure labels
@@ -74,7 +74,8 @@ class CustomersSearchUi(tk.Frame):
         self.grid_columnconfigure(7, weight=2)
 
 
-        def esc(self):
+        def esc(self,controller):
+            self.user_input.delete(0,"end")
             controller.show_frame(customersMenuUi.CustomersMenuUi)
 
         def confirm(self,controller):
@@ -85,16 +86,16 @@ class CustomersSearchUi(tk.Frame):
             name_ssn.grid_forget()
             self.user_input.grid_forget()
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
-            self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
-            self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:back(self,controller))
+            self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: delete(self,controller))
+            self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:edit(self,controller))
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
             self.back_button.grid(row=10, column=1)
-            self.delete_button.grid(row=10, column=3)
-            self.edit_button.grid(row=10, column=2)
-
             self.edit_button.grid(row=10, column=4,columnspan=1)
+            self.delete_button.grid(row=10, column=3)
+
+            
             self.showCustomerNameLabel = tk.Label(self.leftFrame, text="Nafn")
             self.showCustomerSsnLabel = tk.Label(self.rightFrame, text="Kennitala")
             self.showCustomerEmailLabel = tk.Label(self.leftFrame, text="Email")
@@ -111,9 +112,17 @@ class CustomersSearchUi(tk.Frame):
             self.showCustomerPhoneLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
 
             self.showCustomerNameLabel.grid(row=0, column=0, columnspan=3, pady=10)
+            self.entryname = tk.Entry(self.leftFrame,width=20, font=("Courier", 20))
+            self.entryname.insert(0,self.instance.customer[1][0])
             self.showCustomerSsnLabel.grid(row=0, column=0, columnspan=3, pady=10)
+            self.entryssn = tk.Entry(self.rightFrame,width=20, font=("Courier", 20))
+            self.entryssn.insert(0,self.instance.customer[0])
             self.showCustomerEmailLabel.grid(row=3, column=0, columnspan=3, pady=10)
+            self.entryemail = tk.Entry(self.leftFrame,width=20, font=("Courier", 20))
+            self.entryemail.insert(0,self.instance.customer[1][1])
             self.showCustomerPhoneLabel.grid(row=3, column=0, columnspan=3, pady=10)
+            self.entryphone = tk.Entry(self.rightFrame,width=20, font=("Courier", 20))
+            self.entryphone.insert(0,self.instance.customer[1][2])
             
             self.showCustomerName.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
             self.showCustomerSsn.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
@@ -133,19 +142,65 @@ class CustomersSearchUi(tk.Frame):
 
 
         def back(self,controller):
-            self.showCustomerNameLabel.grid_forget()
-            self.showCustomerSsnLabel.grid_forget()
-            self.showCustomerEmailLabel.grid_forget()
-            self.showCustomerPhoneLabel.grid_forget()
-            self.showCustomerName.grid_forget()
-            self.showCustomerSsn.grid_forget()
-            self.showCustomerEmail.grid_forget()
-            self.showCustomerPhone.grid_forget()
-            self.back_button.grid_forget()
-            self.delete_button.grid_forget()
-            self.edit_button.grid_forget()
-            name_ssn.grid(row=4, column=1)
             self.user_input.grid(row=4,column=4,columnspan = 1)
-            confirm_button.grid(row=10, column=4)
+            name_ssn.grid(row=4, column=1)
             escape_button.grid(row=10, column=1)
+            confirm_button.grid(row=10, column=4)
+            
+            self.entryname.grid_forget()
+            self.entryssn.grid_forget()
+            self.entryemail.grid_forget()
+            self.entryphone.grid_forget()
+            self.showCustomerNameLabel.destroy()
+            self.showCustomerSsnLabel.destroy()
+            self.showCustomerEmailLabel.destroy()
+            self.showCustomerPhoneLabel.destroy()
+            self.showCustomerName.destroy()
+            self.showCustomerSsn.destroy()
+            self.showCustomerEmail.destroy()
+            self.showCustomerPhone.destroy()
+            self.back_button.destroy()
+            self.delete_button.destroy()
+            self.edit_button.destroy()
+
+        def edit(self,controller):
+            # self.showCustomerNameLabel.destroy()
+            # self.showCustomerSsnLabel.destroy()
+            # self.showCustomerEmailLabel.destroy()
+            # self.showCustomerPhoneLabel.destroy()
+            self.showCustomerName.destroy()
+            self.showCustomerSsn.destroy()
+            self.showCustomerEmail.destroy()
+            self.showCustomerPhone.destroy()
+            self.back_button.destroy()
+            self.delete_button.destroy()
+            self.edit_button.destroy()
+            self.edit_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:change(self,controller))
+            self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
+            self.edit_button.config(font=("Courier", 16))
+            self.back_button.config(font=("Courier", 16))
+            self.edit_button.grid(row=10, column=4,columnspan=1)
+            self.back_button.grid(row=10, column=1)
+
+
+
+            self.entryname.grid(row=1, column=0, columnspan=3)
+            self.entryssn.grid(row=1, column=0, columnspan=3)
+            self.entryemail.grid(row=4, column=0, columnspan=32)
+            self.entryphone.grid(row=4, column=0, columnspan=3)
+
+
+        def change(self,controller):
+            newname = self.entryname.get()
+            newssn = self.entryssn.get()
+            newemail = self.entryemail.get()
+            newphone = self.entryphone.get()
+            newdata = [newname,newssn,newemail,newphone]
+            self.instance.editCustomer(newdata)
+            controller.show_frame(customersMenuUi.CustomersMenuUi)
+
+        def delete(self,controller):
+            name = self.instance.customer[1][0]
+            ssn = self.instance.customer[0] 
+            self.instance.deleteCustomer(name,ssn)
 
