@@ -107,8 +107,8 @@ class OrdersSearchCustomerUi(tk.Frame):
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
             self.back_button.grid(row=10, column=1,columnspan=1)
-            self.delete_button.grid(row=10, column=3,columnspan=1)
-            self.edit_button.grid(row=10, column=2,columnspan=1)
+            self.delete_button.grid(row=10, column=2,columnspan=1)
+            self.edit_button.grid(row=10, column=3,columnspan=1)
             
             self.orderName = tk.Label(self, text=self.instance.lease[0][1])
             self.orderSSN = tk.Label(self, text=self.instance.lease[0][0])
