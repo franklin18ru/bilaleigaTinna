@@ -54,7 +54,7 @@ class CarsAddCarUi(tk.Frame):
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1,command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(controller))
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
 
 
@@ -122,10 +122,11 @@ class CarsAddCarUi(tk.Frame):
         def esc(self):
             controller.show_frame(carsMenuUi.CarsMenuUi)
 
-        def confirm(self):
+        def confirm(self,controller):
+            typeinput = "Smabill"
             brandinput = self.brandInput.get()
             modelinput = self.modelInput.get()
             seatsinput = self.seatsInput.get()
             licenseplateinput = self.licenseplateInput.get()
-            #self.instance = addCar.AddCar(licenseplateinput,typeinput,brandinput,modelinput,seatsinput)
+            self.instance = addCar.AddCar(licenseplateinput,typeinput,brandinput,modelinput,seatsinput)
             controller.show_frame(carsMenuUi.CarsMenuUi)
