@@ -18,5 +18,13 @@ class FindOrder:
             return self.orders
         else:
             return False
+    def editOrder(self,newdatalist):
+        oldLicense = self.lease[0][4]
+        oldStartDate = self.lease[0][2]
+        oldEndDate = self.lease[0][3]
+        olddata = [oldLicense,oldStartDate,oldEndDate]
+        self.leaseDataAccess.editLease(olddata,newdatalist)
 
+    def deleteLease(self,ssn,lease_start, license_plate):
+        self.leaseDataAccess.deleteLease(ssn,lease_start,license_plate)
         #lease_list.append([ssn, renter,leaseStart,leaseEnd,licensePlate,state])

@@ -30,7 +30,7 @@ class LeasesDataAccess:
             with open("data/tempfile.csv","w",newline="\n") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if ssn == line[0] and leaseStart == line[2] and licensePlate == line[4]:
+                    if str(ssn) == line[0] and leaseStart == line[2] and licensePlate == line[4]:
                         continue
                     csv_writer.writerow(line)
                 openfile.truncate(0)
@@ -49,21 +49,26 @@ class LeasesDataAccess:
             openfile.write("\n"+ssn+","+renter+","+leasestart+","+leaseend+","+licensePlate+","+activity)
             
     
-    def editLease(self,old_start,old_end,new_start,new_end,name,ssn,licensePlate):
+    def editLease(self,olddata,newdatalist):
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
         # Can't edit customer or car only edit lease period #
+        old_license = olddata[0]
+        old_start = olddata[1]
+        old_end = olddata[2]
+        #0305952309,Paulie Mayer,2018.12.10,2018.12.14,GK788,active
+
+        new_license = newdatalist[0]
+        new_start = newdatalist[1]
+        new_end = olddata[2]
         with open("data/leases.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if ssn == line[0] and name == line[1] and licensePlate == line[4] and old_start == line[2] and old_end == line[3]:
-                        new_line = [line[0],line[1],new_start,new_end,line[4]]
-                        if self.checkIfCarIsAvailable(new_start,new_end,licensePlate):
-                            # throw error
-                            return False
+                    if old_license == line[4] and old_start == line[2] and old_end == line[3]:
+                        new_line = [line[0],line[1],new_start,new_end,new_license,line[5]]
                         csv_writer.writerow(new_line)
                         continue
                     csv_writer.writerow(line)
@@ -115,13 +120,16 @@ class LeasesDataAccess:
     
     # gets all dates between to dates including start and end, you can also skip end #
     def getTimeFrame(self,time1,time2):
-        start = date(time1)
-        end = date(time2)
-        delta = start-end
+        t1 = time1.split(".")
+        t2 = time2.split(".")
+        start = date(int(t1[0]),int(t1[1]),int(t1[2]))
+        end = date(int(t2[0]),int(t2[1]),int(t2[2]))
+        delta = end-start
         frame = []
         for x in range(delta.days+1):
             day = str(start+timedelta(x))
-            frame.append(day)
+            editday = day.replace("-",".")
+            frame.append(editday)
         return frame
 
 
