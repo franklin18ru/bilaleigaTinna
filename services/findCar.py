@@ -10,7 +10,9 @@ class FindCar:
         #if self.car == False:
         #   print out error message
     def searchDataForCar(self,input):
-        for key,value in self.carDataAccess.cars.items():
-            if input.upper() == key:
-                return [key,value]
+        for item in self.carDataAccess.cars:
+            if input.upper() == item[0]:
+                return item
         return False
+
+        #car_list.append([licenseplate,typef,brand,model,seats])
