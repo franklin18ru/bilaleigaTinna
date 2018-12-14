@@ -15,7 +15,6 @@ class CustomersUpdateUi(tk.Frame):
         line1 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
         customer = tk.Label(self, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
-
         name = tk.Label(self, text="Nafn",bg="#5A6D7C",fg="white")
         ssn = tk.Label(self, text="Kennitala",bg="#5A6D7C",fg="white")
         email = tk.Label(self, text="Netfang",bg="#5A6D7C",fg="white")
@@ -30,7 +29,7 @@ class CustomersUpdateUi(tk.Frame):
 
 
 
-        #Create Buttons
+        #Create Buttons to activate functions that return the users to the page they want
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         confirm = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
 

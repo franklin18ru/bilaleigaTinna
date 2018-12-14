@@ -64,13 +64,14 @@ class OrderCarDateUi(tk.Frame):
 
 
         #position frame
-        self.grid_rowconfigure(0, weight=3)
+        self.grid_rowconfigure(0, weight=3)     #Spaces inbetween rows
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=2)
         self.grid_rowconfigure(9, weight=2)
         self.grid_rowconfigure(11, weight=5)
-        self.grid_columnconfigure(0, weight=10)
+
+        self.grid_columnconfigure(0, weight=10) #Spaces inbetween columns
         self.grid_columnconfigure(6, weight=10)
 
         def getCarsByDate(self, controller):
@@ -81,6 +82,8 @@ class OrderCarDateUi(tk.Frame):
             controller.show_frame(orderCarUi.OrderCarUi)
             controller.leaseStart = startInput
             controller.leaseEnd = endInput
+
+        #Def that takes you to the menuUi site when button is clicked
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
             
