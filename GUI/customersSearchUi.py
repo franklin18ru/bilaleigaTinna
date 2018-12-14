@@ -19,7 +19,7 @@ class CustomersSearchUi(tk.Frame):
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-        confirm = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
         #configure labels
         bilaleigaTinna.config(font=("Courier", 32))
@@ -39,7 +39,7 @@ class CustomersSearchUi(tk.Frame):
         name_ssn.grid(row=4, column=0)
         user_input.grid(row=4,column=1)
         line2.grid(row=10,column =0, columnspan = 8)
-        confirm.grid(row=11, column= 2, columnspan = 2 )
+        confirm_button.grid(row=11, column= 2, columnspan = 2 )
         escape_button.grid(row=11, column=0, columnspan = 3)
 
         #position frame
@@ -58,4 +58,8 @@ class CustomersSearchUi(tk.Frame):
 
         def esc(self):
             controller.show_frame(customersUi.CustomersUi)
+
+        def confirm(self,controller):
+            # Search for customer then change the frame to see info about the customer #
+            pass
 
