@@ -1,7 +1,9 @@
-from tkinter import *
+import tkinter as tk
 import customersSearchUi
+import customersUi
 
-class customersSearchUi(tk.Frame):
+
+class CustomersUpdateUi(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
         screen_width = self.winfo_screenwidth() #Gets the screen width
@@ -56,7 +58,7 @@ class customersSearchUi(tk.Frame):
         
         name.grid(row=4, column=0, columnspan=2)
         ssn.grid(row=4, column=1, columnspan=2)
-        emai.grid(row=4, column=2, columnspan=2)
+        email.grid(row=4, column=2, columnspan=2)
         phonenr.grid(row=4, column=3, columnspan=2)
         name_entry.grid(row=5, column=0, columnspan=2)
         ssn_entry.grid(row=5, column=1, columnspan=2)
@@ -82,4 +84,4 @@ class customersSearchUi(tk.Frame):
 
         
         def esc(self):
-            controller.show_frame(customersSearchUi.CustomersSearchUi)
+            controller.show_frame(customersUi.CustomersUi)
