@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from data_access import leasesDataAccess
 
-class FindCustomer:
+class FindOrder:
     def __init__(self,input):
         self.leaseDataAccess = leasesDataAccess.LeasesDataAccess()
         self.lease = self.searchDataForLease(input)

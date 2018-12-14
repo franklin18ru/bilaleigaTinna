@@ -1,5 +1,10 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
 import ordersUi
+from services import findOrder
+
 
 class OrdersSearchCustomerUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -24,7 +29,7 @@ class OrdersSearchCustomerUi(tk.Frame):
 
 
         #Create the entry fields
-        ssnInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.userInput = tk.Entry(self, width=20, font=("Courier", 20))
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
@@ -60,7 +65,7 @@ class OrdersSearchCustomerUi(tk.Frame):
         line1.grid(row=2,column=0,columnspan = 8)
         line2.grid(row=9,column=0,columnspan = 8)
 
-        ssnInput.grid(row=4, column=4,columnspan = 1)
+        self.userInput.grid(row=4, column=4,columnspan = 1)
 
 
 
@@ -89,6 +94,8 @@ class OrdersSearchCustomerUi(tk.Frame):
 
 
         def confirm(self,controller):
+            userInput = self.userInput.get()
+            self.instance = findOrder.FindOrder(userInput)
             escape_button.grid_forget()
             confirm_button.grid_forget()
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))

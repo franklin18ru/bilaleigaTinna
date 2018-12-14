@@ -1,5 +1,9 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
 import customersUi
+from services import findCustomer
 
 
 class CustomersSearchUi(tk.Frame):
@@ -14,7 +18,7 @@ class CustomersSearchUi(tk.Frame):
         line1 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
         customer = tk.Label(self, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
         name_ssn = tk.Label(self, text="Sláðu inn nafn/kennitölu \nviðskiptavinar",bg="#5A6D7C",fg="white")
-        user_input = tk.Entry(self, width=20, font=("Courier", 20))
+        self.user_input = tk.Entry(self, width=20, font=("Courier", 20))
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
 
         #Create Buttons
@@ -25,7 +29,7 @@ class CustomersSearchUi(tk.Frame):
         bilaleigaTinna.config(font=("Courier", 32))
         customer.config(font=("Courier", 28))
         name_ssn.config(font=("Courier", 16))
-        user_input.config(font=("Courier", 16))
+        self.user_input.config(font=("Courier", 16))
 
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
@@ -37,7 +41,7 @@ class CustomersSearchUi(tk.Frame):
         line1.grid(row=2, column=0,columnspan = 8)
         customer.grid(row=3, column=0, columnspan = 8)
         name_ssn.grid(row=4, column=0)
-        user_input.grid(row=4,column=1)
+        self.user_input.grid(row=4,column=1)
         line2.grid(row=10,column =0, columnspan = 8)
         confirm_button.grid(row=11, column= 2, columnspan = 2 )
         escape_button.grid(row=11, column=0, columnspan = 3)
@@ -60,6 +64,8 @@ class CustomersSearchUi(tk.Frame):
             controller.show_frame(customersUi.CustomersUi)
 
         def confirm(self,controller):
+            userinput = self.user_input.get()
+            self.instance = findCustomer.FindCustomer(userinput)
             escape_button.grid_forget()
             confirm_button.grid_forget()
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
