@@ -91,9 +91,9 @@ class CustomersSearchUi(tk.Frame):
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
-            self.back_button.grid(row=10, column=1)
+            self.back_button.grid(row=10, column=2)
             self.edit_button.grid(row=10, column=4,columnspan=1)
-            self.delete_button.grid(row=10, column=3)
+            self.delete_button.grid(row=10, column=6)
 
             
             self.showCustomerNameLabel = tk.Label(self.leftFrame, text="Nafn")
