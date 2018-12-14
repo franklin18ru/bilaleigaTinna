@@ -19,6 +19,7 @@ import carsSearchUi
 import carsAddCarUi
 import returnCarReturnUi
 import ordersSearchCustomerUi
+import ordersAllOrdersUi
 import customersUpdateUi
 import customersSearchUi
 import orderCarCustomerInfoUi
@@ -41,7 +42,7 @@ class MainUi(tk.Tk):
                   returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsMenuUi.CarsMenuUi, customersSearchUi.CustomersSearchUi,
                   pricelistUi.PriceListUi, customersUi.CustomersUi, orderCarUi.OrderCarUi, customersUpdateUi.CustomersUpdateUi,
                   orderCarMenuCarsUi.OrderCarMenuCarsUi, carsUi.CarsUi, ordersSearchCustomerUi.OrdersSearchCustomerUi,
-                  carsSearchUi.CarsSearchUi, returnCarReturnUi.ReturnCarReturnUi, carsAddCarUi.CarsAddCarUi,
+                  carsSearchUi.CarsSearchUi, returnCarReturnUi.ReturnCarReturnUi, carsAddCarUi.CarsAddCarUi, ordersAllOrdersUi.OrdersAllOrdersUi,
                   orderCarCustomerInfoUi.OrderCarCustomerInfoUi,customersAddCustomerUi.CustomersAddCustomerUi): #Loops through and creates all frames
                   
             frame = F(container, self)
