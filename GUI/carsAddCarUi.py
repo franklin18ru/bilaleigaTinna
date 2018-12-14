@@ -18,7 +18,7 @@ class CarsAddCarUi(tk.Frame):
     
 
 
-        bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
+        bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white") 
         label1 = tk.Label(self, text="Bæta við bíl",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         car_type = tk.Label(self, text="Tegund bíls:",bg="#5A6D7C",fg="white")
@@ -39,7 +39,7 @@ class CarsAddCarUi(tk.Frame):
         self.tkvar.set('Smabill') # set the default option
 
         #Create the entry fields
-        car_typeInput = tk.OptionMenu(self, self.tkvar, *choices, command=self.dc)
+        car_typeInput = tk.OptionMenu(self, self.tkvar, *choices, command=self.dc) #creating a dropdown menu
         #car_typeInput = tk.Entry(self, width=20, font=("Courier", 20))
         self.brandInput = tk.Entry(self, width=20, font=("Courier", 20))
         self.modelInput = tk.Entry(self, width=20, font=("Courier", 20))
@@ -120,12 +120,12 @@ class CarsAddCarUi(tk.Frame):
         
         
     def esc(self, controller):
-        controller.show_frame(carsMenuUi.CarsMenuUi)
+        controller.show_frame(carsMenuUi.CarsMenuUi) #returns user back to the menu page
 
-    def dc(self, value):
-        self.value = value
+    def dc(self, value): #fetches value from the drop down menu
+        self.value = value 
 
-    def confirm(self,controller):
+    def confirm(self,controller): #adds all the user input to the csv file and then returns the user to the menu again
         typeinput = self.value
         brandinput = self.brandInput.get()
         modelinput = self.modelInput.get()
