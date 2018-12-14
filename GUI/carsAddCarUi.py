@@ -129,4 +129,7 @@ class CarsAddCarUi(tk.Frame):
             seatsinput = self.seatsInput.get()
             licenseplateinput = self.licenseplateInput.get()
             self.instance = addCar.AddCar(licenseplateinput,typeinput,brandinput,modelinput,seatsinput)
+            self.brandInput.delete(0,"end")
+            self.modelInput.delete(0,"end")
+            self.seatsInput.delete(0,"end")
             controller.show_frame(carsMenuUi.CarsMenuUi)
