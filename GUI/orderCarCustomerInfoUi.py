@@ -115,6 +115,12 @@ class OrderCarCustomerInfoUi(tk.Frame):
             if not check:
                 self.instance.addCostumerToData(fullnameinput,ssninput,emailinput,phoneinput)
             self.instance.addLeaseToData(fullnameinput,ssninput,controller.leaseStart,controller.leaseEnd,self.instance.licensePlate)
+            self.fullnameInput.delete(0,"end")
+            self.ssnInput.delete(0,"end")
+            self.emailInput.delete(0,"end")
+            self.phoneInput.delete(0,"end")
+            controller.startInput.delete(0,"end")
+            controller.endInput.delete(0,"end")
             controller.show_frame(menuUi.MenuUi)
         
             
