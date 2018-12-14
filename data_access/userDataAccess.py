@@ -24,7 +24,7 @@ class UserDataAccess:
                         csv_writer.writerow(newUser)
     
     def deleteUser(self,name,ssn):
-        # moving the data to a temp file but if any line matches the given input it
+        # moving the ../data to a temp file but if any line matches the given input it
         # does not go to the temp file
         with open("data/users.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
@@ -36,11 +36,11 @@ class UserDataAccess:
                     csv_writer.writerow(line)
                 openfile.truncate(0)
 
-        # the data back to the original file
+        # the ../data back to the original file
         self.moveFromTempFile("users")
 
     def editUser(self,olddatalist,newdatalist):
-        # take in all arguments if the argument is the same as in the data itself then  #
+        # take in all arguments if the argument is the same as in the ../data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
         new_ssn = newdatalist[0]
@@ -59,12 +59,12 @@ class UserDataAccess:
                     csv_writer.writerow(line)
                 openfile.truncate(0)
 
-        # the data back to the original file
+        # the ../data back to the original file
         self.moveFromTempFile("users")
 
 
     def moveFromTempFile(self,fileName):
-        # the data back to the original file
+        # the ../data back to the original file
         filetowrite = "data/"+fileName+".csv"
         with open("data/tempfile.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
