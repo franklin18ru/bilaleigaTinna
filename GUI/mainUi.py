@@ -23,7 +23,7 @@ import customersUpdateUi
 import customersSearchUi
 import orderCarCustomerInfoUi
 import customersAddCustomerUi
-import customersMenuUI
+import customersMenuUi
 from services import makeOrder
 
 
