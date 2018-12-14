@@ -27,12 +27,12 @@ class CustomerDataAccess:
         # moving the data to a temp file but if any line matches the given input it
         # does not go to the temp file
         self.deleteCustomerLeases(name,ssn)
-        with open("data/customers.csv","r+") as openfile:
+        with open("data/customers.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if name == line[1] and ssn == line[0]:
+                    if name == line[0] and ssn == line[1]:
                         continue
                     csv_writer.writerow(line)
                 openfile.truncate(0)
@@ -41,7 +41,7 @@ class CustomerDataAccess:
         self.moveFromTempFile("customers")
 
     def deleteCustomerLeases(self,name,ssn):
-        with open("data/leases.csv","r+") as openfile:
+        with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
@@ -85,20 +85,19 @@ class CustomerDataAccess:
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
-        old_ssn = old_Customerdata[0]
-        old_name = old_Customerdata[1]
-        new_ssn =  new_Customerdata[0]
-        new_name =  new_Customerdata[1]
-        new_birthday =  new_Customerdata[2]
+        old_ssn = old_Customerdata[1]
+        old_name = old_Customerdata[0]
+        new_ssn =  new_Customerdata[1]
+        new_name =  new_Customerdata[0]
         new_phone =  new_Customerdata[3]
-        new_email =  new_Customerdata[4]
-        with open("data/customers.csv","r+") as openfile:
+        new_email =  new_Customerdata[2]
+        with open("data/customers.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if old_Customerdata == line: 
-                        new_line = [new_ssn,new_name,new_birthday,new_phone,new_email]
+                    if old_ssn == line[1]: 
+                        new_line = [new_name,new_ssn,new_phone,new_email]
                         csv_writer.writerow(new_line)
                         continue
                     csv_writer.writerow(line)
@@ -114,7 +113,7 @@ class CustomerDataAccess:
             # edit customer then edit all leases if the ssn or name is edited #
 
     def editCostumerLeases(self,old_ssn,old_name,new_ssn,new_name):
-        with open("data/leases.csv","r+") as openfile:
+        with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
@@ -134,7 +133,7 @@ class CustomerDataAccess:
     def moveFromTempFile(self,fileName):
         # the data back to the original file
         filetowrite = "data/"+fileName+".csv"
-        with open("data/tempfile.csv","r") as openfile:
+        with open("data/tempfile.csv","r",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
