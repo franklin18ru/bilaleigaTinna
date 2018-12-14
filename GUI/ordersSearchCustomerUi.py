@@ -89,5 +89,20 @@ class OrdersSearchCustomerUi(tk.Frame):
 
 
         def confirm(self,controller):
-            # Search for order and show info if the order exists #
-            pass
+            escape_button.grid_forget()
+            confirm_button.grid_forget()
+            self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
+            self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
+            self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:back(self,controller))
+            self.back_button.config(font=("Courier", 16))
+            self.delete_button.config(font=("Courier", 16))
+            self.edit_button.config(font=("Courier", 16))
+            self.back_button.grid(row=10, column=1,columnspan=1)
+            self.delete_button.grid(row=10, column=5,columnspan=1)
+            self.edit_button.grid(row=10, column=4,columnspan=1)
+        def back(self,controller):
+            self.back_button.grid_forget()
+            self.delete_button.grid_forget()
+            self.edit_button.grid_forget()
+            escape_button.grid(row=10, column=1)
+            confirm_button.grid(row=10, column=4)
