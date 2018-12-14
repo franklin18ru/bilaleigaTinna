@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
-import customersUi
+import customersMenuUi
 from services import findCustomer
 
 
@@ -61,7 +61,7 @@ class CustomersSearchUi(tk.Frame):
 
 
         def esc(self):
-            controller.show_frame(customersUi.CustomersUi)
+            controller.show_frame(customersMenuUi.CustomersMenuUi)
 
         def confirm(self,controller):
             userinput = self.user_input.get()

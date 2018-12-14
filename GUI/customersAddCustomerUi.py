@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from GUI import mainUi
-import menuUi
+import customersMenuUi
 from services import addCustomer
 import customersUi
 
@@ -103,7 +103,7 @@ class CustomersAddCustomerUi(tk.Frame):
 
 
             def esc(self):
-                controller.show_frame(customersUi.CustomersUi)
+                controller.show_frame(customersMenuUi.CustomersMenuUi)
 
             def confirm(self,controller):
                 fullnameInput = self.fullnameInput.get()

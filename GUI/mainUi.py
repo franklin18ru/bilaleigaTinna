@@ -23,6 +23,7 @@ import customersUpdateUi
 import customersSearchUi
 import orderCarCustomerInfoUi
 import customersAddCustomerUi
+import customersMenuUi
 from services import makeOrder
 
 
@@ -36,7 +37,7 @@ class MainUi(tk.Tk):
         container.grid_columnconfigure(0, weight = 1)
         self.frames = {}
         
-        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarDateUi.OrderCarDateUi, 
+        for F in (loginUi.LoginUi, menuUi.MenuUi, orderCarDateUi.OrderCarDateUi, customersMenuUi.CustomersMenuUi, 
                   returnCarUi.ReturnCarUi, ordersUi.OrdersUi, carsMenuUi.CarsMenuUi, customersSearchUi.CustomersSearchUi,
                   pricelistUi.PriceListUi, customersUi.CustomersUi, orderCarUi.OrderCarUi, customersUpdateUi.CustomersUpdateUi,
                   orderCarMenuCarsUi.OrderCarMenuCarsUi, carsUi.CarsUi, ordersSearchCustomerUi.OrdersSearchCustomerUi,
