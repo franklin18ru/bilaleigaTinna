@@ -7,7 +7,7 @@ class CarsDataAccess:
         self.cars = self.getAllCars()
 
     def getAllCars(self):
-        cars_dictionary = dict()
+        car_list = []
         with open("data/cars.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
@@ -17,8 +17,8 @@ class CarsDataAccess:
                 brand = line[2]
                 model = int(line[3])
                 seats = int(line[4])
-                cars_dictionary[licenseplate] = (typef,brand,model,seats)
-            return cars_dictionary
+                car_list.append([licenseplate,typef,brand,model,seats])
+            return car_list
 
     def addCar(self,LicensePlate,Type,Brand,Model,Seats):
         with open('data/cars.csv', 'a',newline="") as openfile:
