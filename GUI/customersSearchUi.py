@@ -33,8 +33,9 @@ class CustomersSearchUi(tk.Frame):
 
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
-        confirm_button.config( font=("Courier", 16))
+        
         escape_button.config( font=("Courier", 16))
+        confirm_button.config( font=("Courier", 16))
 
         #labels
         bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
@@ -43,8 +44,9 @@ class CustomersSearchUi(tk.Frame):
         name_ssn.grid(row=4, column=1)
         self.user_input.grid(row=4,column=4,columnspan = 1)
         line2.grid(row=9,column =0, columnspan = 8)
-        confirm_button.grid(row=10, column= 1)
-        escape_button.grid(row=10, column=4)
+        
+        escape_button.grid(row=10, column=1)
+        confirm_button.grid(row=10, column= 4)
 
          #position frame
         self.grid_rowconfigure(0, weight=2)
@@ -74,19 +76,23 @@ class CustomersSearchUi(tk.Frame):
             self.instance = findCustomer.FindCustomer(userinput)
             escape_button.grid_forget()
             confirm_button.grid_forget()
+            name_ssn.grid_forget()
+            self.user_input.grid_forget()
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:back(self,controller))
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
-            self.back_button.grid(row=11, column=0,columnspan=3)
-            self.delete_button.grid(row=11, column=2)
-            self.edit_button.grid(row=11, column=1)
+            self.back_button.grid(row=10, column=1)
+            self.delete_button.grid(row=10, column=3)
+            self.edit_button.grid(row=10, column=2)
         def back(self,controller):
             self.back_button.grid_forget()
             self.delete_button.grid_forget()
             self.edit_button.grid_forget()
-            confirm_button.grid(row=11, column= 2, columnspan = 2 )
-            escape_button.grid(row=11, column=0, columnspan = 3)
+            name_ssn.grid(row=4, column=1)
+            self.user_input.grid(row=4,column=4,columnspan = 1)
+            confirm_button.grid(row=10, column=4)
+            escape_button.grid(row=10, column=1)
 
