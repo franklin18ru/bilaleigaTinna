@@ -26,5 +26,5 @@ class FindOrder:
         self.leaseDataAccess.editLease(olddata,newdatalist)
 
     def deleteLease(self,ssn,lease_start, license_plate):
-        self.leaseDataAccess.deleteLease(ssn,lease_start,license_plate)
+        self.leaseDataAccess.deleteLease(ssn,lease_start,license_plate.upper())
         #lease_list.append([ssn, renter,leaseStart,leaseEnd,licensePlate,state])
