@@ -32,7 +32,7 @@ class CustomerDataAccess:
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if name == line[1] and ssn == line[0]:
+                    if name == line[0] and ssn == line[1]:
                         continue
                     csv_writer.writerow(line)
                 openfile.truncate(0)
@@ -138,8 +138,6 @@ class CustomerDataAccess:
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
                 for line in csv_reader:
-                    if line ==None:
-                        continue
                     csv_writer.writerow(line)
 
         # removing the temp file

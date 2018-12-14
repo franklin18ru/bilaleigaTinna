@@ -25,3 +25,7 @@ class FindCustomer:
     def deleteCustomer(self,name,ssn):
         self.customersDataAccess.deleteCustomer(name,ssn)
         self.customersDataAccess.deleteCustomerLeases(name,ssn)
+
+
+    #John Newman,1510924339,Johnnyboi@gmail.com,584-12345
+    #1510924339,John Newman,2018.12.10,2018.12.18,KO646
