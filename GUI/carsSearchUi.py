@@ -29,7 +29,8 @@ class CarsSearchUi(tk.Frame):
 
         #Create the entry fields
         self.carInput = tk.Entry(self, width=20, font=("Courier", 20))
-        #Create Buttons
+        
+        #Create Buttons, linking the buttons the the functions with the coresponding activity
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:confirm(self,controller))
 
@@ -43,7 +44,6 @@ class CarsSearchUi(tk.Frame):
         line2.config(font=("Courier", 28))
         self.car.config(font=("Courier", 16))
         self.carInput.config(font=("Courier", 16))
-
 
         #Position widgets
         bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
@@ -70,19 +70,22 @@ class CarsSearchUi(tk.Frame):
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=1)
 
-
-        def esc(self):
+        #returining user the the carsMenu page if he clicks on til baka
+        def esc(self): 
             controller.show_frame(carsMenuUi.CarsMenuUi)
 
         def confirm(self,controller):
             # Search for car then change the frame to see info about the car #
+
             carInput = self.carInput.get()
-            self.instance = findCar.FindCar(carInput)
+            self.instance = findCar.FindCar(carInput) #setting instance as the findCar (from servises folder) function
+            #hiding the things we don't need on the new page
             self.car.grid_forget()
             escape_button.grid_forget()
             confirm_button.grid_forget()
             self.carInput.grid_forget()
 
+            #creting new buttons
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:edit(self,controller))
@@ -92,7 +95,6 @@ class CarsSearchUi(tk.Frame):
             self.edit_button.config(font=("Courier", 16))
             
             self.back_button.grid(row=10, column=1,columnspan=1)
-            #self.delete_button.grid(row=10, column=5,columnspan=1)
             self.edit_button.grid(row=10, column=4,columnspan=1)
             
             self.showCarNameLabel = tk.Label(self.leftFrame, text="Bíll")
@@ -100,6 +102,7 @@ class CarsSearchUi(tk.Frame):
             self.showCarLicenseLabel = tk.Label(self.leftFrame, text="Bílnúmer")
             self.showCarSeatsLabel = tk.Label(self.rightFrame, text="Fjöldi sæta")
             
+            #showing the coresponding info about the car, pulled from findCar, which pulls from the database
             self.showCarName = tk.Label(self.leftFrame, text=self.instance.car[2])
             self.showCarModel = tk.Label(self.rightFrame, text=self.instance.car[3])
             self.showCarLicense = tk.Label(self.leftFrame, text=self.instance.car[0])
@@ -110,6 +113,7 @@ class CarsSearchUi(tk.Frame):
             self.showCarLicenseLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
             self.showCarSeatsLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
 
+            #Creating entry fields with placeholders with correct info about the car, if the user just wants to change one thing
             self.showCarNameLabel.grid(row=0, column=0, columnspan=3, pady=2)
             self.entrycarname = tk.Entry(self.leftFrame,width=19, font=("Courier", 20))
             self.entrycarname.insert(0,self.instance.car[2])
@@ -136,6 +140,7 @@ class CarsSearchUi(tk.Frame):
 
             # cars_dictionary[licenseplate] = (typef,brand,model,seats)
         def back(self,controller):
+            #hiding the things we dont need on the new page
             self.back_button.grid_forget()
             self.delete_button.grid_forget()
             self.edit_button.grid_forget()
@@ -154,6 +159,7 @@ class CarsSearchUi(tk.Frame):
             self.entrycarlicense.grid_forget()
             self.entrycarseats.grid_forget()
 
+            #showing the things we want to be shown
             self.car.grid(row=4, column=3)
             self.carInput.grid(row=4, column=4,columnspan = 1)
             escape_button.grid(row=10, column=3)
@@ -168,13 +174,12 @@ class CarsSearchUi(tk.Frame):
             self.showCarLicense.grid_forget()
             self.showCarSeats.grid_forget()
 
-
             self.entrycarname.grid(row=1, column=0, columnspan=2)
             self.entrycarmodel.grid(row=1, column=0, columnspan=2)
             self.entrycarlicense.grid(row=4, column=0, columnspan=2)
             self.entrycarseats.grid(row=4, column=0, columnspan=2)
 
-
+            #creating buttons
             self.edit_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:change(self,controller))
             self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: delete(self,controller))
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
@@ -186,7 +191,7 @@ class CarsSearchUi(tk.Frame):
             self.delete_button.grid(row=10, column=6)
 
             
-
+        #if user presses staðfesta this function inputs the new information about the car to the database
         def change(self,controller):
             carname = self.entrycarname.get()
             carmodel = self.entrycarmodel.get()
@@ -195,6 +200,7 @@ class CarsSearchUi(tk.Frame):
             newdata = [carlicense,carname,carmodel,carseats]
             self.instance.editCar(newdata)
         
+        #if the user clicks eyða this function will delete the information about the car to the database
         def delete(self,controller):
             carlicense = self.entrycarlicense.get()
             self.instance.deleteCar(carlicense)
