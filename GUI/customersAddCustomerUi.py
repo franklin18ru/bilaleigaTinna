@@ -5,6 +5,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from GUI import mainUi
 import menuUi
 from services import addCustomer
+import customersUi
 
 class CustomersAddCustomerUi(tk.Frame):
     def __init__(self, parent, controller):
