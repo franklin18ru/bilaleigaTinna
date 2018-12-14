@@ -45,7 +45,7 @@ class CustomersAddCustomerUi(tk.Frame):
 
             #Create Buttons
             escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-            confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(controller))
+            confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
 
 
@@ -103,11 +103,12 @@ class CustomersAddCustomerUi(tk.Frame):
 
 
             def esc(self):
-                controller.show_frame()
+                controller.show_frame(customersUi.CustomersUi)
 
-            def confirm(self):
+            def confirm(self,controller):
                 fullnameInput = self.fullnameInput.get()
                 ssnInput = self.ssnInput.get()
                 emailInput = self.emailInput.get()
                 phoneInput = self.phoneInput.get()
                 self.instance = addCustomer.AddCustomer(fullnameInput,ssnInput,emailInput,phoneInput)
+                controller.show_frame(customersUi.CustomersUi)

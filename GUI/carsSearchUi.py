@@ -1,6 +1,9 @@
 import tkinter as tk
 import csv
-import carsMenuUi
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from GUI import carsMenuUi
 
 class CarsSearchUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -22,7 +25,7 @@ class CarsSearchUi(tk.Frame):
         carInput = tk.Entry(self, width=20, font=("Courier", 20))
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:confirm(self,controller))
 
 
         #configure labels
@@ -69,3 +72,7 @@ class CarsSearchUi(tk.Frame):
 
         def esc(self):
             controller.show_frame(carsMenuUi.CarsMenuUi)
+
+        def confirm(self,controller):
+            # Search for car then change the frame to see info about the car #
+            pass
