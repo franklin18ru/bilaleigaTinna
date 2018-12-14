@@ -21,8 +21,10 @@ class CustomersUi(tk.Frame):
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
 
 
-        #Create Buttons
+        #Create Buttons to activate functions that return the users to the page they want
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda:esc(controller))
+        
+        #crating a for-loop witch takes info from the customrs.csv file and prints it out in lines
         with open('data/customers.csv', 'r', newline="") as customers:
             csv_reader = csv.reader(customers)
             next(csv_reader)
@@ -85,6 +87,6 @@ class CustomersUi(tk.Frame):
         self.grid_columnconfigure(7, weight=2)
 
 
-        def esc(self):
+        def esc(self): #directing the customers back to the customersMenu file when he click on til baka
             controller.show_frame(customersMenuUi.CustomersMenuUi)
 
