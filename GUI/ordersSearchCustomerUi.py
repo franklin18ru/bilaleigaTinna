@@ -19,7 +19,7 @@ class OrdersSearchCustomerUi(tk.Frame):
         label1 = tk.Label(self, text="Pantanir",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
-        ssn = tk.Label(self, text="Sláðu inn kennitölu \n eða nafn viðskiptavinar \n eða bílnúmer:",bg="#5A6D7C",fg="white")
+        ssn = tk.Label(self, text="Sláðu inn kennitölu viðskiptavinar \n eða bílnúmer:",bg="#5A6D7C",fg="white")
 
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
@@ -57,7 +57,7 @@ class OrdersSearchCustomerUi(tk.Frame):
         label1.grid(row=3, column=0,columnspan = 8)
         
 
-        ssn.grid(row=4, column=1)
+        ssn.grid(row=5, column=1)
 
         #escape_button.grid(row=10, column=3)
         escape_button.grid(row=10, column=1)
@@ -65,7 +65,7 @@ class OrdersSearchCustomerUi(tk.Frame):
         line1.grid(row=2,column=0,columnspan = 8)
         line2.grid(row=9,column=0,columnspan = 8)
 
-        self.userInput.grid(row=4, column=4,columnspan = 1)
+        self.userInput.grid(row=5, column=4,columnspan = 1)
 
 
 
@@ -109,10 +109,42 @@ class OrdersSearchCustomerUi(tk.Frame):
             self.back_button.grid(row=10, column=1,columnspan=1)
             self.delete_button.grid(row=10, column=3,columnspan=1)
             self.edit_button.grid(row=10, column=2,columnspan=1)
+            
+            self.orderName = tk.Label(self, text=self.instance.lease[0][1])
+            self.orderSSN = tk.Label(self, text=self.instance.lease[0][0])
+            row_num = 5
+            column_num = 1
+            counter = 0            
+            self.instanceCounter = []
+            for i in self.instance.lease:
+                self.leaseButton = tk.Button(self, text=i[4]+"\nFrá: "+i[2]+"\nTil: "+i[3] ,bg="#424242",fg="white", width=22, height=2)
+                self.leaseButton.config(font=("Courier", 16))
+                self.leaseButton.grid(row = row_num, column=column_num, ipady=10)
+                self.instanceCounter.append(self.leaseButton)
+                counter += 1
+                column_num += 2
+                if counter == 2:
+                    row_num += 1
+                    counter = 0
+                    column_num = 1  
+            self.orderName.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
+            self.orderSSN.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
+
+            
+            self.orderName.grid(row=3, column=1)
+            self.orderSSN.grid(row=3, column=3)
+
+
+            #lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate,state)
         def back(self,controller):
             self.back_button.grid_forget()
             self.delete_button.grid_forget()
             self.edit_button.grid_forget()
+            self.orderName.grid_forget()
+            self.orderSSN.grid_forget()
+
+            for i in self.instanceCounter:
+                i.grid_forget()
             escape_button.grid(row=10, column=1)
             confirm_button.grid(row=10, column=4)
             self.userInput.grid(row=4, column=4,columnspan = 1)

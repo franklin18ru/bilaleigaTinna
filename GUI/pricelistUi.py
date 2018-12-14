@@ -100,7 +100,7 @@ class PriceListUi(tk.Frame):
         self.grid_rowconfigure(12, weight=3)
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
-
+        
 
 
         def editPriceList(self):

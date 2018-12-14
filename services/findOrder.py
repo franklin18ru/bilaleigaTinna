@@ -10,7 +10,13 @@ class FindOrder:
         #if self.customer == False:
         #   print out error message
     def searchDataForLease(self,input):
-        for key,value in self.leaseDataAccess.leases.items():
-            if input == key or input == value[0] or input == value[4]:
-                return [key,value]
-        return False
+        self.orders = []
+        for  item in self.leaseDataAccess.leases:
+            if input == str(item[0]) or input.capitalize() == item[1] or input.upper() == item[4]:
+                    self.orders.append(item)
+        if len(self.orders) > 0:
+            return self.orders
+        else:
+            return False
+
+        #lease_list.append([ssn, renter,leaseStart,leaseEnd,licensePlate,state])
