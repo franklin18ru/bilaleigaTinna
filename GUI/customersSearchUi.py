@@ -222,9 +222,22 @@ class CustomersSearchUi(tk.Frame):
             self.entryssn.grid_forget()
             self.entryemail.grid_forget()
             self.entryphone.grid_forget()
+
+            self.showCustomerNameLabel.grid_forget()
+            self.showCustomerSsnLabel.grid_forget()
+            self.showCustomerEmailLabel.grid_forget()
+            self.showCustomerPhoneLabel.grid_forget()
+            self.user_input.delete(0,"end")
+            name_ssn.grid(row=4, column=1)
+            self.user_input.grid(row=4,column=4,columnspan = 1)
+            escape_button.grid(row=10, column=1)
+            confirm_button.grid(row=10, column= 4)
+
+
             controller.show_frame(customersMenuUi.CustomersMenuUi)
 
         def delete(self,controller):
             name = self.instance.customer[1][0]
             ssn = self.instance.customer[0] 
             self.instance.deleteCustomer(name,ssn)
+            controller.show_frame(customersMenuUi.CustomersMenuUi)
