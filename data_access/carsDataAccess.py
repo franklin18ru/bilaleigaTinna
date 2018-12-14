@@ -40,6 +40,7 @@ class CarsDataAccess:
 
         # the data back to the original file
         self.moveFromTempFile("cars")
+        self.deleteCarLeases(licenseplate)
         
 
     def deleteCarLeases(self,licenseplate):
@@ -65,17 +66,17 @@ class CarsDataAccess:
         # if license plate is edited then all the lease under that license plate must be edited #
         old_licensePlate = olddatalist[0]
         new_licensePlate = newdatalist[0]
-        new_type = newdatalist[1]
-        new_brand = newdatalist[2]
-        new_model = newdatalist[3]
-        new_seats = newdatalist[4]
-        with open("data/cars.csv","r+") as openfile:
+        Type = olddatalist[1]
+        new_brand = newdatalist[1]
+        new_model = newdatalist[2]
+        new_seats = newdatalist[3]
+        with open("data/cars.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
-                    if olddatalist == line:
-                        new_line = [new_licensePlate,new_type,new_brand,new_model,new_seats]
+                    if old_licensePlate == line[0]:
+                        new_line = [new_licensePlate,Type,new_brand,new_model,new_seats]
                         csv_writer.writerow(new_line)
                         continue
                     csv_writer.writerow(line)
@@ -91,7 +92,7 @@ class CarsDataAccess:
 
 
     def editCarLeases(self,old_licensePlate,new_licensePlate):
-        with open("data/leases.csv","r+") as openfile:
+        with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)

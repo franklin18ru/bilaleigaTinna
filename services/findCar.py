@@ -15,4 +15,18 @@ class FindCar:
                 return item
         return False
 
+    def editCar(self,newdatalist):
+        oldlicenseplate = self.car[0]
+        Type = self.car[1] 
+        oldbrand = self.car[2]
+        oldmodel = self.car[3]
+        oldseats = self.car[4]
+        olddata = [oldlicenseplate,Type,oldbrand,oldmodel,oldseats]
+        self.carDataAccess.editCar(olddata,newdatalist)
+    def deleteCar(self,licenseplate):
+        self.carDataAccess.deleteCar(licenseplate)
         #car_list.append([licenseplate,typef,brand,model,seats])
+
+
+
+  

@@ -162,11 +162,6 @@ class CarsSearchUi(tk.Frame):
             confirm_button.grid(row=10, column=4)
 
         def edit(self,controller):
-            self.entrycarname.grid(row=1, column=0, columnspan=2)
-            self.entrycarmodel.grid(row=1, column=0, columnspan=2)
-            self.entrycarlicense.grid(row=4, column=0, columnspan=2)
-            self.entrycarseats.grid(row=4, column=0, columnspan=2)
-
             self.back_button.grid_forget()
             self.delete_button.grid_forget()
             self.edit_button.grid_forget()
@@ -174,6 +169,37 @@ class CarsSearchUi(tk.Frame):
             self.showCarModel.grid_forget()
             self.showCarLicense.grid_forget()
             self.showCarSeats.grid_forget()
+
+
+            self.entrycarname.grid(row=1, column=0, columnspan=2)
+            self.entrycarmodel.grid(row=1, column=0, columnspan=2)
+            self.entrycarlicense.grid(row=4, column=0, columnspan=2)
+            self.entrycarseats.grid(row=4, column=0, columnspan=2)
+
+
+            self.edit_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:change(self,controller))
+            self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: delete(self,controller))
+            self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
+            self.edit_button.config(font=("Courier", 16))
+            self.back_button.config(font=("Courier", 16))
+            self.delete_button.config(font=("Courier", 16))
+            self.edit_button.grid(row=10, column=4,columnspan=1)
+            self.back_button.grid(row=10, column=1)
+            self.delete_button.grid(row=10, column=3)
+
+            
+
+        def change(self,controller):
+            carname = self.entrycarname.get()
+            carmodel = self.entrycarmodel.get()
+            carlicense = self.entrycarlicense.get()
+            carseats = self.entrycarseats.get()
+            newdata = [carlicense,carname,carmodel,carseats]
+            self.instance.editCar(newdata)
+        
+        def delete(self,controller):
+            carlicense = self.entrycarlicense.get()
+            self.instance.deleteCar(carlicense)
 
            
             
