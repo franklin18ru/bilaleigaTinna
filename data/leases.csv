@@ -1,9 +1,5 @@
 ssn,Renter,Lease start,Lease end,LicensePlate,State
 1510924339,John Newman,2018.12.10,2018.12.18,KO646
 1702953539,Hreidar,2018.12.30,2020.10.10,AL666,inactive
-<<<<<<< HEAD
 1702953539,Hreidar,2019.01.30,2019.01.10,PL454,inactive
 0305952309,Paulie Mayer,2018.12.10,2018.12.14,GK788,active
-=======
-0305952309,Paulie Mayer,2018.12.10,2018.12.14,GK788,active
->>>>>>> 2d886d29c5f718c1156274fb94c9a966df0b9a59
