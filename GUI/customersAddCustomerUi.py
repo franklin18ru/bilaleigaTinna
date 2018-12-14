@@ -68,38 +68,34 @@ class CustomersAddCustomerUi(tk.Frame):
             #Position widgets
 
             #labels
-            bilaleigaTinna.grid(row=1, column=3)
-            label1.grid(row=3, column=3)
-            full_name.grid(row=4, column=2)
-            ssn.grid(row=5, column=2)
-            email.grid(row=7, column=2) #added email
-            phone.grid(row=8, column=2) #added phone number
+            bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
+            label1.grid(row=3, column=0,columnspan = 8)
+            full_name.grid(row=4, column=1)
+            ssn.grid(row=5, column=1)
+            email.grid(row=7, column=1)
+            phone.grid(row=8, column=1) 
 
-            escape_button.grid(row=10, column=2)
+            escape_button.grid(row=10, column=1)
             confirm_button.grid(row=10, column=4)
-            line1.grid(row=2,column=3)
-            line2.grid(row=9,column=3)
+            line1.grid(row=2,column=0,columnspan = 8)
+            line2.grid(row=9,column=0,columnspan = 8)
 
-            self.fullnameInput.grid(row=4, column=3)
-            self.ssnInput.grid(row=5, column=3)
-            self.emailInput.grid(row=7, column=3)
-            self.phoneInput.grid(row=8, column=3)
+            self.fullnameInput.grid(row=4, column=2)
+            self.ssnInput.grid(row=5, column=2)
+            self.emailInput.grid(row=7, column=2)
+            self.phoneInput.grid(row=8, column=2)
 
 
             self.grid_rowconfigure(0, weight=2)
-            self.grid_rowconfigure(1, weight=0)
             self.grid_rowconfigure(2, weight=0)
-            self.grid_rowconfigure(3, weight=2)
+            self.grid_rowconfigure(1, weight=0)
             self.grid_rowconfigure(4, weight=1)
-            self.grid_rowconfigure(5, weight=1)
-            self.grid_rowconfigure(6, weight=1)
+            self.grid_rowconfigure(3, weight=1)
             self.grid_rowconfigure(7, weight=1)
-            self.grid_rowconfigure(8, weight=1)
             self.grid_rowconfigure(9, weight=1)
             self.grid_rowconfigure(11, weight=5)
-
-            self.grid_columnconfigure(0, weight=10)
-            self.grid_columnconfigure(6, weight=10)
+            self.grid_columnconfigure(0, weight=1)
+            self.grid_columnconfigure(7, weight=1)
 
 
             def esc(self):
