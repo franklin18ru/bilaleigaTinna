@@ -4,7 +4,6 @@ import carsSearchUi
 import carsUi
 import carsAddCarUi
 
-#ke
 class CarsMenuUi(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
@@ -19,6 +18,7 @@ class CarsMenuUi(tk.Frame):
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
         #Create Buttons
+        #Making functions so that the buttons work, returning users to the site they want from the button they click
         search_car = tk.Button(self,    text="1. Leita af bíl", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCarsSearch(controller))
         all_cars = tk.Button(self,   text="2. Allir bílar", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCars(controller))
         add_car = tk.Button(self,text="2. Bæta við bíl", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCarsAddCar(controller))
@@ -38,8 +38,6 @@ class CarsMenuUi(tk.Frame):
 
 
         #Position widgets
-
-        #labels
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
         search_car.grid(row=4, column=3)
@@ -50,21 +48,15 @@ class CarsMenuUi(tk.Frame):
         line2.grid(row=9,column=3)
 
 
-
         #position frame
         self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
-        #self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=1)
-
         self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-
         self.grid_rowconfigure(12, weight=3)
-
-
 
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
@@ -72,16 +64,16 @@ class CarsMenuUi(tk.Frame):
 
        
 
-        def esc(self):
+        def esc(self): #returns user back the the main menu page if he clicks on til baka
             controller.show_frame(menuUi.MenuUi)
 
-        def switchCarsSearch(self):
+        def switchCarsSearch(self): #returns user to the carsSearch if he click on leita af bíl
             controller.show_frame(carsSearchUi.CarsSearchUi)
 
-        def switchCars(self):
+        def switchCars(self): #returns user to cars if he clicks on allir bílar
             controller.show_frame(carsUi.CarsUi)
 
-        def switchCarsAddCar(self):
+        def switchCarsAddCar(self): #returns user to carsAddCar if he clicks on bæta við bíl
             controller.show_frame(carsAddCarUi.CarsAddCarUi)
 
 

@@ -14,8 +14,6 @@ class CustomersAddCustomerUi(tk.Frame):
             screen_height = self.winfo_screenheight() #Gets the screen height
             self.winfo_toplevel().configure(bg="#5A6D7C") # Changes background color of frame
             self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
-        
-
 
             bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
             label1 = tk.Label(self, text="Viðskiptavinur",bg="#5A6D7C",fg="white")
@@ -26,30 +24,15 @@ class CustomersAddCustomerUi(tk.Frame):
             phone = tk.Label(self, text="Símanúmer:",bg="#5A6D7C",fg="white")
             line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
-
-
-
-
-
             #Create the entry fields
             self.fullnameInput = tk.Entry(self, width=20, font=("Courier", 20))
             self.ssnInput = tk.Entry(self, width=20, font=("Courier", 20))
             self.emailInput = tk.Entry(self, width=20, font=("Courier", 20))
             self.phoneInput = tk.Entry(self, width=20, font=("Courier", 20))
 
-
-
-
-
-
-
             #Create Buttons
             escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
             confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
-
-
-
-
 
             #configure labels
             bilaleigaTinna.config(font=("Courier", 32))
@@ -64,10 +47,7 @@ class CustomersAddCustomerUi(tk.Frame):
             phone.config(font=("Courier", 16))
 
 
-
             #Position widgets
-
-            #labels
             bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
             label1.grid(row=3, column=0,columnspan = 8)
             full_name.grid(row=4, column=1)
@@ -98,10 +78,10 @@ class CustomersAddCustomerUi(tk.Frame):
             self.grid_columnconfigure(7, weight=1)
 
 
-            def esc(self):
+            def esc(self): #returning users to the customersMenu page when he clicks to baka
                 controller.show_frame(customersMenuUi.CustomersMenuUi)
 
-            def confirm(self,controller):
+            def confirm(self,controller): #inputing the info about the customer to the database, then returning users to the customers page
                 fullnameInput = self.fullnameInput.get()
                 ssnInput = self.ssnInput.get()
                 emailInput = self.emailInput.get()

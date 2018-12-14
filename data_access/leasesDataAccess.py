@@ -54,6 +54,7 @@ class LeasesDataAccess:
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
         # the original file to edit #
         # Can't edit customer or car only edit lease period #
+<<<<<<< HEAD
         old_license = olddata[0]
         old_start = olddata[1]
         old_end = olddata[2]
@@ -63,6 +64,9 @@ class LeasesDataAccess:
         new_start = newdatalist[1]
         new_end = olddata[2]
         with open("data/leases.csv","r+") as openfile:
+=======
+        with open("data/leases.csv","r+",newline="") as openfile:
+>>>>>>> 54870fdfe9c25083e1700d98118db62c4ea33522
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
@@ -81,7 +85,7 @@ class LeasesDataAccess:
     def moveFromTempFile(self,fileName):
         # the data back to the original file
         filetowrite = "data/"+fileName+".csv"
-        with open("data/tempfile.csv","r") as openfile:
+        with open("data/tempfile.csv","r",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
@@ -93,7 +97,7 @@ class LeasesDataAccess:
 
     def editState(self):
         today = datetime.date.today()
-        with open("data/leases.csv","r+") as openfile:
+        with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open("data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
@@ -108,7 +112,7 @@ class LeasesDataAccess:
     
 
     def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
-        with open("data/leases.csv","r")as checkfile:
+        with open("data/leases.csv","r",newline="")as checkfile:
             csv_checker = csv.reader(checkfile)
             frame = self.getTimeFrame(leaseStart,leaseEnd)
             for line in csv_checker:
