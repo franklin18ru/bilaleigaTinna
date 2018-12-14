@@ -100,10 +100,10 @@ class CarsSearchUi(tk.Frame):
             self.showCarLicenseLabel = tk.Label(self.leftFrame, text="Bílnúmer")
             self.showCarSeatsLabel = tk.Label(self.rightFrame, text="Fjöldi sæta")
             
-            self.showCarName = tk.Label(self.leftFrame, text=self.instance.car[1][1])
-            self.showCarModel = tk.Label(self.rightFrame, text=self.instance.car[1][2])
+            self.showCarName = tk.Label(self.leftFrame, text=self.instance.car[2])
+            self.showCarModel = tk.Label(self.rightFrame, text=self.instance.car[3])
             self.showCarLicense = tk.Label(self.leftFrame, text=self.instance.car[0])
-            self.showCarSeats = tk.Label(self.rightFrame, text=self.instance.car[1][3])
+            self.showCarSeats = tk.Label(self.rightFrame, text=self.instance.car[4])
 
 
             
@@ -119,16 +119,16 @@ class CarsSearchUi(tk.Frame):
 
             self.showCarNameLabel.grid(row=0, column=0, columnspan=3, pady=2)
             self.entrycarname = tk.Entry(self.leftFrame,width=19, font=("Courier", 20))
-            self.entrycarname.insert(0,self.instance.car[1][1])
+            self.entrycarname.insert(0,self.instance.car[2])
             self.showCarModelLabel.grid(row=0, column=0, columnspan=3, pady=2)
             self.entrycarmodel = tk.Entry(self.rightFrame,width=19, font=("Courier", 20))
-            self.entrycarmodel.insert(0,self.instance.car[1][2])
+            self.entrycarmodel.insert(0,self.instance.car[3])
             self.showCarLicenseLabel.grid(row=3, column=0, columnspan=3, pady=2)
             self.entrycarlicense = tk.Entry(self.leftFrame,width=19, font=("Courier", 20))
             self.entrycarlicense.insert(0,self.instance.car[0])
             self.showCarSeatsLabel.grid(row=3, column=0, columnspan=3, pady=2)
             self.entrycarseats = tk.Entry(self.rightFrame,width=19, font=("Courier", 20))
-            self.entrycarseats.insert(0,self.instance.car[1][3])
+            self.entrycarseats.insert(0,self.instance.car[4])
             
             self.showCarName.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
             self.showCarModel.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
