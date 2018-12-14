@@ -26,9 +26,7 @@ class PriceListUi(tk.Frame):
                         relief="ridge",
                         highlightbackground="white",
                         highlightcolor="white",
-                        bg = "#5A6D7C",
-                        width=90,
-                        height=20)
+                        bg = "#5A6D7C")
 
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
