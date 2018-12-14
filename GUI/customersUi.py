@@ -1,5 +1,5 @@
 import tkinter as tk
-import menuUi
+import customersMenuUi
 import csv
 import customersSearchUi
 import customersUpdateUi
@@ -106,7 +106,7 @@ class CustomersUi(tk.Frame):
 
 
         def esc(self):
-            controller.show_frame(menuUi.MenuUi)
+            controller.show_frame(customersMenuUi.CustomersMenuUi)
 
         def switchCustomersAdd(self):
             controller.show_frame(customersAddCustomerUi.CustomersAddCustomerUi)
