@@ -141,7 +141,11 @@ class CarsSearchUi(tk.Frame):
             self.showCarLicenseLabel.grid_forget()
             self.showCarSeatsLabel.grid_forget()
 
-            self.car.grid(row=4, column=1)
+            self.car.grid(row=4, column=3)
             self.carInput.grid(row=4, column=4,columnspan = 1)
-            escape_button.grid(row=10, column=1)
+            escape_button.grid(row=10, column=3)
             confirm_button.grid(row=10, column=4)
+
+
+           
+            
