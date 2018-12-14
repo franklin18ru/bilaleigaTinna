@@ -21,11 +21,12 @@ class ReturnOrder:
                 
             
     def getCarOrder(self,licensePlate):
-        for key,value in self.leaseDataAccess.leases.items():
-            if value[3] == licensePlate and value[4] == "active":
-                self.orderStart = value[1]
-                self.orderEnd = value[2]
-                return [key,value]
+        for item in self.leaseDataAccess.leases:
+            if item[4] == licensePlate and item[5] == "active":
+                self.orderStart = item[2]
+                self.orderEnd = item[3]
+                return [self.leaseDataAccess.leases]
+    #lease_list.append([ssn, renter,leaseStart,leaseEnd,licensePlate,state])
                 
     #lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate,state)
     #cars_dictionary[licenseplate] = (typef,brand,model,seats)

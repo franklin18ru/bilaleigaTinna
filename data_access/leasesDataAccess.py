@@ -7,7 +7,7 @@ class LeasesDataAccess:
     def __init__(self):
         self.leases = self.getAllLeases()
     def getAllLeases(self):
-        lease_dictionary = dict()
+        lease_list = []
         with open("data/leases.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
@@ -19,8 +19,8 @@ class LeasesDataAccess:
                 leaseEnd = line[3]
                 licensePlate = line[4]
                 state = line[5]
-                lease_dictionary[ssn] = (renter,leaseStart,leaseEnd,licensePlate,state)
-            return lease_dictionary
+                lease_list.append([ssn, renter,leaseStart,leaseEnd,licensePlate,state])
+            return lease_list
 
     def deleteLease(self,ssn,leaseStart,licensePlate):
         # moving the data to a temp file but if any line matches the given input it

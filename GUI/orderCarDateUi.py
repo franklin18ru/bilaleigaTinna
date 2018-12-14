@@ -49,16 +49,16 @@ class OrderCarDateUi(tk.Frame):
         #Position widgets
 
         #positioning everything on the screen
-        bilaleigaTinna.grid(row=1, column=3)
-        label1.grid(row=3, column=3)
-        start.grid(row=4, column=2)
-        controller.startInput.grid(row=4, column=3)
-        end.grid(row=5, column=2)
-        controller.endInput.grid(row=5, column=3)
-        confirm.grid(row=10, column=4)
-        back.grid(row=10, column=2)
-        line1.grid(row=2,column=3)
-        line2.grid(row=9,column=3)
+        bilaleigaTinna.grid(row=1, column=0, columnspan=8)
+        label1.grid(row=3, column=0, columnspan=8)
+        start.grid(row=4, column=1)
+        controller.startInput.grid(row=4, column=4, columnspan=1)
+        end.grid(row=5, column=1)
+        controller.endInput.grid(row=5, column=4, columnspan=1)
+        confirm.grid(row=10, column=5, columnspan=1)
+        back.grid(row=10, column=1, columnspan=1)
+        line1.grid(row=2,column=0, columnspan=8)
+        line2.grid(row=9,column=0, columnspan=8)
         
 
 
