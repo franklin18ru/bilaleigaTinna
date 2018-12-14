@@ -21,6 +21,12 @@ class CustomersSearchUi(tk.Frame):
         self.user_input = tk.Entry(self, width=20, font=("Courier", 20))
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
 
+        self.leftFrame = tk.Frame(self, bg="#5A6D7C")
+        self.leftFrame.grid(row=4,column=1, columnspan=2)
+
+        self.rightFrame=tk.Frame(self, bg="#5A6D7C")
+        self.rightFrame.grid(row=4,column=5, columnspan=2)
+
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
@@ -87,7 +93,54 @@ class CustomersSearchUi(tk.Frame):
             self.back_button.grid(row=10, column=1)
             self.delete_button.grid(row=10, column=3)
             self.edit_button.grid(row=10, column=2)
+
+            self.edit_button.grid(row=10, column=4,columnspan=1)
+            self.showCustomerNameLabel = tk.Label(self.leftFrame, text="Nafn")
+            self.showCustomerSsnLabel = tk.Label(self.rightFrame, text="Kennitala")
+            self.showCustomerEmailLabel = tk.Label(self.leftFrame, text="Email")
+            self.showCustomerPhoneLabel = tk.Label(self.rightFrame, text="Sími")
+
+            self.showCustomerName = tk.Label(self.leftFrame, text=self.instance.customer[1][0])
+            self.showCustomerSsn = tk.Label(self.rightFrame, text=self.instance.customer[0])
+            self.showCustomerEmail = tk.Label(self.leftFrame, text=self.instance.customer[1][1])
+            self.showCustomerPhone = tk.Label(self.rightFrame, text=self.instance.customer[1][2])
+
+            self.showCustomerNameLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
+            self.showCustomerSsnLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
+            self.showCustomerEmailLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
+            self.showCustomerPhoneLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
+
+            self.showCustomerNameLabel.grid(row=0, column=0, columnspan=3, pady=10)
+            self.showCustomerSsnLabel.grid(row=0, column=0, columnspan=3, pady=10)
+            self.showCustomerEmailLabel.grid(row=3, column=0, columnspan=3, pady=10)
+            self.showCustomerPhoneLabel.grid(row=3, column=0, columnspan=3, pady=10)
+            
+            self.showCustomerName.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
+            self.showCustomerSsn.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
+            self.showCustomerEmail.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
+            self.showCustomerPhone.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
+
+            self.showCustomerName.grid(row=1, column=0, columnspan=3)
+            self.showCustomerSsn.grid(row=1, column=0, columnspan=3)
+            self.showCustomerEmail.grid(row=4, column=0, columnspan=3)
+            self.showCustomerPhone.grid(row=4, column=0, columnspan=3)
+
+
+
+
+
+
+
+
         def back(self,controller):
+            self.showCustomerNameLabel.grid_forget()
+            self.showCustomerSsnLabel.grid_forget()
+            self.showCustomerEmailLabel.grid_forget()
+            self.showCustomerPhoneLabel.grid_forget()
+            self.showCustomerName.grid_forget()
+            self.showCustomerSsn.grid_forget()
+            self.showCustomerEmail.grid_forget()
+            self.showCustomerPhone.grid_forget()
             self.back_button.grid_forget()
             self.delete_button.grid_forget()
             self.edit_button.grid_forget()
