@@ -62,14 +62,10 @@ class CarsSearchUi(tk.Frame):
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
-        
         self.grid_rowconfigure(8, weight=1)
-
-        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-
+        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(12, weight=3)
-
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=1)
@@ -86,15 +82,19 @@ class CarsSearchUi(tk.Frame):
             escape_button.grid_forget()
             confirm_button.grid_forget()
             self.carInput.grid_forget()
+
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:edit(self,controller))
+            
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
+            
             self.back_button.grid(row=10, column=1,columnspan=1)
-            self.delete_button.grid(row=10, column=5,columnspan=1)
+            #self.delete_button.grid(row=10, column=5,columnspan=1)
             self.edit_button.grid(row=10, column=4,columnspan=1)
+            
             self.showCarNameLabel = tk.Label(self.leftFrame, text="Bíll")
             self.showCarModelLabel = tk.Label(self.rightFrame, text="Árgerð")
             self.showCarLicenseLabel = tk.Label(self.leftFrame, text="Bílnúmer")
@@ -104,13 +104,6 @@ class CarsSearchUi(tk.Frame):
             self.showCarModel = tk.Label(self.rightFrame, text=self.instance.car[3])
             self.showCarLicense = tk.Label(self.leftFrame, text=self.instance.car[0])
             self.showCarSeats = tk.Label(self.rightFrame, text=self.instance.car[4])
-
-
-            
-            
-
-
-
 
             self.showCarNameLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
             self.showCarModelLabel.config(font=("Courier", 22), bg="#5A6D7C", fg="white")
@@ -156,6 +149,11 @@ class CarsSearchUi(tk.Frame):
             self.showCarLicenseLabel.grid_forget()
             self.showCarSeatsLabel.grid_forget()
 
+            self.entrycarname.grid_forget()
+            self.entrycarmodel.grid_forget()
+            self.entrycarlicense.grid_forget()
+            self.entrycarseats.grid_forget()
+
             self.car.grid(row=4, column=3)
             self.carInput.grid(row=4, column=4,columnspan = 1)
             escape_button.grid(row=10, column=3)
@@ -184,8 +182,8 @@ class CarsSearchUi(tk.Frame):
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.grid(row=10, column=4,columnspan=1)
-            self.back_button.grid(row=10, column=1)
-            self.delete_button.grid(row=10, column=3)
+            self.back_button.grid(row=10, column=2)
+            self.delete_button.grid(row=10, column=6)
 
             
 
