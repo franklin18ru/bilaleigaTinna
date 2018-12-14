@@ -119,7 +119,7 @@ class CarsAddCarUi(tk.Frame):
 
         
         
-    def esc(self):
+    def esc(self, controller):
         controller.show_frame(carsMenuUi.CarsMenuUi)
 
     def dc(self, value):

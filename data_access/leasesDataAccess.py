@@ -83,8 +83,8 @@ class LeasesDataAccess:
                 for line in csv_reader:
                     csv_writer.writerow(line)
 
-            # removing the temp file
-            os.remove("data/tempfile.csv")
+        # removing the temp file
+        os.remove("data/tempfile.csv")
 
     def editState(self):
         today = datetime.date.today()
