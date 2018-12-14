@@ -22,10 +22,10 @@ class CustomersSearchUi(tk.Frame):
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
 
         self.leftFrame = tk.Frame(self, bg="#5A6D7C")
-        self.leftFrame.grid(row=4,column=1, columnspan=2)
+        self.leftFrame.grid(row=5,column=1, columnspan=2)
 
         self.rightFrame=tk.Frame(self, bg="#5A6D7C")
-        self.rightFrame.grid(row=4,column=5, columnspan=2)
+        self.rightFrame.grid(row=5,column=5, columnspan=2)
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(self,controller))
@@ -70,8 +70,8 @@ class CustomersSearchUi(tk.Frame):
 
 
 
-        self.grid_columnconfigure(0, weight=2)
-        self.grid_columnconfigure(7, weight=2)
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(7, weight=1)
 
 
         def esc(self,controller):
@@ -144,8 +144,8 @@ class CustomersSearchUi(tk.Frame):
         def back(self,controller):
             self.user_input.grid(row=4,column=4,columnspan = 1)
             name_ssn.grid(row=4, column=1)
-            escape_button.grid(row=10, column=1)
-            confirm_button.grid(row=10, column=4)
+            escape_button.grid(row=10, column=1,columnspan = 4)
+            confirm_button.grid(row=10, column=2,columnspan = 4)
             
             self.entryname.grid_forget()
             self.entryssn.grid_forget()
@@ -162,6 +162,23 @@ class CustomersSearchUi(tk.Frame):
             self.back_button.destroy()
             self.delete_button.destroy()
             self.edit_button.destroy()
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
 
         def edit(self,controller):
             # self.showCustomerNameLabel.destroy()
