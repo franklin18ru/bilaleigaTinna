@@ -28,7 +28,7 @@ class OrdersSearchCustomerUi(tk.Frame):
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
 
         #configure labels
@@ -86,3 +86,8 @@ class OrdersSearchCustomerUi(tk.Frame):
 
         def esc(self):
             controller.show_frame(ordersUi.OrdersUi)
+
+
+        def confirm(self,controller):
+            # Search for order and show info if the order exists #
+            pass
