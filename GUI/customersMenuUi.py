@@ -18,7 +18,7 @@ class CustomersMenuUi(tk.Frame):
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
-        #Create Buttons
+        #Create Buttons that activate functions that return users the the page they want depending on the button they click
         search_customer = tk.Button(self,    text="1. Leita af viðskiptavini", bg="#424242", fg="white", width=27, height=3, command=lambda: switchCustomersSearch(controller))
         all_customers = tk.Button(self,   text="2. Allir viðskiptavinir", bg="#424242", fg="white", width=27, height=3, command=lambda: switchCustomers(controller))
         add_customer = tk.Button(self,text="2. Bæta við viðskiptavini", bg="#424242", fg="white", width=27, height=3, command=lambda: switchCustomersAddCustomer(controller))
@@ -37,8 +37,6 @@ class CustomersMenuUi(tk.Frame):
 
 
         #Position widgets
-
-        #labels
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
         search_customer.grid(row=4, column=3)
@@ -48,29 +46,22 @@ class CustomersMenuUi(tk.Frame):
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
-
-
         #position frame
         self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
-        #self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=1)
-
         self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-
         self.grid_rowconfigure(12, weight=3)
-
-
 
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
 
 
        
-
+        #returning the user to the page they wnat, depenging on the button they click
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
 
