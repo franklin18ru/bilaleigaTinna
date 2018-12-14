@@ -1,5 +1,5 @@
 from tkinter import *
-import customersUi
+import customersSearchUi
 
 class customersSearchUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -12,9 +12,21 @@ class customersSearchUi(tk.Frame):
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
         customer = tk.Label(self, text="Viðskiptavinir",bg="#5A6D7C",fg="white")
-        name_ssn = tk.Label(self, text="Sláðu inn nafn/kennitölu \nviðskiptavinar",bg="#5A6D7C",fg="white")
-        user_input = tk.Entry(self, width=20, font=("Courier", 20))
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
+
+        name = tk.Label(self, text="Nafn",bg="#5A6D7C",fg="white")
+        ssn = tk.Label(self, text="Kennitala",bg="#5A6D7C",fg="white")
+        email = tk.Label(self, text="Netfang",bg="#5A6D7C",fg="white")
+        phonenr = tk.Label(self, text="Símanúmer",bg="#5A6D7C",fg="white")
+
+
+        #Entry boxes
+        name_entry = tk.Entry(self, width=20, font=("Courier", 20))
+        ssn_entry = tk.Entry(self, width=20, font=("Courier", 20))
+        email_entry = tk.Entry(self, width=20, font=("Courier", 20))
+        phonenr_entry = tk.Entry(self, width=20, font=("Courier", 20))
+
+
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
@@ -23,8 +35,14 @@ class customersSearchUi(tk.Frame):
         #configure labels
         bilaleigaTinna.config(font=("Courier", 32))
         customer.config(font=("Courier", 28))
-        name_ssn.config(font=("Courier", 16))
-        user_input.config(font=("Courier", 16))
+        name.config(font=("Courier", 16))
+        ssn.config(font=("Courier", 16))
+        email.config(font=("Courier", 16))
+        phonenr.config(font=("Courier", 16))
+        name_entry.config(font=("Courier", 16))
+        ssn_entry.config(font=("Courier", 16))
+        email_entry.config(font=("Courier", 16))
+        phonenr_entry.config(font=("Courier", 16))
 
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
@@ -34,9 +52,17 @@ class customersSearchUi(tk.Frame):
         #labels
         bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
         line1.grid(row=2, column=0,columnspan = 8)
-        customer.grid(row=3, column=0, columnspan = 8)
-        name_ssn.grid(row=4, column=0)
-        user_input.grid(row=4,column=1)
+        customer.grid(row=3, column=0, columnspan=8)
+        
+        name.grid(row=4, column=0, columnspan=2)
+        ssn.grid(row=4, column=1, columnspan=2)
+        emai.grid(row=4, column=2, columnspan=2)
+        phonenr.grid(row=4, column=3, columnspan=2)
+        name_entry.grid(row=5, column=0, columnspan=2)
+        ssn_entry.grid(row=5, column=1, columnspan=2)
+        email_entry.grid(row=5, column=2, columnspan=2)
+        phonenr_entry.grid(row=5, column=3, columnspan=2)
+
         line2.grid(row=10,column =0, columnspan = 8)
         confirm.grid(row=11, column= 2, columnspan = 2 )
         escape_button.grid(row=11, column=0, columnspan = 3)
@@ -54,6 +80,6 @@ class customersSearchUi(tk.Frame):
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
 
-
+        
         def esc(self):
-            controller.show_frame(customersUi.CustomersUi)
+            controller.show_frame(customersSearchUi.CustomersSearchUi)
