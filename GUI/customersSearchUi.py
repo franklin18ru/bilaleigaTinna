@@ -91,9 +91,11 @@ class CustomersSearchUi(tk.Frame):
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
-            self.back_button.grid(row=10, column=1)
-            self.edit_button.grid(row=10, column=4,columnspan=1)
-            self.delete_button.grid(row=10, column=3)
+            #self.back_button.grid(row=10, column=1,columnspan = 2)
+            self.edit_button.grid(row=10, column=1,columnspan = 8)
+            self.delete_button.grid(row=10, column=4,columnspan = 1)
+            #self.edit_button.grid(row=10, column=4)
+            #self.delete_button.grid(row=10, column=3)
 
             
             self.showCustomerNameLabel = tk.Label(self.leftFrame, text="Nafn")
@@ -143,7 +145,7 @@ class CustomersSearchUi(tk.Frame):
 
         def back(self,controller):
             self.user_input.grid(row=4,column=4,columnspan = 1)
-            name_ssn.grid(row=4, column=1)
+            name_ssn.grid(row=4, column=2)
             escape_button.grid(row=10, column=1)
             confirm_button.grid(row=10, column=4)
             
@@ -164,10 +166,7 @@ class CustomersSearchUi(tk.Frame):
             self.edit_button.destroy()
 
         def edit(self,controller):
-            # self.showCustomerNameLabel.destroy()
-            # self.showCustomerSsnLabel.destroy()
-            # self.showCustomerEmailLabel.destroy()
-            # self.showCustomerPhoneLabel.destroy()
+        
             self.showCustomerName.destroy()
             self.showCustomerSsn.destroy()
             self.showCustomerEmail.destroy()

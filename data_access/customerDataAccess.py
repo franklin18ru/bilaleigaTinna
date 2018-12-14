@@ -139,8 +139,6 @@ class CustomerDataAccess:
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
                 for line in csv_reader:
-                    if len(line) == checklast:
-                        continue
                     csv_writer.writerow(line)
                     
 
