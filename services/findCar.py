@@ -11,6 +11,6 @@ class FindCar:
         #   print out error message
     def searchDataForCar(self,input):
         for key,value in self.carDataAccess.cars.items():
-            if input == key:
+            if input.upper() == key:
                 return [key,value]
         return False

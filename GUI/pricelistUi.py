@@ -23,11 +23,10 @@ class PriceListUi(tk.Frame):
         frame1 = tk.Frame(self,
                         
                         bd=4,
-                        highlightbackground="black",
-                        highlightcolor="black",
-                        highlightthickness=1,
-                        width=90,
-                        height=20)
+                        relief="ridge",
+                        highlightbackground="white",
+                        highlightcolor="white",
+                        bg = "#5A6D7C")
 
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
@@ -54,7 +53,7 @@ class PriceListUi(tk.Frame):
         self.listOfPrice = []
         self.listofEntry = []
         for item in self.instance.priceListDataAccess.pricelist:
-            self.label4 = tk.Label(frame1, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+            self.label4 = tk.Label(frame1, text=item +" kr." ,bg="#5A6D7C",fg="white", width=10, height=2)
             self.entry = tk.Entry(frame1)
             self.listofEntry.append(self.entry)
             self.entry.insert(0,item)
@@ -63,26 +62,6 @@ class PriceListUi(tk.Frame):
             self.label4.grid(row = row_num, column=column_num)
             row_num+=1
             
-                
-            
-        #label2 = Label(self,
-                    #text="",
-                    #bd=4,
-                    #bg="#5A6D7C",
-                    #relief="ridge",
-                    #font="Times 32",
-                    #width=40,
-                    #height=10,
-                    #anchor=CENTER)
-
-
-
-
-
-
-
-
-
         #configure labels
         bilaleigaTinna.config(font=("Courier", 32))
         label1.config(font=("Courier", 28))
@@ -97,9 +76,6 @@ class PriceListUi(tk.Frame):
 
 
 
-
-        #Position widgets
-
         #labels
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
@@ -108,26 +84,10 @@ class PriceListUi(tk.Frame):
         line2.grid(row=10,column=3)
         self.escape_button.grid(row=11, column=0,columnspan = 4)
         self.edit.grid(row=11, column=3 ,columnspan = 5)
-        smabill.grid(row=1,column=1,columnspan=3)
-        folksbill.grid(row=2,column=1,columnspan=3)
-        jeppi.grid(row=3,column=1,columnspan=3)
-        luxusbill.grid(row=4,column=1,columnspan=3)
-
-
-
-        #position frame
-        #self.grid_rowconfigure(0, weight=2)
-        #self.grid_rowconfigure(2, weight=0)
-        #self.grid_rowconfigure(1, weight=0)
-        #self.grid_rowconfigure(4, weight=0)
-        #self.grid_rowconfigure(3, weight=1)
-        #self.grid_rowconfigure(11, weight=2)
-        #self.grid_rowconfigure(9, weight=1)
-
-        #self.grid_rowconfigure(12, weight=3)
-
-        #self.grid_columnconfigure(0, weight=10)
-        #self.grid_columnconfigure(6, weight=10)
+        smabill.grid(row=1,column=1)
+        folksbill.grid(row=2,column=1)
+        jeppi.grid(row=3,column=1)
+        luxusbill.grid(row=4,column=1)
 
 
         self.grid_rowconfigure(0, weight=2)
@@ -137,11 +97,7 @@ class PriceListUi(tk.Frame):
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-
         self.grid_rowconfigure(12, weight=3)
-
-
-
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
 
@@ -177,7 +133,7 @@ class PriceListUi(tk.Frame):
             self.listOfPrice = []
             self.listofEntry = []
             for item in self.instance.priceListDataAccess.pricelist:
-                self.label4 = tk.Label(frame1, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+                self.label4 = tk.Label(frame1, text=item +" kr." ,bg="#5A6D7C",fg="white", width=10, height=2)
                 self.entry = tk.Entry(frame1)
                 self.listofEntry.append(self.entry)
                 self.entry.insert(0,item)
