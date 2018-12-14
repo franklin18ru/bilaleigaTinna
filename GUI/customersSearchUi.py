@@ -196,8 +196,8 @@ class CustomersSearchUi(tk.Frame):
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.edit_button.config(font=("Courier", 16))
             self.back_button.config(font=("Courier", 16))
-            self.edit_button.grid(row=10, column=4,columnspan=1)
-            self.back_button.grid(row=10, column=1)
+            self.edit_button.grid(row=10, column=5)
+            self.back_button.grid(row=10, column=2)
 
 
 
@@ -230,7 +230,7 @@ class CustomersSearchUi(tk.Frame):
             self.user_input.delete(0,"end")
             name_ssn.grid(row=4, column=1)
             self.user_input.grid(row=4,column=4,columnspan = 1)
-            escape_button.grid(row=10, column=1)
+            escape_button.grid(row=10, column=3)
             confirm_button.grid(row=10, column= 4)
 
 
