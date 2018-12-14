@@ -1,6 +1,10 @@
 import tkinter as tk
 import csv
 import menuUi
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from services import getPriceList
 
 
 class PriceListUi(tk.Frame):
@@ -37,27 +41,25 @@ class PriceListUi(tk.Frame):
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
+        # create service file and connect to data access and make edit work#
+        self.instance = getPriceList.GetPriceList()
+        row_num = 6
+        column_num = 3
+        counter = 0
+        
 
-        with open('data/pricelist.csv', 'r', newline="") as pricelist:
-            csv_reader = csv.reader(pricelist)
-            next(csv_reader)
-            row_num = 6
-            column_num = 3
-            counter = 0
-            
-
-            for item in csv_reader:
-                label3 = tk.Label(label2, text=item[0],bg="#5A6D7C",fg="white",width=22, height=2)
-                label3.config(font=("Courier", 16))
-                label3.grid(row = row_num, column=column_num)
-                label4 = tk.Label(label2, text=item[1] +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
-                label4.config(font=("Courier", 16))
-                label4.grid(row = row_num, column=column_num+1)
-                counter += 1
-                if counter == 1:
-                    row_num += 1
-                    counter = 0
-                    column_num = 3
+        for item in self.instance.priceListDataAccess.pricelist:
+            label3 = tk.Label(label2, text=item[0],bg="#5A6D7C",fg="white",width=22, height=2)
+            label3.config(font=("Courier", 16))
+            label3.grid(row = row_num, column=column_num)
+            label4 = tk.Label(label2, text=item[1] +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+            label4.config(font=("Courier", 16))
+            label4.grid(row = row_num, column=column_num+1)
+            counter += 1
+            if counter == 1:
+                row_num += 1
+                counter = 0
+                column_num = 3
             
         #label2 = Label(self,
                     #text="",
