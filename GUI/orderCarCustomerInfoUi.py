@@ -16,7 +16,7 @@ class OrderCarCustomerInfoUi(tk.Frame):
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
     
 
-
+        #Creating labels
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Viðskiptavinur",bg="#5A6D7C",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
@@ -43,7 +43,7 @@ class OrderCarCustomerInfoUi(tk.Frame):
 
 
 
-        #Create Buttons
+        #Create Buttons and functions in the command
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
@@ -67,26 +67,23 @@ class OrderCarCustomerInfoUi(tk.Frame):
 
         #Position widgets
 
-        #labels
+        #Positioning eveything 
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
         full_name.grid(row=4, column=2)
         ssn.grid(row=5, column=2)
-        email.grid(row=7, column=2) #added email
-        phone.grid(row=8, column=2) #added phone number
-
+        email.grid(row=7, column=2) 
+        phone.grid(row=8, column=2) 
         escape_button.grid(row=10, column=2)
         confirm_button.grid(row=10, column=4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
-
         self.fullnameInput.grid(row=4, column=3)
         self.ssnInput.grid(row=5, column=3)
         self.emailInput.grid(row=7, column=3)
         self.phoneInput.grid(row=8, column=3)
 
-
-        self.grid_rowconfigure(0, weight=2)
+        self.grid_rowconfigure(0, weight=2) #Spaces between rows
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(3, weight=2)
@@ -98,10 +95,10 @@ class OrderCarCustomerInfoUi(tk.Frame):
         self.grid_rowconfigure(9, weight=1)
         self.grid_rowconfigure(11, weight=5)
 
-        self.grid_columnconfigure(0, weight=10)
+        self.grid_columnconfigure(0, weight=10) #Spaces between columns
         self.grid_columnconfigure(6, weight=10)
 
-
+        #Def that takes you to the orderCarUi site when button is clicked 
         def esc(self):
             controller.show_frame(orderCarUi.OrderCarUi)
 

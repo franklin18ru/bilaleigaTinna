@@ -8,7 +8,6 @@ from services import makeOrder
 from GUI import mainUi
 import orderCarCustomerInfoUi
 class OrderCarUi(tk.Frame):
-#create frame
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
         screen_width = self.winfo_screenwidth() #Gets the screen width
@@ -25,7 +24,7 @@ class OrderCarUi(tk.Frame):
         carFrame = tk.Frame(self,bg="#5A6D7C")
         buttonFrame = tk.Frame(self,bg="#5A6D7C", width=100, height = 50)
 
-        #Create buttons
+        #Create buttons and putting functions in a command. (will run when button is clicked)
         jeep = tk.Button(self, text="1. Jeppar", bg="#424242", fg="white", width=22, height=2,           command=lambda: newFrame(controller,"Jeppi"))
         small_car = tk.Button(self, text="2. Smábílar", bg="#424242", fg="white", width=22, height=2,    command=lambda: newFrame(controller,"Smabill"))
         sedan = tk.Button(self, text="3. Fólksbílar", bg="#424242", fg="white", width=22, height=2,      command=lambda: newFrame(controller,"Folksbill"))
@@ -45,7 +44,6 @@ class OrderCarUi(tk.Frame):
         luxury_car.config( font=("Courier",16))
         all_cars.config( font=("Courier",16))
         back.config(font=("Courier",16))
-       
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
 
@@ -70,17 +68,18 @@ class OrderCarUi(tk.Frame):
 
 
 
-        #position frame
-        self.grid_rowconfigure(0, weight=3)
+        
+        self.grid_rowconfigure(0, weight=3)     #Spaces inbetween rows
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=2)
         self.grid_rowconfigure(9, weight=2)
         self.grid_rowconfigure(11, weight=5)
-        self.grid_columnconfigure(0, weight=10)
+
+        self.grid_columnconfigure(0, weight=10) #Spaces inbetween columns
         self.grid_columnconfigure(6, weight=10)
 
-
+        #Def that takes you to the orderCarDateUi site when button is clicked
         def esc(self):
             controller.show_frame(orderCarDateUi.OrderCarDateUi)
         
@@ -102,7 +101,7 @@ class OrderCarUi(tk.Frame):
             self.back_button.config(font=("Courier", 16))
             self.back_button.pack()
             self.listi = []
-            #row=10, column=2
+
             for item in controller.order.cars:
                 self.carButton = tk.Button(carFrame, text=item ,bg="#424242",fg="white", width=22, height=2, command=lambda item=item: chooseCar(controller,item) )
                 self.carButton.config(font=("Courier", 16))
@@ -115,7 +114,7 @@ class OrderCarUi(tk.Frame):
                     row_num += 1
                     counter = 0
                     column_num = 2
-            
+            #Def that takes you to the orderCarCustomerInfoUi site when clicked 
             def chooseCar(self, car):
                 self.car = car
                 controller.show_frame(orderCarCustomerInfoUi.OrderCarCustomerInfoUi)

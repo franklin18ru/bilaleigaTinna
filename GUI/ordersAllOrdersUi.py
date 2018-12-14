@@ -19,11 +19,8 @@ class OrdersAllOrdersUi(tk.Frame):
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
+        #Creating button and putting in a comand 
         back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
-
-        option_frame = tk.Frame(self)#trying to make a scroll-able frame for all the cars, wont work
-
-
         #Open the leases file and printing the content in buttons
         with open('data/leases.csv', 'r', newline="") as cars:
             csv_reader = csv.reader(cars)
@@ -65,17 +62,20 @@ class OrdersAllOrdersUi(tk.Frame):
 
 
         # position frame
-        self.grid_rowconfigure(0, weight=3)
+        self.grid_rowconfigure(0, weight=3)     #Spaces inbetween rows
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=2)
         self.grid_rowconfigure(9, weight=2)
-        self.grid_rowconfigure(11, weight=5) 
-        self.grid_columnconfigure(0, weight=2)
+        self.grid_rowconfigure(11, weight=5)
+
+        self.grid_columnconfigure(0, weight=2)  #Spaces inbetween columns
         self.grid_columnconfigure(3, weight=1)
         self.grid_columnconfigure(6, weight=2)
 
+
+        #Function that takes you to the ordersUi site when button is clicked
         def esc(self):
             controller.show_frame(ordersUi.OrdersUi)
     
-        #####
+    
