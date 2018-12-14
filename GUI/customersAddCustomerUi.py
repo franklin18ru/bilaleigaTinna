@@ -111,4 +111,8 @@ class CustomersAddCustomerUi(tk.Frame):
                 emailInput = self.emailInput.get()
                 phoneInput = self.phoneInput.get()
                 self.instance = addCustomer.AddCustomer(fullnameInput,ssnInput,emailInput,phoneInput)
+                self.fullnameInput.delete(0,"end")
+                self.ssnInput.delete(0,"end")
+                self.emailInput.delete(0,"end")
+                self.phoneInput.delete(0,"end")
                 controller.show_frame(customersUi.CustomersUi)

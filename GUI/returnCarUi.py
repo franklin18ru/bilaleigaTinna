@@ -118,6 +118,7 @@ class ReturnCarUi(tk.Frame):
 
         def returnCarButton(self,controller):
             controller.carReturn.returnCar()
+            self.license_plateInput.delete(0,"end")
             controller.show_frame(menuUi.MenuUi)
 
         def goBack(self):
