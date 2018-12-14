@@ -78,3 +78,15 @@ class CarsSearchUi(tk.Frame):
             # Search for car then change the frame to see info about the car #
             carInput = self.carInput.get()
             self.instance = findCar.FindCar(carInput)
+            car.grid_forget()
+            escape_button.grid_forget()
+            confirm_button.grid_forget()
+            self.carInput.grid_forget()
+            back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
+            back_button.config(font=("Courier", 16))
+            back_button.grid(row=10, column=1)
+        def back(self,controller):
+            car.grid(row=4, column=1)
+            self.carInput.grid(row=4, column=4,columnspan = 1)
+            escape_button.grid(row=10, column=1)
+            confirm_button.grid(row=10, column=4)
