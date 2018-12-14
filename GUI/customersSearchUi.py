@@ -40,21 +40,27 @@ class CustomersSearchUi(tk.Frame):
         bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
         line1.grid(row=2, column=0,columnspan = 8)
         customer.grid(row=3, column=0, columnspan = 8)
-        name_ssn.grid(row=4, column=0)
-        self.user_input.grid(row=4,column=1)
-        line2.grid(row=10,column =0, columnspan = 8)
-        confirm_button.grid(row=11, column= 2, columnspan = 2 )
-        escape_button.grid(row=11, column=0, columnspan = 3)
+        name_ssn.grid(row=4, column=1)
+        self.user_input.grid(row=4,column=4,columnspan = 1)
+        line2.grid(row=9,column =0, columnspan = 8)
+        confirm_button.grid(row=10, column= 1)
+        escape_button.grid(row=10, column=4)
 
-        #position frame
+         #position frame
         self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
+        
+        self.grid_rowconfigure(8, weight=1)
+
         self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
+
         self.grid_rowconfigure(12, weight=3)
+
+
 
         self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(7, weight=2)
