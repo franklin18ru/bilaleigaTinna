@@ -3,6 +3,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import tkinter as tk
 import ordersUi
+import menuUi
 from services import findOrder
 
 
@@ -76,6 +77,7 @@ class OrdersSearchCustomerUi(tk.Frame):
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
+        self.grid_rowconfigure(5, weight=1)
         
         self.grid_rowconfigure(8, weight=1)
 
@@ -101,15 +103,19 @@ class OrdersSearchCustomerUi(tk.Frame):
             ssn.grid_forget()
             self.userInput.grid_forget()
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
-            self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
-            self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:back(self,controller))
+            self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: deleteOrder(self, controller))
+            self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:editValuesOrder(self,controller))
             self.back_button.config(font=("Courier", 16))
             self.delete_button.config(font=("Courier", 16))
             self.edit_button.config(font=("Courier", 16))
             self.back_button.grid(row=10, column=1,columnspan=1)
+<<<<<<< HEAD
+
+=======
             self.delete_button.grid(row=10, column=2,columnspan=1)
             self.edit_button.grid(row=10, column=3,columnspan=1)
             
+>>>>>>> 54870fdfe9c25083e1700d98118db62c4ea33522
             self.orderName = tk.Label(self, text=self.instance.lease[0][1])
             self.orderSSN = tk.Label(self, text=self.instance.lease[0][0])
             row_num = 5
@@ -117,9 +123,10 @@ class OrdersSearchCustomerUi(tk.Frame):
             counter = 0            
             self.instanceCounter = []
             for i in self.instance.lease:
-                self.leaseButton = tk.Button(self, text=i[4]+"\nFrá: "+i[2]+"\nTil: "+i[3] ,bg="#424242",fg="white", width=22, height=2)
+                self.leaseButton = tk.Button(self, text=i[4]+"\nFrá: "+i[2]+"\nTil: "+i[3] ,bg="#424242",fg="white", width=22, height=2, command=lambda i=i:changeOrder(self,i))
                 self.leaseButton.config(font=("Courier", 16))
                 self.leaseButton.grid(row = row_num, column=column_num, ipady=10)
+                self.changeOrderEntries = tk.Entry(self, width=10, font=("Courier", 16))
                 self.instanceCounter.append(self.leaseButton)
                 counter += 1
                 column_num += 2
@@ -130,7 +137,6 @@ class OrdersSearchCustomerUi(tk.Frame):
             self.orderName.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
             self.orderSSN.config(font=("Courier", 16), bg="#5A6D7C", fg="white")
 
-            
             self.orderName.grid(row=3, column=1)
             self.orderSSN.grid(row=3, column=3)
 
@@ -149,3 +155,92 @@ class OrdersSearchCustomerUi(tk.Frame):
             confirm_button.grid(row=10, column=4)
             self.userInput.grid(row=4, column=4,columnspan = 1)
             ssn.grid(row=4, column=1)
+
+
+        def changeOrder(self,item):
+            self.back_button.grid_forget()
+            self.edit_button.grid(row=10, column=2,columnspan=1)
+            self.delete_button.grid(row=10, column=3,columnspan=1)
+
+            for i in self.instanceCounter:
+                i.grid_forget()
+
+            self.back_to_orders_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: backToOrders(self,controller))
+            self.back_to_orders_button.config(font=("Courier", 16))
+            self.back_to_orders_button.grid(row=10, column=1,columnspan=1)
+
+            self.license_entry = tk.Entry(self)
+            self.startDate_entry = tk.Entry(self)
+            self.endDate_entry = tk.Entry(self)
+            
+            self.license_entry_label = tk.Label(self, text="Bílnúmer: ", bg="#5A6D7C", fg="white")
+            self.startDate_entry_label = tk.Label(self, text="Byrjun leigutímabils: ", bg="#5A6D7C", fg="white")
+            self.endDate_entry_label = tk.Label(self, text="Lok leigutímabils: ", bg="#5A6D7C", fg="white")
+
+
+            self.license_entry.config(width = 40, font=("Courier", 16))
+            self.startDate_entry.config(width = 40, font=("Courier", 16))
+            self.endDate_entry.config(width = 40, font=("Courier", 16))
+
+            self.license_entry_label.config(font=("Courier", 16))
+            self.startDate_entry_label.config(font=("Courier", 16))
+            self.endDate_entry_label.config(font=("Courier", 16))
+
+            self.license_entry.insert(0,str(item[4]))
+            self.startDate_entry.insert(0,str(item[2]))
+            self.endDate_entry.insert(0,str(item[3]))
+
+            self.license_entry.grid(row=4, column=2)
+            self.startDate_entry.grid(row=5, column=2)
+            self.endDate_entry.grid(row=6, column=2)
+
+            self.license_entry_label.grid(row=4, column=1)
+            self.startDate_entry_label.grid(row=5, column=1)
+            self.endDate_entry_label.grid(row=6, column=1)
+            
+        def backToOrders(self, controller):
+            self.back_to_orders_button.grid_forget()
+            
+            self.license_entry.grid_forget()
+            self.startDate_entry.grid_forget()
+            self.endDate_entry.grid_forget()
+
+            self.license_entry_label.grid_forget()
+            self.startDate_entry_label.grid_forget()
+            self.endDate_entry_label.grid_forget()
+            self.delete_button.grid_forget()
+            self.edit_button.grid_forget()
+
+            self.back_button.grid(row=10, column=1,columnspan=1)
+
+            row_num = 5
+            column_num = 1
+            counter = 0            
+            for i in self.instance.lease:
+                self.leaseButton.grid(row = row_num, column=column_num, ipady=10)
+                counter += 1
+                column_num += 2
+                if counter == 2:
+                    row_num += 1
+                    counter = 0
+                    column_num = 1  
+            
+
+        def editValuesOrder(self, controller):
+            new_license = self.license_entry.get()
+            new_start = self.startDate_entry.get()
+            new_end = self.endDate_entry.get()
+            newOrder = [new_license, new_start, new_end]
+            self.instance.editOrder(newOrder)
+
+        def deleteOrder(self, controller):
+            ssn = self.instance.lease[0][0]
+            lease_start = self.instance.lease[0][2]
+            license_plate = self.instance.lease[0][4]
+            self.instance.deleteLease(ssn,lease_start,license_plate)
+            controller.show_frame(menuUi.MenuUi)
+            # ssn,leaseStart,licensePlate
+
+            # [ssn, renter,leaseStart,leaseEnd,licensePlate,state])
+
+
