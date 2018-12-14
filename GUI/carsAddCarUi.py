@@ -31,15 +31,15 @@ class CarsAddCarUi(tk.Frame):
 
 
         # Create a Tkinter variable
-        tkvar = tk.StringVar()
+        self.tkvar =tk.StringVar()
 
         # Dictionary with options
         
-        choices = {'Smabill','Jeppi','Folksbill','Luxusbill'}
-        tkvar.set('Smabill') # set the default option
+        choices = ['Smabill','Jeppi','Folksbill','Luxusbill']
+        self.tkvar.set('Smabill') # set the default option
 
         #Create the entry fields
-        car_typeInput = tk.OptionMenu(self, tkvar, *choices)
+        car_typeInput = tk.OptionMenu(self, self.tkvar, *choices, command=self.dc)
         #car_typeInput = tk.Entry(self, width=20, font=("Courier", 20))
         self.brandInput = tk.Entry(self, width=20, font=("Courier", 20))
         self.modelInput = tk.Entry(self, width=20, font=("Courier", 20))
@@ -53,8 +53,8 @@ class CarsAddCarUi(tk.Frame):
 
 
         #Create Buttons
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1,command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
+        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1,command=lambda: self.esc(controller))
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: self.confirm(controller))
 
 
 
@@ -119,18 +119,21 @@ class CarsAddCarUi(tk.Frame):
 
         
         
-        def esc(self):
-            controller.show_frame(carsMenuUi.CarsMenuUi)
+    def esc(self):
+        controller.show_frame(carsMenuUi.CarsMenuUi)
 
-        def confirm(self,controller):
-            typeinput = "Smabill"
-            brandinput = self.brandInput.get()
-            modelinput = self.modelInput.get()
-            seatsinput = self.seatsInput.get()
-            licenseplateinput = self.licenseplateInput.get()
-            self.instance = addCar.AddCar(licenseplateinput,typeinput,brandinput,modelinput,seatsinput)
-            self.brandInput.delete(0,"end")
-            self.modelInput.delete(0,"end")
-            self.seatsInput.delete(0,"end")
-            self.licenseplateInput.delete(0,"end")
-            controller.show_frame(carsMenuUi.CarsMenuUi)
+    def dc(self, value):
+        self.value = value
+
+    def confirm(self,controller):
+        typeinput = self.value
+        brandinput = self.brandInput.get()
+        modelinput = self.modelInput.get()
+        seatsinput = self.seatsInput.get()
+        licenseplateinput = self.licenseplateInput.get()
+        self.instance = addCar.AddCar(licenseplateinput,typeinput,brandinput,modelinput,seatsinput)
+        self.brandInput.delete(0,"end")
+        self.modelInput.delete(0,"end")
+        self.seatsInput.delete(0,"end")
+        self.licenseplateInput.delete(0,"end")
+        controller.show_frame(carsMenuUi.CarsMenuUi)
