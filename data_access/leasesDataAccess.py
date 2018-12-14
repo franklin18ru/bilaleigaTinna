@@ -27,7 +27,7 @@ class LeasesDataAccess:
         # does not go to the temp file
         with open("data/leases.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("data/tempfile.csv","w",newline="\n") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if ssn == line[0] and leaseStart == line[2] and licensePlate == line[4]:
@@ -39,14 +39,18 @@ class LeasesDataAccess:
         self.moveFromTempFile("leases")
 
     def addLease(self,ssn,renter,leasestart,leaseend,licensePlate):
-        today = datetime.date.today()
+        todaytemp = str(date.today())
+        today = todaytemp.replace("-",".")
         if leasestart == today:
             newLease=[ssn,renter,leasestart,leaseend,licensePlate,"active"]
+            active = "active"
         else:
             newLease=[ssn,renter,leasestart,leaseend,licensePlate,"inactive"]
-        with open('data/cars.csv', 'a',newline="") as openfile:
-                csv_writer = csv.writer(openfile)
-                csv_writer.writerow(newLease) 
+            active = "inactive"
+        with open('data/leases.csv', 'a',newline="") as openfile:
+            csv_writer = csv.writer(openfile)
+            csv_writer.writerow(newLease) 
+            
     
     def editLease(self,old_start,old_end,new_start,new_end,name,ssn,licensePlate):
         # take in all arguments if the argument is the same as in the data itself then  #

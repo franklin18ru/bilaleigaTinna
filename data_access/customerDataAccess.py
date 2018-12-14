@@ -11,20 +11,19 @@ class CustomerDataAccess:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
-                string = line[0]
-                ssn = int(string.replace("-",""))
-                name = line[1]
-                birthdate = line[2]
+                name = line[0]
+                ssn = line[1]
+                email = line[2]
                 phone = line[3]
-                email = line[4]
-                customer_dictionary[ssn] = (name,birthdate,phone,email)
+                customer_dictionary[ssn] = (name,phone,email)
             return customer_dictionary
         
-    def addCustomer(self,ssn,name,birthdate,phone,email):
-        newCustomer=[ssn,name,birthdate,phone,email]
-        with open('data/customers.csv', 'a',newline="") as openfile:
+    def addCustomer(self,name,ssn,phone,email): 
+        newCustomer=[name,ssn,phone,email]
+        with open('data/customers.csv', 'a') as openfile:
             csv_writer = csv.writer(openfile)
-            csv_writer.writerow(newCustomer) 
+            csv_writer.writerow(newCustomer)
+            
 
     def deleteCustomer(self,name,ssn):
         # moving the data to a temp file but if any line matches the given input it

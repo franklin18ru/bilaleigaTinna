@@ -79,7 +79,8 @@ class OrderCarDateUi(tk.Frame):
             order = makeOrder.GetCars(startInput, endInput)
             controller.createOrder(order)
             controller.show_frame(orderCarUi.OrderCarUi)
-
+            controller.leaseStart = startInput
+            controller.leaseEnd = endInput
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
             
