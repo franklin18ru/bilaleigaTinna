@@ -21,7 +21,7 @@ class CustomersMenuUi(tk.Frame):
         #Create Buttons
         search_customer = tk.Button(self,    text="1. Leita af viðskiptavin", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCustomersSearch(controller))
         all_customers = tk.Button(self,   text="2. Allir viðskiptavinir", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCustomers(controller))
-        add_customer = tk.Button(self,text="2. Bæta við viðskiptacin", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCarsAddCustomer(controller))
+        add_customer = tk.Button(self,text="2. Bæta við viðskiptacin", bg="#424242", fg="white", width=22, height=3, command=lambda: switchCustomerAddCustomer(controller))
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
@@ -74,13 +74,13 @@ class CustomersMenuUi(tk.Frame):
         def esc(self):
             controller.show_frame(menuUi.MenuUi)
 
-        def switchCarsSearch(self):
+        def switChcustomersSearch(self):
             controller.show_frame(customersSearchUi.CustomersSearchUi)
 
-        def switchCars(self):
+        def switchCustomers(self):
             controller.show_frame(customersUi.CustomersUi)
 
-        def switchCarsAddCar(self):
+        def switChcustomersAddCustomer(self):
             controller.show_frame(customersAddCustomerUi.CustomersAddCustomerUi)
 
 
