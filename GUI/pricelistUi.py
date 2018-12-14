@@ -20,22 +20,22 @@ class PriceListUi(tk.Frame):
 
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
         label1 = tk.Label(self, text="Verðskrá",bg="#5A6D7C",fg="white")
-        label2 = tk.Label(self,
-                        text="",
+        frame1 = tk.Frame(self,
+                        
                         bd=4,
-                        bg="#5A6D7C",
-                        relief="ridge",
-                        font="Times 32",
+                        highlightbackground="black",
+                        highlightcolor="black",
+                        highlightthickness=1,
                         width=90,
                         height=20)
 
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
-        smabill = tk.Label(label2, text="Smábíll",bg="#5A6D7C",fg="white",width=22, height=2)
-        folksbill = tk.Label(label2, text="Fólksbíll",bg="#5A6D7C",fg="white",width=22, height=2)
-        jeppi = tk.Label(label2, text="Jeppi",bg="#5A6D7C",fg="white",width=22, height=2)
-        luxusbill = tk.Label(label2, text="Lúxusbíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        smabill = tk.Label(frame1, text="Smábíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        folksbill = tk.Label(frame1, text="Fólksbíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        jeppi = tk.Label(frame1, text="Jeppi",bg="#5A6D7C",fg="white",width=22, height=2)
+        luxusbill = tk.Label(frame1, text="Lúxusbíll",bg="#5A6D7C",fg="white",width=22, height=2)
         
         
 
@@ -54,8 +54,8 @@ class PriceListUi(tk.Frame):
         self.listOfPrice = []
         self.listofEntry = []
         for item in self.instance.priceListDataAccess.pricelist:
-            self.label4 = tk.Label(label2, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
-            self.entry = tk.Entry(label2)
+            self.label4 = tk.Label(frame1, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+            self.entry = tk.Entry(frame1)
             self.listofEntry.append(self.entry)
             self.entry.insert(0,item)
             self.listOfPrice.append(self.label4)
@@ -103,7 +103,7 @@ class PriceListUi(tk.Frame):
         #labels
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
-        label2.grid(row=7, column=3)
+        frame1.grid(row=7, column=3)
         line1.grid(row=2,column=3)
         line2.grid(row=10,column=3)
         self.escape_button.grid(row=11, column=0,columnspan = 4)
@@ -177,8 +177,8 @@ class PriceListUi(tk.Frame):
             self.listOfPrice = []
             self.listofEntry = []
             for item in self.instance.priceListDataAccess.pricelist:
-                self.label4 = tk.Label(label2, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
-                self.entry = tk.Entry(label2)
+                self.label4 = tk.Label(frame1, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+                self.entry = tk.Entry(frame1)
                 self.listofEntry.append(self.entry)
                 self.entry.insert(0,item)
                 self.listOfPrice.append(self.label4)
