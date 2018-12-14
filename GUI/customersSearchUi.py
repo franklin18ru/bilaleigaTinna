@@ -197,6 +197,14 @@ class CustomersSearchUi(tk.Frame):
             newphone = self.entryphone.get()
             newdata = [newname,newssn,newemail,newphone]
             self.instance.editCustomer(newdata)
+
+
+            self.edit_button.grid_forget()
+            self.back_button.grid_forget()
+            self.entryname.grid_forget()
+            self.entryssn.grid_forget()
+            self.entryemail.grid_forget()
+            self.entryphone.grid_forget()
             controller.show_frame(customersMenuUi.CustomersMenuUi)
 
         def delete(self,controller):

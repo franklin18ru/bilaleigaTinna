@@ -7,7 +7,7 @@ class CustomerDataAccess:
 
     def getAllCustomers(self):
         customer_dictionary = dict()
-        with open("data/customers.csv","r") as openfile:
+        with open("data/customers.csv","r",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -29,7 +29,7 @@ class CustomerDataAccess:
         self.deleteCustomerLeases(name,ssn)
         with open("data/customers.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("data/tempfile.csv","w") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if name == line[0] and ssn == line[1]:
@@ -43,7 +43,7 @@ class CustomerDataAccess:
     def deleteCustomerLeases(self,name,ssn):
         with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("data/tempfile.csv","w") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if name == line[1] and ssn == line[0]:
@@ -131,6 +131,7 @@ class CustomerDataAccess:
 
     
     def moveFromTempFile(self,fileName):
+        checklast = 0
         # the data back to the original file
         filetowrite = "data/"+fileName+".csv"
         with open("data/tempfile.csv","r",newline="") as openfile:
@@ -138,7 +139,10 @@ class CustomerDataAccess:
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
                 for line in csv_reader:
+                    if len(line) == checklast:
+                        continue
                     csv_writer.writerow(line)
+                    
 
         # removing the temp file
         os.remove("data/tempfile.csv")
