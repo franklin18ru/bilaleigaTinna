@@ -85,7 +85,7 @@ class CarsSearchUi(tk.Frame):
             confirm_button.grid_forget()
             self.carInput.grid_forget()
 
-            #creting new buttons
+            #creting new buttons that activate the functions to return users to it's desired destination
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.delete_button = tk.Button(self, text="Eyða", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.edit_button = tk.Button(self, text="Breyta/Uppfæra", bg="#448F42", fg="white", width=15, height=1, command=lambda:edit(self,controller))
