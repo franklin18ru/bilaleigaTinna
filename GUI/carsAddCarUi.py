@@ -1,6 +1,11 @@
 import tkinter as tk
 import csv
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import carsMenuUi
+from services import addCar
+
 
 
 class CarsAddCarUi(tk.Frame):
@@ -36,10 +41,10 @@ class CarsAddCarUi(tk.Frame):
         #Create the entry fields
         car_typeInput = tk.OptionMenu(self, tkvar, *choices)
         #car_typeInput = tk.Entry(self, width=20, font=("Courier", 20))
-        brandInput = tk.Entry(self, width=20, font=("Courier", 20))
-        modelInput = tk.Entry(self, width=20, font=("Courier", 20))
-        seatsInput = tk.Entry(self, width=20, font=("Courier", 20))
-        licenseplateInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.brandInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.modelInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.seatsInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.licenseplateInput = tk.Entry(self, width=20, font=("Courier", 20))
 
 
 
@@ -49,7 +54,7 @@ class CarsAddCarUi(tk.Frame):
 
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1,command=lambda: esc(controller))
-        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1)
+        confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(controller))
 
 
 
@@ -85,10 +90,10 @@ class CarsAddCarUi(tk.Frame):
         line1.grid(row=2,column=0,columnspan = 8)
         line2.grid(row=9,column=0,columnspan = 8)
         car_typeInput.grid(row=4, column=2)
-        brandInput.grid(row=5, column=2)
-        modelInput.grid(row=6, column=2)
-        seatsInput.grid(row=7, column=2)
-        licenseplateInput.grid(row=8, column=2)
+        self.brandInput.grid(row=5, column=2)
+        self.modelInput.grid(row=6, column=2)
+        self.seatsInput.grid(row=7, column=2)
+        self.licenseplateInput.grid(row=8, column=2)
 
 
        #position frame
@@ -115,4 +120,12 @@ class CarsAddCarUi(tk.Frame):
         
         
         def esc(self):
+            controller.show_frame(carsMenuUi.CarsMenuUi)
+
+        def confirm(self):
+            brandinput = self.brandInput.get()
+            modelinput = self.modelInput.get()
+            seatsinput = self.seatsInput.get()
+            licenseplateinput = self.licenseplateInput.get()
+            #self.instance = addCar.AddCar(licenseplateinput,typeinput,brandinput,modelinput,seatsinput)
             controller.show_frame(carsMenuUi.CarsMenuUi)
