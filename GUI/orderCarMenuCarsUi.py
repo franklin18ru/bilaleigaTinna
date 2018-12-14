@@ -20,33 +20,20 @@ class OrderCarMenuCarsUi(tk.Frame):
 
         #Create labels
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-
-        # A lable that should change for what the user clicks on:
         label2 = tk.Label(self, text="Bílar",bg="#5A6D7C",fg="white") #setting the default value as Bílar
-
-        # Here there should be an if statement to change the lable to the correct word:
-        label2.config(text="Jeppar") #changing the default value to what the user selected on the site before
-
+        #label2.config(text="Jeppar") #changing the default value to what the user selected on the site before
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
+        #Creating button and putting in a function in command
         back = tk.Button(self, text="Esc - Til baka", bg="#C8C8C8", fg="black", width=18, height=1)
-
-        #self.option_frame = tk.Frame(self)#trying to make a scroll-able frame for all the cars, wont work
-
         testButton = tk.Button(self, text="test", bg="#C8C8C8", fg="black", width=18, height=1, command=lambda:self.showCars(controller))
         
-        #Open the cars file and printing the content in buttons
-
-
-
-        # configure labels
+        #configure labels
         bilaleigaTinna.config(font=("Courier", 32))
         back.config(font=("Courier",16))
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
-        label2.config(font=("Courier", 26)) #the changable label
-
-
+        label2.config(font=("Courier", 26))
 
         # positioning everything on the screen
         bilaleigaTinna.grid(row=1, column=3)
@@ -56,46 +43,14 @@ class OrderCarMenuCarsUi(tk.Frame):
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
         
-
-
         # position frame
-        self.grid_rowconfigure(0, weight=3)
+        self.grid_rowconfigure(0, weight=3)     #Spaces inbetween rows
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=2)
         self.grid_rowconfigure(9, weight=2)
         self.grid_rowconfigure(11, weight=5)
-        self.grid_columnconfigure(0, weight=10)
+
+        self.grid_columnconfigure(0, weight=10) #Spaces inbetween columns
         self.grid_columnconfigure(6, weight=10)
-        # self.option_frame.grid_columnconfigure(0, weight=10)
-        # self.option_frame.grid_columnconfigure(6, weight=10)
-        # self.option_frame.grid_rowconfigure(0, weight=3)
-        # self.option_frame.grid_rowconfigure(1, weight=0)
-        # self.option_frame.grid_rowconfigure(3, weight=1)
-        # self.option_frame.grid_rowconfigure(5, weight=2)
-
-
-
-    
-    # def showCars(self,controller):
-    #     row_num = 4
-    #     column_num = 2
-    #     counter = 0
-    #     for item in controller.order.cars:
-    #         label1 = tk.Button(self, text=item ,bg="#424242",fg="white", width=22, height=2)
-    #         label1.config(font=("Courier", 16))
-    #         label1.grid(row = row_num, column=column_num)
-    #         counter += 1
-    #         column_num += 1
-    #         if counter == 3:
-    #             row_num += 1
-    #             counter = 0
-    #             column_num = 2   
-            #label1.grid(row=8, column=3)
-            #option_frame.pack(fill="x",side="top")
-
-    
-    
-
-
-        #####
+        
