@@ -1,5 +1,4 @@
 import tkinter as tk
-import csv
 import menuUi
 import os
 import sys
