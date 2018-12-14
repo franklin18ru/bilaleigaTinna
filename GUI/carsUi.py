@@ -33,12 +33,16 @@ class CarsUi(tk.Frame):
             row_num = 4
             column_num = 2
             counter = 0
+            
             for item in csv_reader:
+                
                 label1 = tk.Button(self, text=item[2] ,bg="#424242",fg="white", width=22, height=2)
                 label1.config(font=("Courier", 16))
                 label1.grid(row = row_num, column=column_num)
+                
                 counter += 1
                 column_num += 1
+                
                 if counter == 3:
                     row_num += 1
                     counter = 0
@@ -55,11 +59,11 @@ class CarsUi(tk.Frame):
 
 
         # positioning everything on the screen
-        bilaleigaTinna.grid(row=1, column=3)
-        label2.grid(row=3,column=3)
-        back.grid(row=10, column=0,columnspan = 4)
-        line1.grid(row=2,column=3)
-        line2.grid(row=9,column=3)
+        bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
+        label2.grid(row=3,column=0,columnspan = 8)
+        back.grid(row=10, column=1,columnspan = 2)
+        line1.grid(row=2,column=0,columnspan = 8)
+        line2.grid(row=9,column=0,columnspan = 8)
         
 
 
@@ -69,15 +73,17 @@ class CarsUi(tk.Frame):
         self.grid_rowconfigure(3, weight=1)
         self.grid_rowconfigure(5, weight=2)
         self.grid_rowconfigure(9, weight=2)
-        self.grid_rowconfigure(11, weight=5)
-        self.grid_columnconfigure(0, weight=10)
-        self.grid_columnconfigure(6, weight=10)
-        # option_frame.grid_columnconfigure(0, weight=10)
-        # option_frame.grid_columnconfigure(6, weight=10)
-        # option_frame.grid_rowconfigure(0, weight=3)
-        # option_frame.grid_rowconfigure(1, weight=0)
-        # option_frame.grid_rowconfigure(3, weight=1)
-        # option_frame.grid_rowconfigure(5, weight=2)
+        self.grid_rowconfigure(11, weight=5) 
+        self.grid_columnconfigure(0, weight=2)
+        self.grid_columnconfigure(3, weight=1)
+        self.grid_columnconfigure(6, weight=2)
+
+
+
+
+
+
+
 
         def esc(self):
             controller.show_frame(carsMenuUi.CarsMenuUi)
