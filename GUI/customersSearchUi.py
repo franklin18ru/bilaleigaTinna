@@ -29,7 +29,7 @@ class CustomersSearchUi(tk.Frame):
 
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
-        confirm.config( font=("Courier", 16))
+        confirm_button.config( font=("Courier", 16))
         escape_button.config( font=("Courier", 16))
 
         #labels
