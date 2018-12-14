@@ -1,6 +1,8 @@
 import tkinter as tk
-import csv
 import menuUi
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from services import getPriceList
 
 
@@ -34,7 +36,7 @@ class PriceListUi(tk.Frame):
 
 
         #Create Buttons
-        edit = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=10, height=1)
+        edit = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=10, height=1, command=lambda: editPriceList(self))
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
@@ -44,14 +46,21 @@ class PriceListUi(tk.Frame):
         column_num = 3
         counter = 0
         
-
+        listOfTypes = []
+        listOfPrice = []
+        listofEntry = []
         for item in self.instance.priceListDataAccess.pricelist:
-            label3 = tk.Label(label2, text=item[0],bg="#5A6D7C",fg="white",width=22, height=2)
-            label3.config(font=("Courier", 16))
-            label3.grid(row = row_num, column=column_num)
-            label4 = tk.Label(label2, text=item[1] +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
-            label4.config(font=("Courier", 16))
-            label4.grid(row = row_num, column=column_num+1)
+            self.label3 = tk.Label(label2, text=item[0],bg="#5A6D7C",fg="white",width=22, height=2)
+            listOfTypes.append(self.label3)
+            self.label3.config(font=("Courier", 16))
+            self.label3.grid(row = row_num, column=column_num)
+            self.label4 = tk.Label(label2, text=item[1] +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+            self.entry = tk.Entry(self)
+            listofEntry.append(self.entry)
+            self.entry.insert(0,item[1])
+            listOfPrice.append(self.label4)
+            self.label4.config(font=("Courier", 16))
+            self.label4.grid(row = row_num, column=column_num+1)
             counter += 1
             if counter == 1:
                 row_num += 1
@@ -134,9 +143,21 @@ class PriceListUi(tk.Frame):
 
 
 
-
-
-
+        def editPriceList(self):
+            for item in listOfPrice:
+                item.grid_forget()
+            row_num = 6
+            column_num = 3
+            counter = 0
+            for item in listofEntry:
+                
+                item.grid(row = row_num, column=column_num+1)
+                counter += 1
+                if counter == 1:
+                    row_num += 1
+                    counter = 0
+                    column_num = 3
+            
 
 
 
