@@ -27,7 +27,7 @@ class CustomersSearchUi(tk.Frame):
         self.rightFrame=tk.Frame(self, bg="#5A6D7C")
         self.rightFrame.grid(row=5,column=5, columnspan=2)
 
-        #Create Buttons
+        #Create Buttons to activate functions that return the users to the page they want
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(self,controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda: confirm(self,controller))
 
@@ -36,51 +36,45 @@ class CustomersSearchUi(tk.Frame):
         customer.config(font=("Courier", 28))
         name_ssn.config(font=("Courier", 16))
         self.user_input.config(font=("Courier", 16))
-
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
-        
         escape_button.config( font=("Courier", 16))
         confirm_button.config( font=("Courier", 16))
 
-        #labels
+        #positioning widgets
         bilaleigaTinna.grid(row=1, column=0,columnspan = 8)
         line1.grid(row=2, column=0,columnspan = 8)
         customer.grid(row=3, column=0, columnspan = 8)
         name_ssn.grid(row=4, column=1)
         self.user_input.grid(row=4,column=4,columnspan = 1)
         line2.grid(row=9,column =0, columnspan = 8)
-        
         escape_button.grid(row=10, column=1)
         confirm_button.grid(row=10, column= 4)
 
-         #position frame
+        #position frame
         self.grid_rowconfigure(0, weight=2)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
         self.grid_rowconfigure(3, weight=1)
-        
         self.grid_rowconfigure(8, weight=1)
-
-        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
-
+        self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(12, weight=3)
-
-
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(7, weight=1)
 
 
-        def esc(self,controller):
+        def esc(self,controller): #clearing the user input and returning him to the customersMenu page
             self.user_input.delete(0,"end")
             controller.show_frame(customersMenuUi.CustomersMenuUi)
 
         def confirm(self,controller):
             userinput = self.user_input.get()
-            self.instance = findCustomer.FindCustomer(userinput)
+            self.instance = findCustomer.FindCustomer(userinput) #creating instance as the findCustomer file from services
+
+            #deleting the old info on the last page and creating the new info
             escape_button.grid_forget()
             confirm_button.grid_forget()
             name_ssn.grid_forget()
@@ -135,12 +129,6 @@ class CustomersSearchUi(tk.Frame):
             self.showCustomerPhone.grid(row=4, column=0, columnspan=3)
 
 
-
-
-
-
-
-
         def back(self,controller):
             self.user_input.grid(row=4,column=4,columnspan = 1)
             name_ssn.grid(row=4, column=1)
@@ -164,27 +152,8 @@ class CustomersSearchUi(tk.Frame):
             self.edit_button.destroy()
 
 
-
-
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
         def edit(self,controller):
-            # self.showCustomerNameLabel.destroy()
-            # self.showCustomerSsnLabel.destroy()
-            # self.showCustomerEmailLabel.destroy()
-            # self.showCustomerPhoneLabel.destroy()
+            #destroying all the old info we dont need on the new page
             self.showCustomerName.destroy()
             self.showCustomerSsn.destroy()
             self.showCustomerEmail.destroy()
@@ -192,6 +161,7 @@ class CustomersSearchUi(tk.Frame):
             self.back_button.destroy()
             self.delete_button.destroy()
             self.edit_button.destroy()
+            ##Create Buttons to activate functions that return the users to the page they want
             self.edit_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:change(self,controller))
             self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: back(self,controller))
             self.edit_button.config(font=("Courier", 16))
@@ -199,22 +169,19 @@ class CustomersSearchUi(tk.Frame):
             self.edit_button.grid(row=10, column=5)
             self.back_button.grid(row=10, column=2)
 
-
-
             self.entryname.grid(row=1, column=0, columnspan=3)
             self.entryssn.grid(row=1, column=0, columnspan=3)
             self.entryemail.grid(row=4, column=0, columnspan=32)
             self.entryphone.grid(row=4, column=0, columnspan=3)
 
 
-        def change(self,controller):
+        def change(self,controller): #updating all the info about the customer that the user has put in
             newname = self.entryname.get()
             newssn = self.entryssn.get()
             newemail = self.entryemail.get()
             newphone = self.entryphone.get()
             newdata = [newname,newssn,newemail,newphone]
             self.instance.editCustomer(newdata)
-
 
             self.edit_button.grid_forget()
             self.back_button.grid_forget()
@@ -233,10 +200,9 @@ class CustomersSearchUi(tk.Frame):
             escape_button.grid(row=10, column=3)
             confirm_button.grid(row=10, column= 4)
 
-
             controller.show_frame(customersMenuUi.CustomersMenuUi)
 
-        def delete(self,controller):
+        def delete(self,controller): #deleting the customer that the user has selecte and returinging the user to the customerMenu page
             name = self.instance.customer[1][0]
             ssn = self.instance.customer[0] 
             self.instance.deleteCustomer(name,ssn)
