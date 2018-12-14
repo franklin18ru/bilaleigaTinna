@@ -32,40 +32,38 @@ class PriceListUi(tk.Frame):
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
-
+        smabill = tk.Label(label2, text="Smábíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        folksbill = tk.Label(label2, text="Fólksbíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        jeppi = tk.Label(label2, text="Jeppi",bg="#5A6D7C",fg="white",width=22, height=2)
+        luxusbill = tk.Label(label2, text="Lúxusbíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        
+        
 
 
         #Create Buttons
-        edit = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=10, height=1, command=lambda: editPriceList(self))
-        escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
+        self.edit = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=10, height=1, command=lambda: editPriceList(self))
+        self.escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
 
 
         # create service file and connect to data access and make edit work#
         self.instance = getPriceList.GetPriceList()
-        row_num = 6
-        column_num = 3
-        counter = 0
+        row_num = 1
+        column_num = 10
         
-        listOfTypes = []
-        listOfPrice = []
-        listofEntry = []
+
+        self.listOfPrice = []
+        self.listofEntry = []
         for item in self.instance.priceListDataAccess.pricelist:
-            self.label3 = tk.Label(label2, text=item[0],bg="#5A6D7C",fg="white",width=22, height=2)
-            listOfTypes.append(self.label3)
-            self.label3.config(font=("Courier", 16))
-            self.label3.grid(row = row_num, column=column_num)
-            self.label4 = tk.Label(label2, text=item[1] +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
-            self.entry = tk.Entry(self)
-            listofEntry.append(self.entry)
-            self.entry.insert(0,item[1])
-            listOfPrice.append(self.label4)
+            self.label4 = tk.Label(label2, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+            self.entry = tk.Entry(label2)
+            self.listofEntry.append(self.entry)
+            self.entry.insert(0,item)
+            self.listOfPrice.append(self.label4)
             self.label4.config(font=("Courier", 16))
-            self.label4.grid(row = row_num, column=column_num+1)
-            counter += 1
-            if counter == 1:
-                row_num += 1
-                counter = 0
-                column_num = 3
+            self.label4.grid(row = row_num, column=column_num)
+            row_num+=1
+            
+                
             
         #label2 = Label(self,
                     #text="",
@@ -90,9 +88,12 @@ class PriceListUi(tk.Frame):
         label1.config(font=("Courier", 28))
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
-        edit.config( font=("Courier", 16))
-        escape_button.config( font=("Courier", 16))
-
+        self.edit.config( font=("Courier", 16))
+        self.escape_button.config( font=("Courier", 16))
+        smabill.config(font=("Courier", 16))
+        folksbill.config(font=("Courier", 16))
+        jeppi.config(font=("Courier", 16))
+        luxusbill.config(font=("Courier", 16))
 
 
 
@@ -105,9 +106,12 @@ class PriceListUi(tk.Frame):
         label2.grid(row=7, column=3)
         line1.grid(row=2,column=3)
         line2.grid(row=10,column=3)
-        escape_button.grid(row=11, column=0,columnspan = 4)
-        edit.grid(row=11, column=3 ,columnspan = 5)
-
+        self.escape_button.grid(row=11, column=0,columnspan = 4)
+        self.edit.grid(row=11, column=3 ,columnspan = 5)
+        smabill.grid(row=1,column=1,columnspan=3)
+        folksbill.grid(row=2,column=1,columnspan=3)
+        jeppi.grid(row=3,column=1,columnspan=3)
+        luxusbill.grid(row=4,column=1,columnspan=3)
 
 
 
@@ -144,24 +148,52 @@ class PriceListUi(tk.Frame):
 
 
         def editPriceList(self):
-            for item in listOfPrice:
-                item.grid_forget()
-            row_num = 6
-            column_num = 3
-            counter = 0
-            for item in listofEntry:
+            for succ in self.listOfPrice:
+                succ.grid_forget()
+            self.escape_button.grid_forget()
+            self.edit.grid_forget()
+            self.change = tk.Button(self, text="Uppfæra", bg="#448F42", fg="white", width=10, height=1, command=lambda: changePriceList(self))
+            self.back_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: showoldinfo(self))
+            self.change.config( font=("Courier", 16))
+            self.back_button.config( font=("Courier", 16))
+            self.change.grid(row=11, column=3 ,columnspan = 5)
+            self.back_button.grid(row=11, column=0,columnspan = 4)
+            entry_row_num = 1
+            entry_column_num = 10
+            for item in self.listofEntry:
+                item.grid(row = entry_row_num, column=entry_column_num)
+                entry_row_num+=1
                 
-                item.grid(row = row_num, column=column_num+1)
-                counter += 1
-                if counter == 1:
-                    row_num += 1
-                    counter = 0
-                    column_num = 3
-            
+        def showoldinfo(self):
+            self.back_button.grid_forget()
+            self.change.grid_forget()
+            for item in self.listofEntry:
+                item.grid_forget()
+            self.escape_button.grid(row=11, column=0,columnspan = 4)
+            self.edit.grid(row=11, column=3 ,columnspan = 5)
+            self.instance = getPriceList.GetPriceList()
+            row_num = 1
+            column_num = 10
+            self.listOfPrice = []
+            self.listofEntry = []
+            for item in self.instance.priceListDataAccess.pricelist:
+                self.label4 = tk.Label(label2, text=item +" kr." ,bg="#5A6D7C",fg="white", width=22, height=2)
+                self.entry = tk.Entry(label2)
+                self.listofEntry.append(self.entry)
+                self.entry.insert(0,item)
+                self.listOfPrice.append(self.label4)
+                self.label4.config(font=("Courier", 16))
+                self.label4.grid(row = row_num, column=column_num)
+                row_num+=1
 
 
-
-
+        def changePriceList(self):
+            listi=[]
+            for self.price in self.listofEntry:
+                self.newprice = self.price.get()
+                listi.append(self.newprice)
+            self.instance.editPriceList(listi)
+            showoldinfo(self)
 
 
 

@@ -11,28 +11,29 @@ class PriceDataAccess:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
-                carType = line[0]
                 price = line[1]
-                pricelist_list.append([carType,price])
+                pricelist_list.append(price)
         return pricelist_list
         
-    def editPriceList(self,olddatalist,newdatalist):
-        #olddata : [[Type,Price]]
-        #newdata : [[Type,Price]]
+    def editPriceList(self,newdatalist):
         with open("data/pricelist.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w")as tempfile:
+            with open("data/tempfile.csv","w",newline="")as tempfile:
                 csv_writer = csv.writer(tempfile)
+                index = 0
+                header=True
                 for line in csv_reader:
-                    for item in olddatalist:
-                        if line == item:
-                            for new in newdatalist:
-                                if new == line:
-                                    csv_writer.writerow(line)
-                                if item[0] == new[0]:
-                                    new_line=[new]
-                                    csv_writer.writerow(new_line)
-                self.moveFromTempFile("pricelist")
+                    if header:
+                        csv_writer.writerow(line)
+                        header=False
+                        continue
+                    new_line = [line[0],newdatalist[index]]
+                    csv_writer.writerow(new_line)
+                    index+=1
+                        
+                    
+                    
+            self.moveFromTempFile("pricelist")
 
     def checkIfUserHasAuthority(self,username):
         with open("data/users.csv","r") as openfile:
@@ -56,5 +57,5 @@ class PriceDataAccess:
                 for line in csv_reader:
                     csv_writer.writerow(line)
 
-            # removing the temp file
-            os.remove("data/tempfile.csv")
+        # removing the temp file
+        os.remove("data/tempfile.csv")
