@@ -9,16 +9,16 @@ class ReturnCarReturnUi(tk.Frame):
         self.winfo_toplevel().configure(bg="#5A6D7C") # Changes background color of frame
         self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
 
-        #grey_frame = tk.Frame(self, bg="#3F4A52", width=400, height=400)
+       
 
-        bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
+        bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")       #Creating labels
         renter = tk.Label(self, text="Leigjandi",bg="#3F4A52",fg="white")
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         car = tk.Label(self, text="Bíll",bg="#3F4A52",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
 
 
-        #Create Buttons
+        #Create Buttons and calling function
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1)
         return_button = tk.Button(self, text="Skila", bg="#448F42", fg="white", width=15, height=1, command=lambda: returnCarButton(self,controller))
 
@@ -35,18 +35,15 @@ class ReturnCarReturnUi(tk.Frame):
 
         #Position widgets
         bilaleigaTinna.grid(row=1, column=3)
-        renter.grid(row=3, column=3)#, ipady=100, ipadx=355)
-        car.grid(row=5, column=3)#, ipady=100, ipadx=400)
-
+        renter.grid(row=3, column=3)
+        car.grid(row=5, column=3)
         escape_button.grid(row=10, column=2)
         return_button.grid(row=10, column=4)
         line1.grid(row=2,column=3)
         line2.grid(row=9,column=3)
 
-        #grey_frame.grid(row=3, column=3)
 
-
-        self.grid_rowconfigure(0, weight=2)
+        self.grid_rowconfigure(0, weight=2) #Spaces inbetween rows
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(3, weight=2)
@@ -58,11 +55,11 @@ class ReturnCarReturnUi(tk.Frame):
         self.grid_rowconfigure(9, weight=1)
         self.grid_rowconfigure(11, weight=5)
 
-        self.grid_columnconfigure(0, weight=10)
+        self.grid_columnconfigure(0, weight=10) #Spaces inbetween columns
         self.grid_columnconfigure(3, weight=50)
         self.grid_columnconfigure(6, weight=10)
 
-
+        #Function that takes you to the menu when the return button is pressed
         def returnCarButton(self,controller):
             controller.carReturn.returnCar()
             controller.show_frame(menuUi.MenuUi)

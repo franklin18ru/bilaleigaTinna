@@ -1,10 +1,10 @@
 import csv
 import os
-
+# Data access that has anything to do with customers #
 class CustomerDataAccess:
     def __init__(self):
         self.customers = self.getAllCustomers()
-
+    # get all customers in the system in store them in a dictionary #
     def getAllCustomers(self):
         customer_dictionary = dict()
         with open("data/customers.csv","r",newline="") as openfile:
@@ -17,12 +17,12 @@ class CustomerDataAccess:
                 phone = line[3]
                 customer_dictionary[ssn] = (name,phone,email)
             return customer_dictionary
-        
+    # add a new customer to the system #
     def addCustomer(self,name,ssn,phone,email): 
         with open('data/customers.csv', 'a') as openfile:
             openfile.write("\n"+name+","+ssn+","+phone+","+email)
             
-
+    # delete a customer from the system#
     def deleteCustomer(self,name,ssn):
         # moving the data to a temp file but if any line matches the given input it
         # does not go to the temp file
@@ -40,6 +40,7 @@ class CustomerDataAccess:
         # the data back to the original file
         self.moveFromTempFile("customers")
 
+    # delete all leases under a specific customer #
     def deleteCustomerLeases(self,name,ssn):
         with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
@@ -54,6 +55,7 @@ class CustomerDataAccess:
         # the data back to the original file
         self.moveFromTempFile("leases")
 
+    # get all leases under a specific customer #
     def getCustomerLeases(self,name,kennitala):
         lease_dictionary = dict()
         with open("data/leases.csv","r") as openfile:
@@ -80,7 +82,8 @@ class CustomerDataAccess:
                                 
                                 return lease_dictionary
 
-    
+
+    # edit a specific customer wtih the given inputs#
     def editCustomer(self,old_Customerdata,new_Customerdata):
         # take in all arguments if the argument is the same as in the data itself then  #
         # keep it as is, you need to create a temporary file in order to edit and rewrite #
@@ -112,6 +115,8 @@ class CustomerDataAccess:
             self.editCostumerLeases(old_ssn,old_name,new_ssn,new_name)
             # edit customer then edit all leases if the ssn or name is edited #
 
+
+    # edit all leases under a specific customer from a given input#
     def editCostumerLeases(self,old_ssn,old_name,new_ssn,new_name):
         with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
@@ -129,9 +134,9 @@ class CustomerDataAccess:
         self.moveFromTempFile("leases")
 
 
-    
+    # Function to move the contents of a tempfile to another file and #
+    # then destroy the temp file #
     def moveFromTempFile(self,fileName):
-        checklast = 0
         # the data back to the original file
         filetowrite = "data/"+fileName+".csv"
         with open("data/tempfile.csv","r",newline="") as openfile:

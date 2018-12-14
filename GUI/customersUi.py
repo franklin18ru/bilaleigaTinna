@@ -20,8 +20,12 @@ class CustomersUi(tk.Frame):
         line1 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_______________________________",bg="#5A6D7C",fg="white")
 
+<<<<<<< HEAD
+        #Create Buttons
+=======
 
         #Create Buttons to activate functions that return the users to the page they want
+>>>>>>> 1898690488efab3754f98929f2b2d17e8afd8248
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda:esc(controller))
         
         #crating a for-loop witch takes info from the customrs.csv file and prints it out in lines
@@ -50,7 +54,7 @@ class CustomersUi(tk.Frame):
 
                 row_num += 1
 
-        #configure tk.labels
+                #configure tk.labels
         bilaleigaTinna.config(font=("Courier", 32))
         customer.config(font=("Courier", 28))
         full_name.config(font=("Courier", 16))
@@ -72,6 +76,7 @@ class CustomersUi(tk.Frame):
         line1.grid(row=2, column=0,columnspan = 8)
         line2.grid(row=10,column =0, columnspan = 8)
         escape_button.grid(row=11, column=0, columnspan = 3)
+            
 
         #position frame
         self.grid_rowconfigure(0, weight=2)
@@ -89,4 +94,6 @@ class CustomersUi(tk.Frame):
 
         def esc(self): #directing the customers back to the customersMenu file when he click on til baka
             controller.show_frame(customersMenuUi.CustomersMenuUi)
+
+            
 

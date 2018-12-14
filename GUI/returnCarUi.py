@@ -11,18 +11,14 @@ class ReturnCarUi(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#5A6D7C")
-        screen_width = self.winfo_screenwidth() #Gets the screen width
-        screen_height = self.winfo_screenheight() #Gets the screen height
-        self.winfo_toplevel().configure(bg="#5A6D7C") # Changes background color of frame
-        self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height)) #Sets the size of frame
-
-
-        renterFrame = tk.Frame(self, bg="#5A6D7C")
+        screen_width = self.winfo_screenwidth()                                         #Gets the screen width
+        screen_height = self.winfo_screenheight()                                       #Gets the screen height
+        self.winfo_toplevel().configure(bg="#5A6D7C")                                   #Changes background color of frame
+        self.winfo_toplevel().geometry(str(screen_width)+"x"+str(screen_height))        #Sets the size of frame
+        renterFrame = tk.Frame(self, bg="#5A6D7C")                                      #creating Frame
         carFrame = tk.Frame(self, bg="#5A6D7C")
-
-
         bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
-        label1 = tk.Label(self, text="Skila bíl",bg="#5A6D7C",fg="white")
+        label1 = tk.Label(self, text="Skila bíl",bg="#5A6D7C",fg="white")                   #creating Label
         line1 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
         license_plate = tk.Label(self, text="Sláðu inn bílnúmer:",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="____________________________",bg="#5A6D7C",fg="white")
@@ -151,7 +147,7 @@ class ReturnCarUi(tk.Frame):
             self.return_button.grid_forget()
             self.escape_button.grid_forget()
 
-            #Add previous widgets to frame
+            #Add previous widgets to frame and positioning them
             bilaleigaTinna.grid(row=1, column=0, columnspan=10)
             label1.grid(row=3, column=0, columnspan=10)
             license_plate.grid(row=5, column=1)
@@ -162,18 +158,17 @@ class ReturnCarUi(tk.Frame):
             line2.grid(row=7,column=0, columnspan=10)
             self.license_plateInput.grid(row=5, column=2)
             
-            self.grid_rowconfigure(0, weight=2)
+            self.grid_rowconfigure(0, weight=2)         #Spaces inbetween rows
             self.grid_rowconfigure(2, weight=0)
             self.grid_rowconfigure(1, weight=0)
             self.grid_rowconfigure(4, weight=1)
             self.grid_rowconfigure(3, weight=1)
             self.grid_rowconfigure(8, weight=1)
-    
             self.grid_rowconfigure(11, weight=1)
             self.grid_rowconfigure(9, weight=1)
             self.grid_rowconfigure(12, weight=3)
-    
-            self.grid_columnconfigure(0, weight=2)
+
+            self.grid_columnconfigure(0, weight=2)      #Spaces in inbetween columns
             self.grid_columnconfigure(7, weight=2)
 
             

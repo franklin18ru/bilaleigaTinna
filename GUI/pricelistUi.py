@@ -18,7 +18,7 @@ class PriceListUi(tk.Frame):
 
 
 
-        bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white")
+        bilaleigaTinna = tk.Label(self, text="Bílaleiga Tinna",bg="#5A6D7C",fg="white") #Creating labels and one frame
         label1 = tk.Label(self, text="Verðskrá",bg="#5A6D7C",fg="white")
         frame1 = tk.Frame(self,
                         
@@ -31,7 +31,7 @@ class PriceListUi(tk.Frame):
         line1 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
         line2 = tk.Label(self, text="_____________________________",bg="#5A6D7C",fg="white")
 
-        smabill = tk.Label(frame1, text="Smábíll",bg="#5A6D7C",fg="white",width=22, height=2)
+        smabill = tk.Label(frame1, text="Smábíll",bg="#5A6D7C",fg="white",width=22, height=2)       #Putting labels in the frame
         folksbill = tk.Label(frame1, text="Fólksbíll",bg="#5A6D7C",fg="white",width=22, height=2)
         jeppi = tk.Label(frame1, text="Jeppi",bg="#5A6D7C",fg="white",width=22, height=2)
         luxusbill = tk.Label(frame1, text="Lúxusbíll",bg="#5A6D7C",fg="white",width=22, height=2)
@@ -76,7 +76,7 @@ class PriceListUi(tk.Frame):
 
 
 
-        #labels
+        #Positioning labels,buttons and frame
         bilaleigaTinna.grid(row=1, column=3)
         label1.grid(row=3, column=3)
         frame1.grid(row=7, column=3)
@@ -90,7 +90,7 @@ class PriceListUi(tk.Frame):
         luxusbill.grid(row=4,column=1)
 
 
-        self.grid_rowconfigure(0, weight=2)
+        self.grid_rowconfigure(0, weight=2)     #Spaces inbetween rows
         self.grid_rowconfigure(2, weight=0)
         self.grid_rowconfigure(1, weight=0)
         self.grid_rowconfigure(4, weight=1)
@@ -98,7 +98,8 @@ class PriceListUi(tk.Frame):
         self.grid_rowconfigure(11, weight=1)
         self.grid_rowconfigure(9, weight=1)
         self.grid_rowconfigure(12, weight=3)
-        self.grid_columnconfigure(0, weight=2)
+
+        self.grid_columnconfigure(0, weight=2)  #Spaces inbetween columns
         self.grid_columnconfigure(7, weight=2)
         
 

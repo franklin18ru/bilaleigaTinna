@@ -1,11 +1,11 @@
 import csv
 import os
 from datetime import date, timedelta
-
+# Data access that has anything to do with cars #
 class CarsDataAccess:
     def __init__(self):
         self.cars = self.getAllCars()
-
+    # get all cars in the system in store them in a dictionary #
     def getAllCars(self):
         car_list = []
         with open("data/cars.csv","r") as openfile:
@@ -20,10 +20,12 @@ class CarsDataAccess:
                 car_list.append([licenseplate,typef,brand,model,seats])
             return car_list
 
+    # add a new car to the system #
     def addCar(self,LicensePlate,Type,Brand,Model,Seats):
         with open('data/cars.csv', 'a',newline="") as openfile:
             openfile.write("\n"+LicensePlate+","+Type+","+Brand+","+Model+","+Seats)
-    
+
+    # delete the car with the given input #
     def deleteCar(self,licenseplate):
         # moving the data to a temp file but if any line matches the given input it
         # does not go to the temp file
@@ -40,9 +42,10 @@ class CarsDataAccess:
 
         # the data back to the original file
         self.moveFromTempFile("cars")
+        # delete all leases under that license plate #
         self.deleteCarLeases(licenseplate)
         
-
+    # delete all leases under a specific car #
     def deleteCarLeases(self,licenseplate):
         with open("data/leases.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
@@ -58,12 +61,8 @@ class CarsDataAccess:
         self.moveFromTempFile("leases")
 
     
-
+    # edits the car in cars file from the given inputs#
     def editCar(self,olddatalist,newdatalist):
-        # take in all arguments if the argument is the same as in the data itself then  #
-        # keep it as is, you need to create a temporary file in order to edit and rewrite #
-        # the original file to edit #
-        # if license plate is edited then all the lease under that license plate must be edited #
         old_licensePlate = olddatalist[0]
         new_licensePlate = newdatalist[0]
         Type = olddatalist[1]
@@ -85,12 +84,17 @@ class CarsDataAccess:
         # the data back to the original file
         self.moveFromTempFile("cars")
 
+        # if the license plate is not changed then system does nothing #
+        # if the license plate is changed the we need to update the leases #
+        # under that license plate #
+
         if old_licensePlate == new_licensePlate:
             pass
         else:
             self.editCarLeases(old_licensePlate,new_licensePlate)
 
-
+    # Goes through the lease file and checks if the old license plate is there and #
+    # updates the leases under that license plate #
     def editCarLeases(self,old_licensePlate,new_licensePlate):
         with open("data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
@@ -108,7 +112,8 @@ class CarsDataAccess:
         self.moveFromTempFile("leases")
         
 
-
+    # Function to move the contents of a tempfile to another file and #
+    # then destroy the temp file #
     def moveFromTempFile(self,fileName):
         # the data back to the original file
         filetowrite = "data/"+fileName+".csv"
@@ -133,7 +138,8 @@ class CarsDataAccess:
 
 
 
-
+    # takes in a lease period and checks if any other lease period with the same license plate is active #
+    # returns false if the car is not available and returns true if the car is available#
     def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
         with open("data/leases.csv","r")as checkfile:
             csv_checker = csv.reader(checkfile)
@@ -160,9 +166,9 @@ class CarsDataAccess:
             return cars_dictionary
 
     def getAvailableCars(self,leaseStart,leaseEnd):
-        # Get all available type cars #
+        # Get all available type cars  in the system #
         
-        # Put all types in dict, license plate is the key, then check if the car is Available
+        # Put all type cars that was chosen in dict, license plate is the key, then check if the car is Available #
         cars_dictionary = dict()
         with open("data/cars.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
@@ -174,7 +180,8 @@ class CarsDataAccess:
 
 
             
-
+    # find the car that the customer is returning and return him in the system by #
+    # making the lease activity completed #
     def returnCar(self,licensePlate,leaseStart,leaseEnd):
         with open("data/leases.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
