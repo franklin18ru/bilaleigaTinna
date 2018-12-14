@@ -42,14 +42,11 @@ class LeasesDataAccess:
         todaytemp = str(date.today())
         today = todaytemp.replace("-",".")
         if leasestart == today:
-            newLease=[ssn,renter,leasestart,leaseend,licensePlate,"active"]
             active = "active"
         else:
-            newLease=[ssn,renter,leasestart,leaseend,licensePlate,"inactive"]
             active = "inactive"
-        with open('data/leases.csv', 'a',newline="") as openfile:
-            csv_writer = csv.writer(openfile)
-            csv_writer.writerow(newLease) 
+        with open('data/leases.csv', 'a') as openfile:
+            openfile.write("\n"+ssn+","+renter+","+leasestart+","+leaseend+","+licensePlate)
             
     
     def editLease(self,old_start,old_end,new_start,new_end,name,ssn,licensePlate):

@@ -21,10 +21,8 @@ class CarsDataAccess:
             return cars_dictionary
 
     def addCar(self,LicensePlate,Type,Brand,Model,Seats):
-        newCar=[LicensePlate,Type,Brand,Model,Seats]
         with open('data/cars.csv', 'a',newline="") as openfile:
-            csv_writer = csv.writer(openfile)
-            csv_writer.writerow(newCar)
+            openfile.write("\n"+LicensePlate+","+Type+","+Brand+","+Model+","+Seats)
     
     def deleteCar(self,licenseplate):
         # moving the data to a temp file but if any line matches the given input it

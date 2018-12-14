@@ -19,10 +19,8 @@ class CustomerDataAccess:
             return customer_dictionary
         
     def addCustomer(self,name,ssn,phone,email): 
-        newCustomer=[name,ssn,phone,email]
         with open('data/customers.csv', 'a') as openfile:
-            csv_writer = csv.writer(openfile)
-            csv_writer.writerow(newCustomer)
+            openfile.write("\n"+name+","+ssn+","+phone+","+email)
             
 
     def deleteCustomer(self,name,ssn):

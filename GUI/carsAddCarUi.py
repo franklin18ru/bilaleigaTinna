@@ -3,7 +3,7 @@ import csv
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from GUI import carsMenuUi
+import carsMenuUi
 from services import addCar
 
 
@@ -132,4 +132,5 @@ class CarsAddCarUi(tk.Frame):
             self.brandInput.delete(0,"end")
             self.modelInput.delete(0,"end")
             self.seatsInput.delete(0,"end")
+            self.licenseplateInput.delete(0,"end")
             controller.show_frame(carsMenuUi.CarsMenuUi)
