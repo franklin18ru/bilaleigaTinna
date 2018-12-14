@@ -3,7 +3,8 @@ import csv
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from GUI import carsMenuUi
+import carsMenuUi
+from services import findCar
 
 class CarsSearchUi(tk.Frame):
     def __init__(self, parent, controller):
@@ -22,7 +23,7 @@ class CarsSearchUi(tk.Frame):
 
 
         #Create the entry fields
-        carInput = tk.Entry(self, width=20, font=("Courier", 20))
+        self.carInput = tk.Entry(self, width=20, font=("Courier", 20))
         #Create Buttons
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         confirm_button = tk.Button(self, text="Staðfesta", bg="#448F42", fg="white", width=15, height=1, command=lambda:confirm(self,controller))
@@ -36,7 +37,7 @@ class CarsSearchUi(tk.Frame):
         line1.config(font=("Courier", 28))
         line2.config(font=("Courier", 28))
         car.config(font=("Courier", 16))
-        carInput.config(font=("Courier", 16))
+        self.carInput.config(font=("Courier", 16))
 
 
         #Position widgets
@@ -45,7 +46,7 @@ class CarsSearchUi(tk.Frame):
         car.grid(row=4, column=1)
         line1.grid(row=2,column=0,columnspan = 8)
         line2.grid(row=9,column=0,columnspan = 8)
-        carInput.grid(row=4, column=4,columnspan = 1)
+        self.carInput.grid(row=4, column=4,columnspan = 1)
         escape_button.grid(row=10, column=1)
         confirm_button.grid(row=10, column=4)
 
@@ -75,4 +76,5 @@ class CarsSearchUi(tk.Frame):
 
         def confirm(self,controller):
             # Search for car then change the frame to see info about the car #
-            pass
+            carInput = self.carInput.get()
+            self.instance = findCar.FindCar(carInput)
