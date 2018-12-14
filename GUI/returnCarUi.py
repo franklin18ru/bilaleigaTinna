@@ -143,15 +143,19 @@ class ReturnCarUi(tk.Frame):
             line2.grid(row=7,column=0, columnspan=10)
             self.license_plateInput.grid(row=5, column=2)
             
-            self.grid_rowconfigure(0, weight=10)
-            self.grid_rowconfigure(2, weight=5)
-            self.grid_rowconfigure(3, weight=2)
-            self.grid_rowconfigure(7, weight=2)
-            self.grid_rowconfigure(9, weight=50)
-
-            self.grid_columnconfigure(0, weight=10)
-            #self.grid_columnconfigure(1, weight=50)
-            self.grid_columnconfigure(6, weight=10)
+            self.grid_rowconfigure(0, weight=2)
+            self.grid_rowconfigure(2, weight=0)
+            self.grid_rowconfigure(1, weight=0)
+            self.grid_rowconfigure(4, weight=1)
+            self.grid_rowconfigure(3, weight=1)
+            self.grid_rowconfigure(8, weight=1)
+    
+            self.grid_rowconfigure(11, weight=1)
+            self.grid_rowconfigure(9, weight=1)
+            self.grid_rowconfigure(12, weight=3)
+    
+            self.grid_columnconfigure(0, weight=2)
+            self.grid_columnconfigure(7, weight=2)
 
             
 
