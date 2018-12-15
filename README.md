@@ -1,4 +1,8 @@
 # bilaleigaTinna
 Lokaverkefnið fyrir þriggja vikna áfanga
-Sphagooter
+Forritið skal keyrast í gegnum mainUi.py file-ið í GUI folderinu.
+
+Login - 1
+lykilorð - 1
+
 
