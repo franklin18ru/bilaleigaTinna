@@ -7,7 +7,7 @@ class UserDataAccess:
 
     def getAllUsers(self):
         user_dictionary = dict()
-        with open( "data/users.csv" , "r" ) as openfile:
+        with open( "../data/users.csv" , "r" ) as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -19,16 +19,16 @@ class UserDataAccess:
 
     def addUser(self,ssn,position,name,password):
                 newUser=[ssn,position,name,password]
-                with open('data/users.csv', 'a',newline="") as openfile:
+                with open('../data/users.csv', 'a',newline="") as openfile:
                         csv_writer = csv.writer(openfile)
                         csv_writer.writerow(newUser)
     
     def deleteUser(self,name,ssn):
         # moving the ../data to a temp file but if any line matches the given input it
         # does not go to the temp file
-        with open("data/users.csv","r+") as openfile:
+        with open("../data/users.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if name == line[1] and ssn == line[0]:
@@ -47,9 +47,9 @@ class UserDataAccess:
         new_position = newdatalist[1]
         new_name = newdatalist[2]
         new_password = newdatalist[3]
-        with open("data/users.csv","r+") as openfile:
+        with open("../data/users.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if olddatalist == line:
@@ -65,8 +65,8 @@ class UserDataAccess:
 
     def moveFromTempFile(self,fileName):
         # the ../data back to the original file
-        filetowrite = "data/"+fileName+".csv"
-        with open("data/tempfile.csv","r") as openfile:
+        filetowrite = "../data/"+fileName+".csv"
+        with open("../data/tempfile.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
@@ -74,4 +74,4 @@ class UserDataAccess:
                     csv_writer.writerow(line)
 
         # removing the temp file
-        os.remove("data/tempfile.csv")
+        os.remove("../data/tempfile.csv")

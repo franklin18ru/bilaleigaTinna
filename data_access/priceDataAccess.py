@@ -7,7 +7,7 @@ class PriceDataAccess:
 
     def getPriceList(self):
         pricelist_list = []
-        with open("data/pricelist.csv","r") as openfile:
+        with open("../data/pricelist.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -16,9 +16,9 @@ class PriceDataAccess:
         return pricelist_list
         
     def editPriceList(self,newdatalist):
-        with open("data/pricelist.csv","r+") as openfile:
+        with open("../data/pricelist.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="")as tempfile:
+            with open("../data/tempfile.csv","w",newline="")as tempfile:
                 csv_writer = csv.writer(tempfile)
                 index = 0
                 header=True
@@ -36,7 +36,7 @@ class PriceDataAccess:
             self.moveFromTempFile("pricelist")
 
     def checkIfUserHasAuthority(self,username):
-        with open("data/users.csv","r") as openfile:
+        with open("../data/users.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -49,8 +49,8 @@ class PriceDataAccess:
 
     def moveFromTempFile(self,fileName):
         # the data back to the original file
-        filetowrite = "data/"+fileName+".csv"
-        with open("data/tempfile.csv","r") as openfile:
+        filetowrite = "../data/"+fileName+".csv"
+        with open("../data/tempfile.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
@@ -58,4 +58,4 @@ class PriceDataAccess:
                     csv_writer.writerow(line)
 
         # removing the temp file
-        os.remove("data/tempfile.csv")
+        os.remove("../data/tempfile.csv")

@@ -8,7 +8,7 @@ class LeasesDataAccess:
         self.leases = self.getAllLeases()
     def getAllLeases(self):
         lease_list = []
-        with open("data/leases.csv","r") as openfile:
+        with open("../data/leases.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -25,9 +25,9 @@ class LeasesDataAccess:
     def deleteLease(self,ssn,leaseStart,licensePlate):
         # moving the data to a temp file but if any line matches the given input it
         # does not go to the temp file
-        with open("data/leases.csv","r+") as openfile:
+        with open("../data/leases.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="\n") as tempfile:
+            with open("../data/tempfile.csv","w",newline="\n") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if str(ssn) == line[0] and leaseStart == line[2] and licensePlate == line[4]:
@@ -45,7 +45,7 @@ class LeasesDataAccess:
             activity = "active"
         else:
             activity = "inactive"
-        with open('data/leases.csv', 'a') as openfile:
+        with open('../data/leases.csv', 'a') as openfile:
             openfile.write("\n"+ssn+","+renter+","+leasestart+","+leaseend+","+licensePlate+","+activity)
             
     
@@ -62,9 +62,9 @@ class LeasesDataAccess:
         new_license = newdatalist[0]
         new_start = newdatalist[1]
         new_end = olddata[2]
-        with open("data/leases.csv","r+",newline="") as openfile:
+        with open("../data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if old_license == line[4] and old_start == line[2] and old_end == line[3]:
@@ -80,8 +80,8 @@ class LeasesDataAccess:
 
     def moveFromTempFile(self,fileName):
         # the data back to the original file
-        filetowrite = "data/"+fileName+".csv"
-        with open("data/tempfile.csv","r",newline="") as openfile:
+        filetowrite = "../data/"+fileName+".csv"
+        with open("../data/tempfile.csv","r",newline="") as openfile:
             csv_reader = csv.reader(openfile)
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
@@ -89,13 +89,13 @@ class LeasesDataAccess:
                     csv_writer.writerow(line)
 
         # removing the temp file
-        os.remove("data/tempfile.csv")
+        os.remove("../data/tempfile.csv")
 
     def editState(self):
         today = datetime.date.today()
-        with open("data/leases.csv","r+",newline="") as openfile:
+        with open("../data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if today == line[2]:
@@ -108,7 +108,7 @@ class LeasesDataAccess:
     
 
     def checkIfCarIsAvailable(self,leaseStart,leaseEnd,licensePlate):
-        with open("data/leases.csv","r",newline="")as checkfile:
+        with open("../data/leases.csv","r",newline="")as checkfile:
             csv_checker = csv.reader(checkfile)
             frame = self.getTimeFrame(leaseStart,leaseEnd)
             for line in csv_checker:

@@ -22,7 +22,7 @@ class OrdersAllOrdersUi(tk.Frame):
         #Creating button and putting in a comand 
         back = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda: esc(controller))
         #Open the leases file and printing the content in buttons
-        with open('data/leases.csv', 'r', newline="") as cars:
+        with open('../data/leases.csv', 'r', newline="") as cars:
             csv_reader = csv.reader(cars)
             next(csv_reader)
             row_num = 4

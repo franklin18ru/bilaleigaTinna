@@ -49,7 +49,7 @@ class CarsUi(tk.Frame):
     
         #Open the cars file and printing the content in buttons
         def drawcars():
-            with open('data/cars.csv', 'r', newline="") as cars:
+            with open('../data/cars.csv', 'r', newline="") as cars:
                 csv_reader = csv.reader(cars)
                 next(csv_reader)
                 row_num = 4

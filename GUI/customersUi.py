@@ -26,7 +26,7 @@ class CustomersUi(tk.Frame):
         escape_button = tk.Button(self, text="Esc - Til baka", bg="#9E4848", fg="white", width=15, height=1, command=lambda:esc(controller))
         
         #crating a for-loop witch takes info from the customrs.csv file and prints it out in lines
-        with open('data/customers.csv', 'r', newline="") as customers:
+        with open('../data/customers.csv', 'r', newline="") as customers:
             csv_reader = csv.reader(customers)
             next(csv_reader)
             row_num = 5

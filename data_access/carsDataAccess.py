@@ -8,7 +8,7 @@ class CarsDataAccess:
     # get all cars in the system in store them in a dictionary #
     def getAllCars(self):
         car_list = []
-        with open("data/cars.csv","r") as openfile:
+        with open("../data/cars.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             next(csv_reader)
             for line in csv_reader:
@@ -22,7 +22,7 @@ class CarsDataAccess:
 
     # add a new car to the system #
     def addCar(self,LicensePlate,Type,Brand,Model,Seats):
-        with open('data/cars.csv', 'a',newline="") as openfile:
+        with open('../data/cars.csv', 'a',newline="") as openfile:
             openfile.write("\n"+LicensePlate+","+Type+","+Brand+","+Model+","+Seats)
 
     # delete the car with the given input #
@@ -30,9 +30,9 @@ class CarsDataAccess:
         # moving the data to a temp file but if any line matches the given input it
         # does not go to the temp file
         self.deleteCarLeases(licenseplate)
-        with open("data/cars.csv","r+") as openfile:
+        with open("../data/cars.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if licenseplate == line[0]:
@@ -47,9 +47,9 @@ class CarsDataAccess:
         
     # delete all leases under a specific car #
     def deleteCarLeases(self,licenseplate):
-        with open("data/leases.csv","r+") as openfile:
+        with open("../data/leases.csv","r+") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if licenseplate == line[4]:
@@ -69,9 +69,9 @@ class CarsDataAccess:
         new_brand = newdatalist[1]
         new_model = newdatalist[2]
         new_seats = newdatalist[3]
-        with open("data/cars.csv","r+",newline="") as openfile:
+        with open("../data/cars.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if old_licensePlate == line[0]:
@@ -96,9 +96,9 @@ class CarsDataAccess:
     # Goes through the lease file and checks if the old license plate is there and #
     # updates the leases under that license plate #
     def editCarLeases(self,old_licensePlate,new_licensePlate):
-        with open("data/leases.csv","r+",newline="") as openfile:
+        with open("../data/leases.csv","r+",newline="") as openfile:
             csv_reader = csv.reader(openfile)
-            with open("data/tempfile.csv","w",newline="") as tempfile:
+            with open("../data/tempfile.csv","w",newline="") as tempfile:
                 csv_writer = csv.writer(tempfile)
                 for line in csv_reader:
                     if old_licensePlate == line[4]:
@@ -116,8 +116,8 @@ class CarsDataAccess:
     # then destroy the temp file #
     def moveFromTempFile(self,fileName):
         # the data back to the original file
-        filetowrite = "data/"+fileName+".csv"
-        with open("data/tempfile.csv","r") as openfile:
+        filetowrite = "../data/"+fileName+".csv"
+        with open("../data/tempfile.csv","r") as openfile:
             csv_reader = csv.reader(openfile)
             with open(filetowrite,"w",newline="") as writingfile:
                 csv_writer = csv.writer(writingfile)
@@ -125,7 +125,7 @@ class CarsDataAccess:
                     csv_writer.writerow(line)
 
         # removing the temp file
-        os.remove("data/tempfile.csv")
+        os.remove("../data/tempfile.csv")
 
 
 
